@@ -177,7 +177,7 @@ void AdminUI::pizzamenu_input_checker(char input){
         location_menu();
     }
 }
-
+///Breyta svo löglegt add_topping
 void AdminUI::add_topping(){
     string name;
     char type;
