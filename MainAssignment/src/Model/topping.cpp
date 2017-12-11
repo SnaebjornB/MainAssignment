@@ -6,26 +6,26 @@ Topping::Topping(string name, int price, char type){
     this->type = type;
 }
 
-string Topping::get_name(string name){
+string Topping::get_name(){
     return this->name;
 }
 
-int Topping::get_price(int price){
+int Topping::get_price(){
     return this->price;
 }
 
-char Topping::get_type(char type){
+char Topping::get_type(){
     return this->type;
 }
 
-void Topping::set_name(){
+void Topping::set_name(string name){
     this->name = name;
 }
 
-void Topping::set_price(){
+void Topping::set_price(int price){
     this->price = price;
 }
 
-void Topping::set_type(){
+void Topping::set_type(char type){
     this->type = type;
 }

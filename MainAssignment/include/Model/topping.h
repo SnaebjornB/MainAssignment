@@ -10,12 +10,12 @@ class Topping
 {
     public:
         Topping(string name, int price, char type);
-        string get_name(string name);
-        int get_price(int price);
-        char get_type(char type);
-        void set_name();
-        void set_price();
-        void set_type();
+        string get_name();
+        int get_price();
+        char get_type();
+        void set_name(string name);
+        void set_price(int price);
+        void set_type(char type);
 
     private:
         string name;
