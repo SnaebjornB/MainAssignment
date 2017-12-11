@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "admin_repo.h"
+#include "topping_service.h"
 
 using namespace std;
 
@@ -22,11 +23,12 @@ class AdminUI
         void location_input_checker(char input);
         void pizzamenu_menu();
         void pizzamenu_input_checker(char input);
-        void add_topping();
+        Topping create_topping();
 
     private:
         char input;
         Admin_Repo admin_repo;
+        topping_service topping_service;
 };
 
 #endif // ADMINUI_H

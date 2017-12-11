@@ -39,14 +39,14 @@ ostream& operator << (ostream& out, Topping& topping){
         out << topping.name;
     }
     else{
-        out << "," << topping.name << ", " << topping.price << " " << topping.type << endl;
+        out << topping.name << ", " << topping.price << ", " << topping.type << endl;
     }
 
     return out;
 }
 
 istream& operator >> (istream& in, Topping& topping){
-    getline(in, topping.name, ',');
+    cin.ignore();
     getline(in, topping.name, ',') >> topping.price >> topping.type;
 
     return in;

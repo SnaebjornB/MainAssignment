@@ -32,7 +32,29 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Model/pizza.h" />
+		<Unit filename="include/Model/sides.h" />
+		<Unit filename="include/Model/soda.h" />
+		<Unit filename="include/Model/topping.h" />
+		<Unit filename="include/Repositories/admin_repo.h" />
+		<Unit filename="include/Services/admin_service.h" />
+		<Unit filename="include/UI/adminui.h" />
+		<Unit filename="include/UI/bakerui.h" />
+		<Unit filename="include/UI/deliveryui.h" />
+		<Unit filename="include/UI/mainui.h" />
+		<Unit filename="include/UI/salespersonui.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Model/pizza.cpp" />
+		<Unit filename="src/Model/sides.cpp" />
+		<Unit filename="src/Model/soda.cpp" />
+		<Unit filename="src/Model/topping.cpp" />
+		<Unit filename="src/Repositories/admin_repo.cpp" />
+		<Unit filename="src/Services/admin_service.cpp" />
+		<Unit filename="src/UI/adminui.cpp" />
+		<Unit filename="src/UI/bakerui.cpp" />
+		<Unit filename="src/UI/deliveryui.cpp" />
+		<Unit filename="src/UI/mainui.cpp" />
+		<Unit filename="src/UI/salespersonui.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

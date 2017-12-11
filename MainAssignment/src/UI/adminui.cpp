@@ -55,7 +55,15 @@ void AdminUI::topping_menu(){
 
 void AdminUI::topping_input_checker(char input){
     if(input == '1'){
-        add_topping();
+        Topping topping = create_topping();
+        cout << topping;
+        topping_service.add_allowed_topping(topping);
+
+        ///admin_repo.write_topping(topping);
+        /*
+        Employee employee = create_employee();
+        employee_service.add_employee(employee);
+        */
     }
     else if(input == '2'){
         cout << "2" << endl;
@@ -183,15 +191,23 @@ void AdminUI::pizzamenu_input_checker(char input){
         location_menu();
     }
 }
-///Breyta svo löglegt add_topping
-void AdminUI::add_topping(){
+
+
+///Create föll: topping, o.s.frv.
+Topping AdminUI::create_topping(){
     string name;
     char type;
     int price;
 
-    cin >> name >> price >> type;
-    Topping topping(name, price, type);
+    cout << "Name: ";
+    cin.ignore();
+    getline (cin, name);
 
-    admin_repo.write_topping(topping);
+    cout << "Price: ";
+    cin >> price;
 
+    cout << "Type: ";
+    cin >> type;
+
+    return Topping(name, price, type);
 }
