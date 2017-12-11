@@ -16,11 +16,15 @@ class Topping
         void set_name(string name);
         void set_price(int price);
         void set_type(char type);
+        friend ostream& operator << (ostream& out, Topping& topping);
+        void set_topping_helper(bool status);
+        friend istream& operator >> (istream& in, Topping& topping);
 
     private:
         string name;
         int price;
         char type;
+        bool topping_helper;
 };
 
 #endif // TOPPING_H

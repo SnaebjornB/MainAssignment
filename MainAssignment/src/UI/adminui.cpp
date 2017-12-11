@@ -53,7 +53,7 @@ void AdminUI::topping_menu(){
 
 void AdminUI::topping_input_checker(char input){
     if(input == '1'){
-        cout << "1" << endl;
+        add_topping();
     }
     else if(input == '2'){
         cout << "2" << endl;
@@ -176,4 +176,16 @@ void AdminUI::pizzamenu_input_checker(char input){
         cout << "Invalid input! Please choose again." << endl;
         location_menu();
     }
+}
+
+void AdminUI::add_topping(){
+    string name;
+    char type;
+    int price;
+
+    cin >> name >> price >> type;
+    Topping topping(name, price, type);
+
+    admin_repo.write_topping(topping);
+
 }

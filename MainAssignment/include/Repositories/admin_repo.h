@@ -4,6 +4,7 @@
 #include <vector>
 #include <iostream>
 #include "topping.h"
+#include <fstream>
 
 using namespace std;
 
@@ -11,7 +12,7 @@ class Admin_Repo
 {
     public:
         Admin_Repo();
-        void print_toppings();
+        void write_topping(Topping topping);
 
     private:
         vector<Topping> topping_list;

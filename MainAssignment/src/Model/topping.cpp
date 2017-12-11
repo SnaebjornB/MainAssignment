@@ -29,3 +29,25 @@ void Topping::set_price(int price){
 void Topping::set_type(char type){
     this->type = type;
 }
+
+void Topping::set_topping_helper(bool status){
+    topping_helper = status;
+}
+
+ostream& operator << (ostream& out, Topping& topping){
+    if(topping.topping_helper){
+        out << topping.name;
+    }
+    else{
+        out << "," << topping.name << ", " << topping.price << " " << topping.type << endl;
+    }
+
+    return out;
+}
+
+istream& operator >> (istream& in, Topping& topping){
+    getline(in, topping.name, ',');
+    getline(in, topping.name, ',') >> topping.price >> topping.type;
+
+    return in;
+}
