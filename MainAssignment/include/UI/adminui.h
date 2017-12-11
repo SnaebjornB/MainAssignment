@@ -9,7 +9,8 @@ class AdminUI
 {
     public:
         AdminUI();
-        void Main_menu();
+        void main_menu();
+        void input_checker(char input);
 
     private:
         char input;

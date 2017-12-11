@@ -60,3 +60,52 @@
 1512989457 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\ui\adminui.h
 	<iostream>
 
+1512999589 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\main.cpp
+	<iostream>
+	"mainui.h"
+
+1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\pizza.cpp
+	"pizza.h"
+
+1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\sides.cpp
+	"sides.h"
+
+1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\soda.cpp
+	"soda.h"
+
+1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\topping.cpp
+	"topping.h"
+
+1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\repositories\admin_repo.cpp
+	"admin_repo.h"
+
+1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\admin_service.cpp
+	"admin_service.h"
+
+1513000714 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\adminui.cpp
+	"adminui.h"
+
+1513000176 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\mainui.cpp
+	"mainui.h"
+
+1513000969 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\mainui.h
+	<iostream>
+	"adminui.h"
+	"bakerui.h"
+	"salespersonui.h"
+
+1513000751 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\adminui.h
+	<iostream>
+
+1513000714 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\bakerui.cpp
+	"bakerui.h"
+
+1513000496 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\bakerui.h
+	<iostream>
+
+1513000824 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\salespersonui.h
+	<iostream>
+
+1513000714 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\salespersonui.cpp
+	"salespersonui.h"
+

@@ -1,11 +1,14 @@
 #include <iostream>
-using namespace std;
 #include "mainui.h"
-#include "adminui.h"
+
+using namespace std;
+
+
 
 int main()
 {
-    AdminUI adminui;
-    adminui.Main_menu();
+    MainUI mainui;
+    mainui.main_menu();
+
     return 0;
 }
