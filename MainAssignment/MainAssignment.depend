@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1512989692 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\main.cpp
+	<iostream>
+	<mainui.h>
+	<adminui.h>
+
+1512988359 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\pizza.cpp
+	"pizza.h"
+
+1512988327 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\pizza.h
+	<iostream>
+	<string>
+	<vector>
+	"topping.h"
+
+1512989407 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\sides.cpp
+	"sides.h"
+
+1512988739 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\sides.h
+	<iostream>
+	<string>
+
+1512989407 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\soda.cpp
+	"soda.h"
+
+1512988738 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\soda.h
+	<iostream>
+	<string>
+
+1512987002 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\topping.cpp
+	"topping.h"
+
+1512987023 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\topping.h
+	<iostream>
+	<string>
+
+1512986045 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\ui\mainui.cpp
+	"mainui.h"
+
+1512986045 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\ui\mainui.h
+
+1512989407 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\repositories\admin_repo.cpp
+	"admin_repo.h"
+
+1512989407 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\repositories\admin_repo.h
+	<vector>
+	<iostream>
+	"topping.h"
+
+1512989407 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\services\admin_service.cpp
+	"admin_service.h"
+
+1512989426 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\services\admin_service.h
+	"topping.h"
+	<iostream>
+
+1512989407 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\ui\adminui.cpp
+	"adminui.h"
+
+1512989457 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\ui\adminui.h
+	<iostream>
+
