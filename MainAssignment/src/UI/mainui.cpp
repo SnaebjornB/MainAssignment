@@ -6,6 +6,7 @@ MainUI::MainUI()
 }
 
 void MainUI::main_menu(){
+    cout << string(50, '\n');
     cout << "What department do you belong to?" << endl
          << "---------------------------------" << endl
          << "1. Admin" << endl

@@ -6,6 +6,7 @@ DeliveryUI::DeliveryUI()
 }
 
 void DeliveryUI::main_menu(){
+    cout << string(50, '\n');
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
          << "1. " << endl
