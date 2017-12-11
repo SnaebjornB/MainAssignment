@@ -7,23 +7,23 @@
 1512988359 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\pizza.cpp
 	"pizza.h"
 
-1512988327 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\pizza.h
+1512994716 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\pizza.h
 	<iostream>
 	<string>
 	<vector>
 	"topping.h"
 
-1512989407 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\sides.cpp
+1512993212 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\sides.cpp
 	"sides.h"
 
-1512988739 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\sides.h
+1512990162 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\sides.h
 	<iostream>
 	<string>
 
-1512989407 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\soda.cpp
+1512994775 source:c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\src\model\soda.cpp
 	"soda.h"
 
-1512988738 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\soda.h
+1512994851 c:\users\snæbjörn\documents\hr\verklegt námskeið 1\verkefni\mainassignment\include\model\soda.h
 	<iostream>
 	<string>
 

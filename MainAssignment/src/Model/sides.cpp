@@ -6,12 +6,27 @@ Sides::Sides(string name, int price, char size){
     this->size = size;
 }
 
-string get_name(){
-
+string Sides::get_name(){
+    return this->name;
 }
-int get_price();
-char get_size();
-void set_name(string name);
-void set_price(int price);
-void set_size(char size);
+
+int Sides::get_price(){
+    return this->price;
+}
+
+char Sides::get_size(){
+    return this-> size;
+}
+
+void Sides::set_name(string name){
+    this->name = name;
+}
+
+void Sides::set_price(int price){
+    this->price = price;
+}
+
+void Sides::set_size(char size){
+    this->size = size;
+}
 

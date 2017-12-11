@@ -12,11 +12,11 @@ class Pizza
 {
     public:
         Pizza(string name, int price, int size);
+        vector<Topping> toppings;
 
     private:
         string name;
         int price;
-        vector<Topping> toppings;
         int size;
 };
 
