@@ -5,6 +5,7 @@
 #include "adminui.h"
 #include "bakerui.h"
 #include "salespersonui.h"
+#include "deliveryui.h"
 
 using namespace std;
 
@@ -21,6 +22,7 @@ class MainUI
         AdminUI adminui;
         BakerUI bakerui;
         SalespersonUI salesui;
+        DeliveryUI deliveryui;
 };
 
 #endif // MAINUI_H

@@ -82,19 +82,20 @@
 1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\admin_service.cpp
 	"admin_service.h"
 
-1513000714 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\adminui.cpp
+1513004076 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\adminui.cpp
 	"adminui.h"
 
-1513000176 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\mainui.cpp
+1513001410 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\mainui.cpp
 	"mainui.h"
 
-1513000969 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\mainui.h
+1513001369 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\mainui.h
 	<iostream>
 	"adminui.h"
 	"bakerui.h"
 	"salespersonui.h"
+	"deliveryui.h"
 
-1513000751 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\adminui.h
+1513003335 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\adminui.h
 	<iostream>
 
 1513000714 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\bakerui.cpp
@@ -108,4 +109,10 @@
 
 1513000714 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\salespersonui.cpp
 	"salespersonui.h"
+
+1513001265 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\deliveryui.h
+	<iostream>
+
+1513001200 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\deliveryui.cpp
+	"deliveryui.h"
 

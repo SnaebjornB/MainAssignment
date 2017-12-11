@@ -28,6 +28,10 @@ void MainUI::input_checker(char input){
         salesui.main_menu();
     }
     else if(input == '4'){
-
+        deliveryui.main_menu();
+    }
+    else{
+        cout << "Wrong Input.. Please try again" << endl;
+        main_menu();
     }
 }
