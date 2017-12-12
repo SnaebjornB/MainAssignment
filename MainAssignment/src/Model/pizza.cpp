@@ -41,16 +41,16 @@ void Pizza::set_helper(bool status){
 ostream& operator << (ostream& out, Pizza& pizza){
     if(pizza.pizza_helper){
         out << pizza.size << "\" " << "Pizza with:" << endl;
-        for(unsigned int i = 0; i < pizza.toppings.size(); i++){
-            out << pizza.toppings[i].get_name() << endl;
+        for(unsigned int i = 0; i < pizza.pizza_toppings.size(); i++){
+            out << pizza.pizza_toppings[i].get_name() << endl;
         }
     }
     else{
         out << pizza.name << ", " << pizza.price << " " << pizza.size << " ";
-        for(unsigned int i = 0; i < pizza.toppings.size(); i++){
-            out << pizza.toppings[i].get_name() << " ";
-        out << endl;
+        for(unsigned int i = 0; i < pizza.pizza_toppings.size(); i++){
+            out << pizza.pizza_toppings[i].get_name() << " ";
         }
+        out << endl;
     }
     return out;
 }
@@ -59,7 +59,7 @@ istream& operator >> (istream& in, Pizza& pizza){
     getline(in, pizza.name, ',') >> pizza.price >> pizza.size;
     for (int i = 0; !'\n'; i++){
         in >> pizza.topping_name;
-        pizza.toppings[i].set_name(pizza.topping_name);
+        pizza.pizza_toppings[i].set_name(pizza.topping_name);
     }
     in.ignore();
     return in;
