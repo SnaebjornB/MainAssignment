@@ -25,6 +25,7 @@ class AdminUI
         void pizzamenu_menu();
         void pizzamenu_input_checker(char input);
         Topping create_topping();
+        void print_toppings();
 
     private:
         char input;

@@ -16,6 +16,7 @@ class Admin_Service
         void add_topping(Topping& topping);
         Vectors print_toppings(Vectors& vectors);
         void write_toppings(Vectors& vectors);
+        void erase_topping(Vectors& vectors, unsigned int num_of_line);
 
 
 

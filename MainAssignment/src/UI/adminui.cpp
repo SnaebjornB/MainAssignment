@@ -59,21 +59,12 @@ void AdminUI::topping_input_checker(char input){
         cout << "You added " << topping
              << " to the list of toppings." << endl;
         topping_menu();
-
-        ///admin_repo.write_topping(topping);
-        /*
-        Employee employee = create_employee();
-        employee_service.add_employee(employee);
-        */
     }
     else if(input == '2'){
-        int choice;
-        admin_service.print_toppings(vectors);
-        cout << "1" << endl; ///debugger
-        for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
-            cout << (i+1) << ". " << vectors.topping_list[i] << " ";
-        }
+        print_toppings();
+
         cout << "Choose the topping you want to change: ";
+        int choice;
         cin >> choice;
         cout << endl << "You selected:" << vectors.topping_list[choice-1] << endl
              << "Recreate this topping:" << endl;
@@ -82,7 +73,13 @@ void AdminUI::topping_input_checker(char input){
         topping_menu();
     }
     else if(input == '3'){
-        cout << "3" << endl;
+        print_toppings();
+
+        cout << "Choose the topping you want to remove: ";
+        unsigned int num_of_line;
+        cin >> num_of_line;
+
+        admin_service.erase_topping(vectors, num_of_line);
     }
     else if(input == '4'){
         cout << "3" << endl;
@@ -225,4 +222,11 @@ Topping AdminUI::create_topping(){
     cin >> type;
 
     return Topping(name, price, type, size);
+}
+
+void AdminUI::print_toppings(){
+        admin_service.print_toppings(vectors);
+        for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
+            cout << (i+1) << ". " << vectors.topping_list[i] << " ";
+        }
 }
