@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include "admin_repo.h"
-#include "topping_service.h"
+#include "admin_service.h"
+#include "vectors.h"
 
 using namespace std;
 
@@ -28,7 +29,8 @@ class AdminUI
     private:
         char input;
         Admin_Repo admin_repo;
-        topping_service topping_service;
+        Admin_Service admin_service;
+        Vectors vectors;
 };
 
 #endif // ADMINUI_H

@@ -1,5 +1,9 @@
 #include "topping.h"
 
+Topping::Topping(){
+
+}
+
 Topping::Topping(string name, int price, char type, int size){
     this->name = name;
     this->price = price;
@@ -45,17 +49,17 @@ void Topping::set_topping_helper(bool status){
 
 ostream& operator << (ostream& out, Topping& topping){
     if(topping.topping_helper){
-        out << topping.pizza_size << "\"" << topping.name;
+        out << topping.pizza_size << "\" " << topping.name;
     }
     else{
-        out << topping.name << ", " << topping.pizza_size << topping.price << " " << topping.type << endl;
+        out << topping.name << ", " << topping.pizza_size << " " << topping.price << " " << topping.type << endl;
     }
 
     return out;
 }
 
 istream& operator >> (istream& in, Topping& topping){
-    cin.ignore();
+    in.ignore();
     getline(in, topping.name, ',') >> topping.pizza_size >> topping.price >> topping.type;
 
     return in;

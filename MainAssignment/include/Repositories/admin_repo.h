@@ -5,6 +5,7 @@
 #include <iostream>
 #include "topping.h"
 #include <fstream>
+#include "vectors.h"
 
 using namespace std;
 
@@ -13,9 +14,13 @@ class Admin_Repo
     public:
         Admin_Repo();
         void write_topping(Topping topping);
+        Vectors read_topping(Vectors& vectors);
+        void put_back_topping(Vectors& vectors);
+
 
     private:
-        vector<Topping> topping_list;
+        Topping topping;
+
 };
 
 #endif // ADMIN_REPO_H

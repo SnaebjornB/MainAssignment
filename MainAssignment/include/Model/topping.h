@@ -9,6 +9,7 @@ using namespace std;
 class Topping
 {
     public:
+        Topping();
         Topping(string name, int price, char type, int size);
         string get_name();
         int get_price();
@@ -21,6 +22,7 @@ class Topping
         friend ostream& operator << (ostream& out, Topping& topping);
         void set_topping_helper(bool status);
         friend istream& operator >> (istream& in, Topping& topping);
+
 
     private:
         string name;

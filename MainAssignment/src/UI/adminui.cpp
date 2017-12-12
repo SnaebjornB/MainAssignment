@@ -47,6 +47,7 @@ void AdminUI::topping_menu(){
          << "1. Add topping" << endl
          << "2. Edit current toppings" << endl
          << "3. Remove a topping" << endl
+         << "4. Change price of topping category" << endl
          << "Enter Q to go back" << endl << endl
          << "Input: ";
          cin >> input;
@@ -56,8 +57,10 @@ void AdminUI::topping_menu(){
 void AdminUI::topping_input_checker(char input){
     if(input == '1'){
         Topping topping = create_topping();
-        cout << topping;
-        topping_service.add_allowed_topping(topping);
+        admin_service.add_topping(topping);
+        cout << "You added " << topping
+             << " to the list of toppings." << endl;
+        topping_menu();
 
         ///admin_repo.write_topping(topping);
         /*
@@ -66,9 +69,24 @@ void AdminUI::topping_input_checker(char input){
         */
     }
     else if(input == '2'){
-        cout << "2" << endl;
+        int choice;
+        admin_service.print_toppings(vectors);
+        cout << "1" << endl; ///debugger
+        for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
+            cout << (i+1) << ". " << vectors.topping_list[i] << " ";
+        }
+        cout << "Choose the topping you want to change: ";
+        cin >> choice;
+        cout << endl << "You selected:" << vectors.topping_list[choice-1] << endl
+             << "Recreate this topping:" << endl;
+        vectors.topping_list[choice-1] = create_topping();
+        admin_service.write_toppings(vectors);
+        topping_menu();
     }
     else if(input == '3'){
+        cout << "3" << endl;
+    }
+    else if(input == '4'){
         cout << "3" << endl;
     }
     else if(input == 'q' || input == 'Q'){
@@ -197,11 +215,14 @@ void AdminUI::pizzamenu_input_checker(char input){
 Topping AdminUI::create_topping(){
     string name;
     char type;
-    int price;
+    int price, size;
 
     cout << "Name: ";
     cin.ignore();
     getline (cin, name);
+
+    cout << "Size: ";
+    cin >> size;
 
     cout << "Price: ";
     cin >> price;
@@ -209,5 +230,5 @@ Topping AdminUI::create_topping(){
     cout << "Type: ";
     cin >> type;
 
-    return Topping(name, price, type);
+    return Topping(name, price, type, size);
 }
