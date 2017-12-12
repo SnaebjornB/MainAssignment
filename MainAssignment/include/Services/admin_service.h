@@ -17,6 +17,7 @@ class Admin_Service
         void add_topping(Topping& topping);
         void add_sides(Sides& sides);
         void add_pizza(Pizza& pizza);
+        void add_location(string location);
         Vectors read_types(Vectors& vectors, string type);
         void write_type(Vectors& vectors, string type);
         void erase_type(Vectors& vectors, unsigned int num_of_line, string type);

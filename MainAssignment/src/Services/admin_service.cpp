@@ -44,3 +44,11 @@ void Admin_Service::add_pizza(Pizza& pizza){
     admin_repo.write_pizza(pizza);
     //cout << car << endl;
 }
+
+void Admin_Service::add_location(string location){
+    ///Validate Location
+    //Blah blah blah
+
+    ///Send topping to data access layer
+    admin_repo.write_location(location);
+}

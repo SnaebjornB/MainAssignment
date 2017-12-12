@@ -167,12 +167,24 @@ void AdminUI::location_menu(){
          << "Enter b to go back" << endl << endl
          << "Input: ";
          cin >> input;
-         sides_input_checker(input);
+         location_input_checker(input);
 }
 
 void AdminUI::location_input_checker(char input){
     if(input == '1'){
         cout << "1" << endl;
+        ///Add-a location í skrá með locations
+        string location;
+
+        cout << "Location's name: ";
+        cin.ignore();
+        getline (cin, location);
+
+        admin_service.add_location(location);
+
+        cout << "You added " << location << " to the list of locations." << endl;
+        location_menu();
+
     }
     else if(input == 'b' || input == 'B'){
         main_menu();
@@ -218,7 +230,7 @@ void AdminUI::pizzamenu_input_checker(char input){
 }
 
 
-///Create föll: topping, o.s.frv.
+///Create & print föll: topping, o.s.frv.
 Topping AdminUI::create_topping(){
     string name;
     char type;
@@ -300,4 +312,14 @@ Pizza AdminUI::create_pizza(){
         }
     }
     return pizza;
+}
+
+string AdminUI::create_location(){
+    string location;
+
+    cout << "Location's name: ";
+    cin.ignore();
+    getline (cin, location);
+
+    return location;
 }

@@ -144,3 +144,17 @@ void Admin_Repo::write_pizza(Pizza& pizza){
         ///Throw error
     }
 }
+
+void Admin_Repo::write_location(string location){
+    //sides.set_helper(false);
+    ofstream fout;
+    fout.open("locations.txt", ios::app);
+
+    if(fout.is_open()){
+        fout << location << endl;
+        fout.close();
+    }
+    else{
+        ///Throw error
+    }
+}

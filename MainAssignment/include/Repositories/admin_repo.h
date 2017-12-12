@@ -18,6 +18,7 @@ class Admin_Repo
         void write_topping(Topping topping);
         void write_sides(Sides& sides);
         void write_pizza(Pizza& pizza);
+        void write_location(string location);
         Vectors read_type(Vectors& vectors, string type);
         void put_back_type(Vectors& vectors, string type);
         void erase_type(Vectors& vectors, unsigned int num_of_line, string type);
