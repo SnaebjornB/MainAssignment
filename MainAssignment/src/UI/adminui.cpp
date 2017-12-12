@@ -10,7 +10,7 @@ void AdminUI::main_menu(){
          << "------------------------" << endl
          << "1. Add/edit toppings" << endl
          << "2. Add/edit sides" << endl
-         << "3. Add locations" << endl
+         << "3. Add/edit locations" << endl
          << "4. Add/edit the pizza menu" << endl << endl
          << "Please input the corresponding number: ";
     cin >> input;
@@ -142,7 +142,15 @@ void AdminUI::sides_input_checker(char input){
         sides_menu();
     }
     else if(input == '3'){
-        cout << "3" << endl;
+        string type = "sides";
+        print_sides();
+
+        cout << "Choose the side-dish you want to remove: ";
+        unsigned int num_of_line;
+        cin >> num_of_line;
+
+        admin_service.erase_type(vectors, num_of_line, type);
+        topping_menu();
     }
     else if(input == 'b' || input == 'B'){
         main_menu();
@@ -156,7 +164,6 @@ void AdminUI::sides_input_checker(char input){
 void AdminUI::location_menu(){
     cout << "------------------------" << endl
          << "1. Add a location" << endl
-         << "2. Close a location" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
          cin >> input;
@@ -166,9 +173,6 @@ void AdminUI::location_menu(){
 void AdminUI::location_input_checker(char input){
     if(input == '1'){
         cout << "1" << endl;
-    }
-    else if(input == '2'){
-        cout << "2" << endl;
     }
     else if(input == 'b' || input == 'B'){
         main_menu();
@@ -192,7 +196,11 @@ void AdminUI::pizzamenu_menu(){
 
 void AdminUI::pizzamenu_input_checker(char input){
     if(input == '1'){
-        cout << "1" << endl;
+        Pizza pizza = create_pizza();
+        admin_service.add_pizza(pizza);
+        pizza.set_helper(true);
+        cout << "You added " << pizza << " to the pizza menu." << endl;
+        pizzamenu_menu();
     }
     else if(input == '2'){
         cout << "2" << endl;
@@ -256,9 +264,40 @@ Sides AdminUI::create_sides(){
 
 void AdminUI::print_sides(){
     string type = "sides";
-    cout << "1";
     admin_service.read_types(vectors, type);
     for(unsigned int i = 0; i < vectors.sides_list.size(); i++){
         cout << (i+1) << ". " << vectors.sides_list[i] << " ";
     }
+}
+
+Pizza AdminUI::create_pizza(){
+    string name;
+    int size, price, choice = 1;
+
+    cout << "Name: ";
+    cin.ignore();
+    getline (cin, name);
+
+    cout << "Size: ";
+    cin >> size;
+
+    cout << "Price: ";
+    cin >> price;
+
+    Pizza pizza(name, price, size);
+
+    print_toppings();
+
+    cout << "Pick the toppings you want to add to the pizza (type 0 to stop): " << endl;
+
+    while (true){
+        cin >> choice;
+        if(choice == 0){
+            break;
+        }
+        else{
+            pizza.pizza_toppings.push_back(vectors.topping_list[choice-1]);
+        }
+    }
+    return pizza;
 }

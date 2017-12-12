@@ -14,7 +14,7 @@ class Pizza
     public:
         Pizza();
         Pizza(string name, int price, int size);
-        vector<Topping> toppings;
+        vector<Topping> pizza_toppings;
         void set_name(string name);
         void set_price(int price);
         void set_size(int size);

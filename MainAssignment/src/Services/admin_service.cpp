@@ -15,7 +15,6 @@ void Admin_Service::add_topping(Topping& topping){
 }
 
 Vectors Admin_Service::read_types(Vectors& vectors, string type){
-    cout << "2";
     admin_repo.read_type(vectors, type);
     return vectors;
 }
@@ -34,5 +33,14 @@ void Admin_Service::add_sides(Sides& sides){
 
     ///Send topping to DAta access layer
     admin_repo.write_sides(sides);
+    //cout << car << endl;
+}
+
+void Admin_Service::add_pizza(Pizza& pizza){
+    ///Validate topping(input)
+    //Blah blah blah
+
+    ///Send topping to DAta access layer
+    admin_repo.write_pizza(pizza);
     //cout << car << endl;
 }
