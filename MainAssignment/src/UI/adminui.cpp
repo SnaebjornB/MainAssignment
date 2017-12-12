@@ -6,7 +6,6 @@ AdminUI::AdminUI()
 }
 
 void AdminUI::main_menu(){
-    cout << string(50, '\n');
     cout << "What do you want to do? " << endl
          << "------------------------" << endl
          << "1. Add/edit toppings" << endl
@@ -42,7 +41,6 @@ void AdminUI::main_input_checker(char input){
 }
 
 void AdminUI::topping_menu(){
-    cout << string(50, '\n');
     cout << "------------------------" << endl
          << "1. Add topping" << endl
          << "2. Edit current toppings" << endl
@@ -99,7 +97,6 @@ void AdminUI::topping_input_checker(char input){
 }
 
 void AdminUI::sides_menu(){
-    cout << string(50, '\n');
     cout << "------------------------" << endl
          << "1. Add a side-dish" << endl
          << "2. Edit current sides" << endl
@@ -130,7 +127,6 @@ void AdminUI::sides_input_checker(char input){
 }
 
 void AdminUI::pizza_menu(){
-    cout << string(50, '\n');
     cout << "------------------------" << endl
          << "1. Change allowed sizes" << endl
          << "Enter Q to go back" << endl << endl
@@ -153,7 +149,6 @@ void AdminUI::pizza_input_checker(char input){
 }
 
 void AdminUI::location_menu(){
-    cout << string(50, '\n');
     cout << "------------------------" << endl
          << "1. Add a location" << endl
          << "2. Close a location" << endl
@@ -180,7 +175,6 @@ void AdminUI::location_input_checker(char input){
 }
 
 void AdminUI::pizzamenu_menu(){
-    cout << string(50, '\n');
     cout << "------------------------" << endl
          << "1. Add a pizza recipe" << endl
          << "2. Edit a pizza" << endl

@@ -21,24 +21,25 @@ void Admin_Repo::write_topping(Topping topping){
 }
 
 Vectors Admin_Repo::read_topping(Vectors& vectors){
+    vectors.topping_list.clear();
     ifstream fin;
     ofstream fout;
     fin.open("Toppings.txt");
     if(fin.is_open()){
-        while(!fin.eof()){
-            fin >> topping;
+        while(fin >> topping){
             vectors.topping_list.push_back(topping);
         }
         fin.close();
     }
-    fout.open("Toppings.txt", ios::trunc);
-    fout.close();
 
     return vectors;
 }
 
 void Admin_Repo::put_back_topping(Vectors& vectors){
     ofstream fout;
+    fout.open("Toppings.txt", ios::trunc);
+    fout.close();
+
     fout.open("Toppings.txt", ios::app);
 
     if(fout.is_open()){

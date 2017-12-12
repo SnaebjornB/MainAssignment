@@ -59,8 +59,9 @@ ostream& operator << (ostream& out, Topping& topping){
 }
 
 istream& operator >> (istream& in, Topping& topping){
-    in.ignore();
+
     getline(in, topping.name, ',') >> topping.pizza_size >> topping.price >> topping.type;
+    in.ignore();
 
     return in;
 }
