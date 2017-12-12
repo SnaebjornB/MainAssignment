@@ -16,6 +16,7 @@ class Admin_Repo
         void write_topping(Topping topping);
         Vectors read_topping(Vectors& vectors);
         void put_back_topping(Vectors& vectors);
+        void erase_topping(Vectors& vectors, unsigned int num_of_line);
 
 
     private:

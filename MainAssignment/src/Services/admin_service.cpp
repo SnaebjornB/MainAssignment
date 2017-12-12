@@ -23,3 +23,7 @@ Vectors Admin_Service::print_toppings(Vectors& vectors){
 void Admin_Service::write_toppings(Vectors& vectors){
     admin_repo.put_back_topping(vectors);
 }
+
+void Admin_Service::erase_topping(Vectors& vectors, unsigned int num_of_line){
+    admin_repo.erase_topping(vectors, num_of_line);
+}
