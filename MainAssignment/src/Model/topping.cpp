@@ -19,6 +19,10 @@ char Topping::get_type(){
     return this->type;
 }
 
+int Topping::get_size(){
+    return this->pizza_size;
+}
+
 void Topping::set_name(string name){
     this->name = name;
 }
@@ -29,6 +33,10 @@ void Topping::set_price(int price){
 
 void Topping::set_type(char type){
     this->type = type;
+}
+
+void Topping::set_size(int size){
+    this->pizza_size = size;
 }
 
 void Topping::set_topping_helper(bool status){
