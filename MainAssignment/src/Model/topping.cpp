@@ -43,7 +43,7 @@ void Topping::set_size(int size){
     this->pizza_size = size;
 }
 
-void Topping::set_topping_helper(bool status){
+void Topping::set_helper(bool status){
     topping_helper = status;
 }
 

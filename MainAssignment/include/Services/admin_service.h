@@ -6,6 +6,7 @@
 #include "admin_repo.h"
 #include <vector>
 #include "vectors.h"
+#include "sides.h"
 
 using namespace std;
 
@@ -14,9 +15,11 @@ class Admin_Service
     public:
         Admin_Service();
         void add_topping(Topping& topping);
-        Vectors print_toppings(Vectors& vectors);
-        void write_toppings(Vectors& vectors);
-        void erase_topping(Vectors& vectors, unsigned int num_of_line);
+        void add_sides(Sides& sides);
+        Vectors read_types(Vectors& vectors, string type);
+        void write_type(Vectors& vectors, string type);
+        void erase_type(Vectors& vectors, unsigned int num_of_line, string type);
+
 
 
 
