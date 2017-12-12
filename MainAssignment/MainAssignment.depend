@@ -67,22 +67,22 @@
 1513088124 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\pizza.cpp
 	"pizza.h"
 
-1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\sides.cpp
+1513101327 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\sides.cpp
 	"sides.h"
 
 1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\soda.cpp
 	"soda.h"
 
-1513081484 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\topping.cpp
+1513095883 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\topping.cpp
 	"topping.h"
 
-1513088438 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\repositories\admin_repo.cpp
+1513101065 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\repositories\admin_repo.cpp
 	"admin_repo.h"
 
-1513088438 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\admin_service.cpp
+1513099278 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\admin_service.cpp
 	"admin_service.h"
 
-1513082051 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\adminui.cpp
+1513100909 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\adminui.cpp
 	"adminui.h"
 
 1513082107 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\mainui.cpp
@@ -95,11 +95,12 @@
 	"salespersonui.h"
 	"deliveryui.h"
 
-1513088438 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\adminui.h
+1513098661 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\adminui.h
 	<iostream>
 	"admin_repo.h"
 	"admin_service.h"
 	"vectors.h"
+	"sides.h"
 
 1513030145 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\bakerui.cpp
 	"bakerui.h"
@@ -193,10 +194,11 @@
 
 1513075873 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\models\vectors.h
 
-1513078781 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\vectors.h
+1513098890 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\vectors.h
 	<vector>
 	<iostream>
 	"topping.h"
+	"sides.h"
 
 1513088124 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\pizza.h
 	<iostream>
@@ -205,11 +207,11 @@
 	"topping.h"
 	<fstream>
 
-1513076352 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\topping.h
+1513095883 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\topping.h
 	<iostream>
 	<string>
 
-1512997809 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\sides.h
+1513099939 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\sides.h
 	<iostream>
 	<string>
 

@@ -10,7 +10,7 @@ void AdminUI::main_menu(){
          << "------------------------" << endl
          << "1. Add/edit toppings" << endl
          << "2. Add/edit sides" << endl
-         << "3. Add/edit locations" << endl
+         << "3. Add locations" << endl
          << "4. Add/edit the pizza menu" << endl << endl
          << "Please input the corresponding number: ";
     cin >> input;
@@ -57,6 +57,7 @@ void AdminUI::topping_input_checker(char input){
         topping_menu();
     }
     else if(input == '2'){
+        string type = "topping";
         print_toppings();
 
         cout << "Choose the topping you want to change: ";
@@ -65,22 +66,24 @@ void AdminUI::topping_input_checker(char input){
         cout << endl << "You selected:" << vectors.topping_list[choice-1] << endl
              << "Recreate this topping:" << endl;
         vectors.topping_list[choice-1] = create_topping();
-        admin_service.write_toppings(vectors);
+        admin_service.write_type(vectors, type);
         topping_menu();
     }
     else if(input == '3'){
+        string type = "topping";
         print_toppings();
 
         cout << "Choose the topping you want to remove: ";
         unsigned int num_of_line;
         cin >> num_of_line;
 
-        admin_service.erase_topping(vectors, num_of_line);
+        admin_service.erase_type(vectors, num_of_line, type);
         topping_menu();
     }
     else if(input == '4'){
         int price;
-        admin_service.print_toppings(vectors);
+        string type = "topping";
+        admin_service.read_types(vectors, type);
         cout << "Insert the letter that represents the category you want to assign a new price to: ";
         cin >> input;
         cout << "What is the new price? ";
@@ -91,7 +94,7 @@ void AdminUI::topping_input_checker(char input){
                 vectors.topping_list[i].set_price(price);
             }
         }
-        admin_service.write_toppings(vectors);
+        admin_service.write_type(vectors, type);
 
         cout << "Price of topping category " << input << " is now " << price << endl;
         topping_menu();
@@ -119,10 +122,24 @@ void AdminUI::sides_menu(){
 
 void AdminUI::sides_input_checker(char input){
     if(input == '1'){
-        cout << "1" << endl;
+        Sides sides = create_sides();
+        admin_service.add_sides(sides);
+        sides.set_helper(true);
+        cout << "You added " << sides << " to the list of side dishes." << endl;
+        sides_menu();
     }
     else if(input == '2'){
-        cout << "2" << endl;
+        string type = "sides";
+        print_sides();
+
+        cout << "Choose the side-dish you want to change: ";
+        int choice;
+        cin >> choice;
+        cout << endl << "You selected:" << vectors.sides_list[choice-1] << endl
+             << "Recreate this side-dish:" << endl;
+        vectors.sides_list[choice-1] = create_sides();
+        admin_service.write_type(vectors, type);
+        sides_menu();
     }
     else if(input == '3'){
         cout << "3" << endl;
@@ -216,8 +233,32 @@ Topping AdminUI::create_topping(){
 }
 
 void AdminUI::print_toppings(){
-        admin_service.print_toppings(vectors);
-        for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
-            cout << (i+1) << ". " << vectors.topping_list[i] << " ";
-        }
+    string type = "topping";
+    admin_service.read_types(vectors, type);
+    for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
+        cout << (i+1) << ". " << vectors.topping_list[i] << " ";
+    }
+}
+
+Sides AdminUI::create_sides(){
+    string name;
+    int price;
+
+    cout << "Name: ";
+    cin.ignore();
+    getline (cin, name);
+
+    cout << "Price: ";
+    cin >> price;
+
+    return Sides(name, price);
+}
+
+void AdminUI::print_sides(){
+    string type = "sides";
+    cout << "1";
+    admin_service.read_types(vectors, type);
+    for(unsigned int i = 0; i < vectors.sides_list.size(); i++){
+        cout << (i+1) << ". " << vectors.sides_list[i] << " ";
+    }
 }

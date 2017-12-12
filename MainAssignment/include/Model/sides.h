@@ -9,7 +9,8 @@ using namespace std;
 class Sides
 {
     public:
-        Sides(string name, int price, char size);
+        Sides();
+        Sides(string name, int price);
         string get_name();
         int get_price();
         char get_size();
@@ -17,8 +18,8 @@ class Sides
         void set_price(int price);
         void set_size(char size);
         void set_helper(bool status);
-        friend ostream& operator << (ostream& out, Sides sides);
-        friend istream& operator >> (istream& in, Sides sides);
+        friend ostream& operator << (ostream& out, Sides& sides);
+        friend istream& operator >> (istream& in, Sides& sides);
 
     private:
         string name;

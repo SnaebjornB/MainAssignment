@@ -5,6 +5,7 @@
 #include "admin_repo.h"
 #include "admin_service.h"
 #include "vectors.h"
+#include "sides.h"
 
 using namespace std;
 
@@ -26,12 +27,15 @@ class AdminUI
         void pizzamenu_input_checker(char input);
         Topping create_topping();
         void print_toppings();
+        Sides create_sides();
+        void print_sides();
 
     private:
         char input;
         Admin_Repo admin_repo;
         Admin_Service admin_service;
         Vectors vectors;
+
 };
 
 #endif // ADMINUI_H

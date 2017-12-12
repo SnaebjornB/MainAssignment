@@ -6,6 +6,7 @@
 #include "topping.h"
 #include <fstream>
 #include "vectors.h"
+#include "sides.h"
 
 using namespace std;
 
@@ -14,13 +15,16 @@ class Admin_Repo
     public:
         Admin_Repo();
         void write_topping(Topping topping);
-        Vectors read_topping(Vectors& vectors);
-        void put_back_topping(Vectors& vectors);
-        void erase_topping(Vectors& vectors, unsigned int num_of_line);
+        void write_sides(Sides& sides);
+        Vectors read_type(Vectors& vectors, string type);
+        void put_back_type(Vectors& vectors, string type);
+        void erase_type(Vectors& vectors, unsigned int num_of_line, string type);
+
 
 
     private:
         Topping topping;
+        Sides sides;
 
 };
 

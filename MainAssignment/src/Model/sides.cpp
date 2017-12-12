@@ -1,6 +1,10 @@
 #include "sides.h"
 
-Sides::Sides(string name, int price, char size){
+Sides::Sides(){
+
+}
+
+Sides::Sides(string name, int price){
     this->name = name;
     this->price = price;
     this->size = size;
@@ -34,15 +38,20 @@ void Sides::set_helper(bool status){
     this->sides_helper = status;
 }
 
-ostream& operator << (ostream& out, Sides sides){
+ostream& operator << (ostream& out, Sides& sides){
     if (sides.sides_helper){
-        out << sides.name << endl;
+        out << sides.name;
     }
     else{
-        out << sides.name << ", " << sides.price;
+        out << sides.name << ", " << sides.price << endl;
     }
+
+    return out;
 }
 
-istream& operator >> (istream& in, Sides sides){
+istream& operator >> (istream& in, Sides& sides){
     getline(in, sides.name, ',') >> sides.price;
+    in.ignore();
+
+    return in;
 }

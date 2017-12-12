@@ -20,7 +20,7 @@ class Topping
         void set_type(char type);
         void set_size(int size);
         friend ostream& operator << (ostream& out, Topping& topping);
-        void set_topping_helper(bool status);
+        void set_helper(bool status);
         friend istream& operator >> (istream& in, Topping& topping);
 
 
