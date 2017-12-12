@@ -30,3 +30,19 @@ void Sides::set_size(char size){
     this->size = size;
 }
 
+void set_helper(bool status){
+    this->sides_helper = status;
+}
+
+ostream& operator << (ostream& out, Sides sides){
+    if (sides_helper){
+        out << sides.name << endl;
+    }
+    else{
+        out << sides.name << ", " << sides.price;
+    }
+}
+
+istream& operator >> (istream& in, Sides sides){
+    getline(in, sides.name, ',') >> sides.price;
+}
