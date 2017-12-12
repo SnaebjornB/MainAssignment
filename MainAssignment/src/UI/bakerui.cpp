@@ -5,19 +5,26 @@ BakerUI::BakerUI()
     //ctor
 }
 
+void BakerUI::location() {
+    cout << "pick your location" << endl;
+    //cin << "location";
+    main_menu();
+}
 void BakerUI::main_menu(){
-    cout << string(50, '\n');
+    
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
-         << "1. " << endl
-         << "2. " << endl
-         << "3. " << endl
+         << "1. Get list of all orders" << endl
+         << "2. show next order" << endl
+         << "3. Check order in making" << endl
+         << "4. Check order ready" << endl
+         << "c. change location " << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
-    input_checker(input);
+    main_input_checker(input);
 }
 
-void BakerUI::input_checker(char input){
+void BakerUI::main_input_checker(char input){
     if(input == '1'){
         cout << "1" << endl;
     }
@@ -27,7 +34,14 @@ void BakerUI::input_checker(char input){
     else if(input == '3'){
         cout << "3" << endl;
     }
+    else if(input == '4'){
+        cout << "4" << endl;
+    }
+    else if(input == 'c' || input == 'C'){
+        location();
+    }
     else{
-        cout << "nope" << endl;
+        cout << endl << "Invalid input! Please choose again." << endl;
+       main_menu();
     }
 }

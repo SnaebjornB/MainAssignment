@@ -25,7 +25,7 @@ void MainUI::input_checker(char input){
         salesui.main_menu();
     }
     else if(input == '3'){
-        bakerui.main_menu();
+        bakerui.location();
     }
     else if(input == '4'){
         deliveryui.main_menu();

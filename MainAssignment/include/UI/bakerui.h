@@ -9,8 +9,9 @@ class BakerUI
 {
     public:
         BakerUI();
+        void location();
         void main_menu();
-        void input_checker(char input);
+        void main_input_checker(char input);
 
 
     private:
