@@ -28,7 +28,7 @@ void MainUI::input_checker(char input){
         bakerui.location();
     }
     else if(input == '4'){
-        deliveryui.main_menu();
+        deliveryui.location();
     }
     else{
         cout << "Wrong Input.. Please try again" << endl;
