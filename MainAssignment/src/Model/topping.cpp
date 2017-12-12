@@ -39,7 +39,7 @@ ostream& operator << (ostream& out, Topping& topping){
         out << topping.name;
     }
     else{
-        out << topping.name << ", " << topping.price << ", " << topping.type << endl;
+        out << topping.name << ", " << topping.price << " " << topping.type << endl;
     }
 
     return out;
