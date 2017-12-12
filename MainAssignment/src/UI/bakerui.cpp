@@ -26,16 +26,16 @@ void BakerUI::main_menu(){
 
 void BakerUI::main_input_checker(char input){
     if(input == '1'){
-        cout << "1" << endl;
+        cout << "1. Get list of all orders" << endl;                            ///vantar
     }
     else if(input == '2'){
-        cout << "2" << endl;
-    }
+        cout << "2. show next order" << endl;                                   ///vantar
+    }   
     else if(input == '3'){
-        cout << "3" << endl;
+        cout << "3. Check order in making" << endl;                             ///vantar
     }
     else if(input == '4'){
-        cout << "4" << endl;
+        cout << "4. Check order ready" << endl;                                 ///vantar
     }
     else if(input == 'c' || input == 'C'){
         location();
