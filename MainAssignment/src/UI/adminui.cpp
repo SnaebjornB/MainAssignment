@@ -80,9 +80,26 @@ void AdminUI::topping_input_checker(char input){
         cin >> num_of_line;
 
         admin_service.erase_topping(vectors, num_of_line);
+        topping_menu();
     }
     else if(input == '4'){
-        cout << "3" << endl;
+        int price;
+        admin_service.print_toppings(vectors);
+        cout << "Insert the letter that represents the category you want to assign a new price to: ";
+        cin >> input;
+        cout << "What is the new price? ";
+        cin >> price;
+
+        for (unsigned int i = 0; i < vectors.topping_list.size(); i++){
+            if(input == vectors.topping_list[i].get_type()){
+                vectors.topping_list[i].set_price(price);
+            }
+        }
+        admin_service.write_toppings(vectors);
+
+        cout << "Price of topping category " << input << " is now " << price << endl;
+        topping_menu();
+
     }
     else if(input == 'q' || input == 'Q'){
         main_menu();

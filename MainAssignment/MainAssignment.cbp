@@ -14,6 +14,8 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include/UI" />
+					<Add directory="include/Models" />
+					<Add directory="include/Model" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -24,6 +26,8 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="include/UI" />
+					<Add directory="include/Models" />
+					<Add directory="include/Model" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -38,8 +42,11 @@
 		<Unit filename="include/Model/sides.h" />
 		<Unit filename="include/Model/soda.h" />
 		<Unit filename="include/Model/topping.h" />
+		<Unit filename="include/Model/vectors.h" />
+		<Unit filename="include/Repositories/ToppingRepository.h" />
 		<Unit filename="include/Repositories/admin_repo.h" />
 		<Unit filename="include/Services/admin_service.h" />
+		<Unit filename="include/Services/topping_service.h" />
 		<Unit filename="include/UI/adminui.h" />
 		<Unit filename="include/UI/bakerui.h" />
 		<Unit filename="include/UI/deliveryui.h" />
@@ -50,8 +57,11 @@
 		<Unit filename="src/Model/sides.cpp" />
 		<Unit filename="src/Model/soda.cpp" />
 		<Unit filename="src/Model/topping.cpp" />
+		<Unit filename="src/Model/vectors.cpp" />
+		<Unit filename="src/Repositories/ToppingRepository.cpp" />
 		<Unit filename="src/Repositories/admin_repo.cpp" />
 		<Unit filename="src/Services/admin_service.cpp" />
+		<Unit filename="src/Services/topping_service.cpp" />
 		<Unit filename="src/UI/adminui.cpp" />
 		<Unit filename="src/UI/bakerui.cpp" />
 		<Unit filename="src/UI/deliveryui.cpp" />
