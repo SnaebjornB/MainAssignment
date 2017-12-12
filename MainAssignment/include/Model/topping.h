@@ -9,7 +9,7 @@ using namespace std;
 class Topping
 {
     public:
-        Topping(string name, int price, char type);
+        Topping(string name, int price, char type, int size);
         string get_name();
         int get_price();
         char get_type();
