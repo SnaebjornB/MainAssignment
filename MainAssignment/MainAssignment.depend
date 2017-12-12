@@ -121,41 +121,41 @@
 1513030145 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\deliveryui.cpp
 	"deliveryui.h"
 
-1513004986 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\main.cpp
+1513107766 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\main.cpp
 	<iostream>
 	"mainui.h"
 
-1512997209 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\pizza.cpp
+1513107442 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\pizza.cpp
 	"pizza.h"
 
-1512997209 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\sides.cpp
+1513102602 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\sides.cpp
 	"sides.h"
 
 1512997209 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\soda.cpp
 	"soda.h"
 
-1513015033 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\topping.cpp
+1513102602 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\topping.cpp
 	"topping.h"
 
-1513008430 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\repositories\admin_repo.cpp
+1513110447 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\repositories\admin_repo.cpp
 	"admin_repo.h"
 
-1512997209 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\services\admin_service.cpp
+1513110447 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\services\admin_service.cpp
 	"admin_service.h"
 
-1513019604 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\adminui.cpp
+1513111842 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\adminui.cpp
 	"adminui.h"
 
-1513008789 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\mainui.cpp
+1513111518 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\mainui.cpp
 	"mainui.h"
 
-1513008430 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\bakerui.cpp
+1513111518 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\bakerui.cpp
 	"bakerui.h"
 
-1513008430 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\deliveryui.cpp
+1513111518 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\deliveryui.cpp
 	"deliveryui.h"
 
-1513008430 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\salespersonui.cpp
+1513111518 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\ui\salespersonui.cpp
 	"salespersonui.h"
 
 1513008430 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\repositories\admin_repo.h
@@ -175,7 +175,7 @@
 	"topping.h"
 	<fstream>
 
-1513019427 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\services\topping_service.cpp
+1513080542 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\services\topping_service.cpp
 	"topping_service.h"
 	"topping.h"
 
@@ -222,4 +222,61 @@
 
 1513078711 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\vectors.cpp
 	"vectors.h"
+
+1513107442 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\model\pizza.h
+	<iostream>
+	<string>
+	<vector>
+	"topping.h"
+	<fstream>
+
+1513102602 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\model\topping.h
+	<iostream>
+	<string>
+
+1513102602 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\model\sides.h
+	<iostream>
+	<string>
+
+1512997209 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\model\soda.h
+	<iostream>
+	<string>
+
+1513080542 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\vectors.cpp
+	"vectors.h"
+
+1513102602 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\model\vectors.h
+	<vector>
+	<iostream>
+	"topping.h"
+	"sides.h"
+
+1513109025 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\ui\adminui.h
+	<iostream>
+	"admin_repo.h"
+	"admin_service.h"
+	"vectors.h"
+	"sides.h"
+	"pizza.h"
+
+1513111518 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\ui\deliveryui.h
+	<iostream>
+
+1513102602 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\ui\salespersonui.h
+	<iostream>
+
+1513004986 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\ui\mainui.h
+	<iostream>
+	"adminui.h"
+	"bakerui.h"
+	"salespersonui.h"
+	"deliveryui.h"
+
+1513107766 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\ui\bakerui.h
+	<iostream>
+
+1513110990 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\src\model\order.cpp
+	"order.h"
+
+1513110990 c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\include\model\order.h
 

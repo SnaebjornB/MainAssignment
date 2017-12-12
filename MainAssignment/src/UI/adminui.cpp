@@ -10,7 +10,7 @@ void AdminUI::main_menu(){
          << "------------------------" << endl
          << "1. Add/edit toppings" << endl
          << "2. Add/edit sides" << endl
-         << "3. Add/edit locations" << endl
+         << "3. Add locations" << endl
          << "4. Add/edit the pizza menu" << endl << endl
          << "Please input the corresponding number: ";
     cin >> input;
@@ -172,7 +172,6 @@ void AdminUI::location_menu(){
 
 void AdminUI::location_input_checker(char input){
     if(input == '1'){
-        cout << "1" << endl;
         ///Add-a location í skrá með locations
         string location;
 
