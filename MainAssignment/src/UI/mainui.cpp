@@ -9,8 +9,8 @@ void MainUI::main_menu(){
     cout << "What department do you belong to?" << endl
          << "---------------------------------" << endl
          << "1. Admin" << endl
-         << "2. Baker" << endl
-         << "3. Salesperson" << endl
+         << "2. Salesperson" << endl
+         << "3. Baker" << endl
          << "4. Delivery" << endl << endl
          << "Please input the corresponding number: ";
     cin >> input;
@@ -22,10 +22,10 @@ void MainUI::input_checker(char input){
         adminui.main_menu();
     }
     else if(input == '2'){
-        bakerui.main_menu();
+        salesui.main_menu();
     }
     else if(input == '3'){
-        salesui.main_menu();
+        bakerui.main_menu();
     }
     else if(input == '4'){
         deliveryui.main_menu();
