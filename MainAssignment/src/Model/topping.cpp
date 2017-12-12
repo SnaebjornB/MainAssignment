@@ -4,6 +4,7 @@ Topping::Topping(string name, int price, char type){
     this->name = name;
     this->price = price;
     this->type = type;
+    this->pizza_size;
 }
 
 string Topping::get_name(){

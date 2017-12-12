@@ -24,6 +24,7 @@ class Topping
         string name;
         int price;
         char type;
+        int pizza_size;
         bool topping_helper;
 };
 
