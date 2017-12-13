@@ -1,5 +1,76 @@
-Ham, 16 500 m
-abbadabba, 32 250 m
-Sveppir, 16 200 g
-Laukur, 9 200 g
-aserw, 16 300 m
+pepperoni, 9 200 m
+pepperoni, 12 300 m
+pepperoni, 16 400 m
+ham, 9 200 m
+ham, 12 300 m
+ham, 16 400 m
+ground beef, 9 200 m
+ground beef, 12 300 m
+ground beef, 16 400 m
+bacon, 9 200 m
+bacon, 12 300 m
+bacon, 16 400 m
+chicken fajitas, 9 200 m
+chicken fajitas, 12 300 m
+chicken fajitas, 16 400 m
+pulled pork, 9 200 m
+pulled pork, 12 300 m
+pulled pork, 16 400 m
+fresh mozzarella, 9 200 c
+fresh mozzarella, 12 300 c
+fresh mozzarella, 16 400 c
+pepper cheese, 9 200 c
+pepper cheese, 12 300 c
+pepper cheese, 9 400 c
+cream cheese, 9 200 c
+cream cheese, 12 300 c
+cream cheese, 9 400 c
+cheddar cheese, 9 200 c
+cheddar cheese, 12 300 c
+cheddar cheese, 16 400 c
+extra cheese, 9 200 c
+extra cheese, 12 300 c
+extra cheese, 16 400 c
+blue cheese, 9 200 c
+blue cheese, 12 300 c
+blue cheese, 16 400 c
+parmesan cheese, 9 200 c
+parmesan cheese, 12 300 c
+parmesan cheese, 16 400 c
+cherry tomatos, 9 150 v
+cherry tomatos, 12 250 v
+cherry tomatos, 16 350 v
+ananas, 9 150 v
+ananas, 12 250 v
+ananas, 16 350 v
+jalapenio, 9 150 v
+jalapenio, 12 250 v
+jalapenio, 16 350 v
+basilpesto, 9 150 v
+basilpesto, 12 250 v
+basilpesto, 16 350 v
+onion, 9 150 v
+onion, 12 250 v
+onion, 16 350 v
+mushroom, 9 150 v
+mushroom, 12 250 v
+mushroom, 16 350 v
+french fries, 9 150 v
+french fries, 12 250 v
+french fries, 16 350 v
+nachos, 9 0 s
+nachos, 12 0 s
+nachos, 16 0 s
+garlic, 9 0 s
+garlic, 12 0 s
+garlic, 16 0 s
+black pepper, 9 0 s
+black pepper, 12 0 s
+black pepper, 16 0 s
+chili flakes, 9 0 s
+chili flakes, 12 0 s
+chili flakes, 16 0 s
+garlic oil, 9 0 s
+garlic oil, 12 0 s
+garlic oil, 16 0 s
+

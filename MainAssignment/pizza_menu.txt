@@ -1,2 +1,27 @@
-Johnny, 1000 16
-Benni Special, 500 16
+garlic bread, 1000 9
+garlic bread, 1300 12
+garlic bread, 1800 16
+hawaii, 1200 9
+hawaii, 1500 12
+hawaii, 2000 16
+frakkachino, 1200 9
+frakkachino, 1500 12
+frakkachino, 2000 16
+italiano, 1250 9
+italiano, 1600 12
+italiano, 2100 16
+cheese party, 1300 9
+cheese party, 1700 12
+cheese party, 2200 16
+new york, 1300 9
+new york, 1700 12
+new york, 2200 16
+bahamas, 1400 9
+bahamas, 1800 12
+bahamas, 2300 16
+the burner, 1400 9
+the burner, 1800 12
+the burner, 2300 16
+johnny bravos, 1500 9
+johnny bravos, 2000 12
+johnny bravos, 2600 16
