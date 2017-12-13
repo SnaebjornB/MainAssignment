@@ -7,6 +7,7 @@
 #include <vector>
 #include "vectors.h"
 #include "sides.h"
+#include "menu_pizza.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class Admin_Service
         Admin_Service();
         void add_topping(Topping& topping);
         void add_sides(Sides& sides);
-        void add_pizza(Pizza& pizza);
+        void add_menu_pizza(Menu_Pizza& menu_pizza);
         void add_location(string location);
         Vectors read_types(Vectors& vectors, string type);
         void write_type(Vectors& vectors, string type);

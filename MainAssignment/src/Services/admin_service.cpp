@@ -36,12 +36,12 @@ void Admin_Service::add_sides(Sides& sides){
     //cout << car << endl;
 }
 
-void Admin_Service::add_pizza(Pizza& pizza){
+void Admin_Service::add_menu_pizza(Menu_Pizza& menu_pizza){
     ///Validate topping(input)
     //Blah blah blah
 
     ///Send topping to DAta access layer
-    admin_repo.write_pizza(pizza);
+    admin_repo.write_menu_pizza(menu_pizza);
     //cout << car << endl;
 }
 

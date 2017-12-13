@@ -7,6 +7,7 @@
 #include "vectors.h"
 #include "sides.h"
 #include "pizza.h"
+#include "menu_pizza.h"
 
 using namespace std;
 
@@ -31,7 +32,8 @@ class AdminUI
         void print_toppings();
         Sides create_sides();
         void print_sides();
-        Pizza create_pizza();
+        Menu_Pizza create_menu_pizza();
+        void print_pizza_menu();
 
     private:
         char input;

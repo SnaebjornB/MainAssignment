@@ -74,6 +74,14 @@ void Admin_Repo::put_back_type(Vectors& vectors, string type){
                 }
             }
         }
+        else if(type == "pizza_menu"){
+            if (vectors.pizza_menu_list.size() > 0){
+                for (unsigned int i = 0; i < vectors.pizza_menu_list.size(); i++){
+                    vectors.pizza_menu_list[i].set_helper(false);
+                    fout << vectors.pizza_menu_list[i];
+                }
+            }
+        }
     fout.close();
     }
     vectors.topping_list.clear();
@@ -131,13 +139,13 @@ void Admin_Repo::write_sides(Sides& sides){
     }
 }
 
-void Admin_Repo::write_pizza(Pizza& pizza){
-    pizza.set_helper(false);
+void Admin_Repo::write_menu_pizza(Menu_Pizza& menu_pizza){
+    menu_pizza.set_helper(false);
     ofstream fout;
-    fout.open("pizza.txt", ios::app);
+    fout.open("pizza_menu.txt", ios::app);
 
     if(fout.is_open()){
-        fout << pizza;
+        fout << menu_pizza;
         fout.close();
     }
     else{

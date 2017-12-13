@@ -207,14 +207,24 @@ void AdminUI::pizzamenu_menu(){
 
 void AdminUI::pizzamenu_input_checker(char input){
     if(input == '1'){
-        Pizza pizza = create_pizza();
-        admin_service.add_pizza(pizza);
-        pizza.set_helper(true);
-        cout << "You added " << pizza << " to the pizza menu." << endl;
+        Menu_Pizza menu_pizza = create_menu_pizza();
+        admin_service.add_menu_pizza(menu_pizza);
+        menu_pizza.set_helper(true);
+        cout << "You added " << menu_pizza << " to the pizza menu." << endl;
         pizzamenu_menu();
     }
     else if(input == '2'){
-        cout << "2" << endl;
+        string type = "pizza_menu";
+        print_pizza_menu();
+
+        cout << "Choose the pizza you want to change: ";
+        int choice;
+        cin >> choice;
+        cout << endl << "You selected:" << vectors.pizza_menu_list[choice-1] << endl
+             << "Recreate this pizza:" << endl;
+        vectors.pizza_menu_list[choice-1] = create_menu_pizza();
+        admin_service.write_type(vectors, type);
+        sides_menu();
     }
     else if(input == '3'){
         cout << "3" << endl;
@@ -281,9 +291,9 @@ void AdminUI::print_sides(){
     }
 }
 
-Pizza AdminUI::create_pizza(){
+Menu_Pizza AdminUI::create_menu_pizza(){
     string name;
-    int size, price, choice = 1;
+    int size, price;
 
     cout << "Name: ";
     cin.ignore();
@@ -295,22 +305,9 @@ Pizza AdminUI::create_pizza(){
     cout << "Price: ";
     cin >> price;
 
-    Pizza pizza(name, price, size);
+    Menu_Pizza menu_pizza(name, price, size);
 
-    print_toppings();
-
-    cout << "Pick the toppings you want to add to the pizza (type 0 to stop): " << endl;
-
-    while (true){
-        cin >> choice;
-        if(choice == 0){
-            break;
-        }
-        else{
-            pizza.pizza_toppings.push_back(vectors.topping_list[choice-1]);
-        }
-    }
-    return pizza;
+    return menu_pizza;
 }
 
 string AdminUI::create_location(){
@@ -321,4 +318,12 @@ string AdminUI::create_location(){
     getline (cin, location);
 
     return location;
+}
+
+void AdminUI::print_pizza_menu(){
+    string type = "pizza_menu";
+    admin_service.read_types(vectors, type);
+    for(unsigned int i = 0; i < vectors.pizza_menu_list.size(); i++){
+        cout << (i+1) << ". " << vectors.pizza_menu_list[i] << " ";
+    }
 }
