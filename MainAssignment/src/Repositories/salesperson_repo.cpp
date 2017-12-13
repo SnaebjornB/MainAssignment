@@ -44,7 +44,6 @@ void Salesperson_repo::get_base_price(Pizza& pizza){
     pizza.set_size_helper(false);
     if(fin.is_open()){
         fin >> pizza;
-        cout << pizza;
     }
     fin.close();
 }
