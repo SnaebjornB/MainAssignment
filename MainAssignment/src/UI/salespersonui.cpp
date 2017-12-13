@@ -7,7 +7,7 @@ SalespersonUI::SalespersonUI() {
 void SalespersonUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
-         << "1. Take down new order" << endl
+         << "1. Take down a new order" << endl
          << "2. Change/add to excisting order" << endl
          << "3. show price of order" << endl
          << "4. View pizza menu" << endl
@@ -74,7 +74,7 @@ void SalespersonUI::change_order_menu() {
          << "3. Remove pizza" << endl
          << "Enter b to go back" << endl << endl
          << "Please insert the corresponding number: ";
-    cin >> input;    
+    cin >> input;
     change_order_input_checker(input);
 }
 
@@ -110,17 +110,24 @@ void SalespersonUI::add_pizza_menu() {
 
 void SalespersonUI::add_pizza_input_checkout(char input) {
     if(input == '1') {
-        cout << "1. Add a pizza from menu" << endl;                             ///vantar
+        string type = "pizza_menu";
+        Vectors vectors;
+        int choice;
+        cout << "Choose the pizza you want to add to the order:" << endl;
+        print_pizza_menu(vectors, type);
+        cin >> choice;
+        orders.menuPizzas_ordered.push_back(vectors.pizza_menu_list[choice - 1]);
+        add_pizza_menu();
     }
     else if (input == '2') {
-        add_pizzasize_menu();                             
+        add_pizzasize_menu();
     }
     else if (input == 'b' || input == 'B') {
         make_new_order_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
-        add_pizza_menu(); 
+        add_pizza_menu();
     }
 }
 
@@ -165,13 +172,42 @@ void SalespersonUI::add_pizzasize_menu() {
 
 void SalespersonUI::add_pizzasize_input_checkout(char input) {
     if(input == '1' || input == '2' || input == '3') {
+        string type = "margaritaPrice";
+        int choice;
+        salesperson_service.get_base_price(pizza);
         pizza.margaritaprice(input);
+        cout << "Select toppings (0 to stop): ";
+        print_toppings(vectors, type);
+        while (choice != 0){
+            cin >> choice;
+            pizza.pizza_toppings.push_back(vectors.topping_list[choice - 1]);
+        }
+
+
     }
-    else if (input == 'b' || input == 'B') {                                    ///vanta 
+    else if (input == 'b' || input == 'B') {                                    ///vanta
         add_pizza_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
         add_pizzasize_menu();
     }
+}
+
+Vectors SalespersonUI::print_pizza_menu(Vectors& vectors, string type){
+    salesperson_service.read_types(vectors, type);
+    for(unsigned int i = 0; i < vectors.pizza_menu_list.size(); i++){
+        cout << (i+1) << ". " << vectors.pizza_menu_list[i] << endl;
+    }
+
+    return vectors;
+}
+
+Vectors SalespersonUI::print_toppings(Vectors& vectors, string type){
+    salesperson_service.read_types(vectors, type);
+    for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
+        cout << (i+1) << ". " << vectors.topping_list[i] << endl;
+    }
+
+    return vectors;
 }

@@ -1,16 +1,24 @@
 #ifndef SALESPERSON_SERVICE_H
 #define SALESPERSON_SERVICE_H
 
+#include <vector>
+#include <iostream>
+#include "vectors.h"
+#include "salesperson_repo.h"
+#include "pizza.h"
+
+using namespace std;
 
 class Salesperson_service
 {
     public:
         Salesperson_service();
-        virtual ~Salesperson_service();
-
-    protected:
+        Vectors read_types(Vectors& vectors, string type);
+        void get_base_price(Pizza& pizza);
 
     private:
+        Salesperson_repo salesperson_repo;
+        Pizza pizza;
 };
 
 #endif // SALESPERSON_SERVICE_H

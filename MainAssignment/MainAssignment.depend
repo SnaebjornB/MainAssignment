@@ -64,10 +64,10 @@
 	<iostream>
 	"mainui.h"
 
-1513166463 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\pizza.cpp
+1513190162 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\pizza.cpp
 	"pizza.h"
 
-1513101327 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\sides.cpp
+1513173855 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\sides.cpp
 	"sides.h"
 
 1512997809 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\soda.cpp
@@ -76,13 +76,13 @@
 1513095883 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\topping.cpp
 	"topping.h"
 
-1513167045 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\repositories\admin_repo.cpp
+1513180064 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\repositories\admin_repo.cpp
 	"admin_repo.h"
 
-1513164081 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\admin_service.cpp
+1513180064 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\admin_service.cpp
 	"admin_service.h"
 
-1513167204 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\adminui.cpp
+1513186454 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\adminui.cpp
 	"adminui.h"
 
 1513159685 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\mainui.cpp
@@ -110,16 +110,22 @@
 1513159685 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\bakerui.h
 	<iostream>
 
-1513166335 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\salespersonui.h
+1513190243 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\salespersonui.h
 	<iostream>
+	"pizza.h"
+	"orders.h"
+	"sides.h"
+	"menu_pizza.h"
+	"salesperson_service.h"
+	"vectors.h"
 
-1513166335 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\salespersonui.cpp
+1513190275 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\salespersonui.cpp
 	"salespersonui.h"
 
 1513159685 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\ui\deliveryui.h
 	<iostream>
 
-1513159685 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\deliveryui.cpp
+1513182649 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\ui\deliveryui.cpp
 	"deliveryui.h"
 
 1513107766 source:c:\users\benediktrúnar\desktop\pizzaverk\mainassignment\mainassignment\main.cpp
@@ -203,7 +209,7 @@
 	"sides.h"
 	"menu_pizza.h"
 
-1513166335 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\pizza.h
+1513190162 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\pizza.h
 	<iostream>
 	<string>
 	<vector>
@@ -289,7 +295,7 @@
 1513166755 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\menu_pizza.cpp
 	"menu_pizza.h"
 
-1513167045 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\repositories\admin_repo.h
+1513180064 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\repositories\admin_repo.h
 	<vector>
 	<iostream>
 	"topping.h"
@@ -299,7 +305,7 @@
 	"pizza.h"
 	"menu_pizza.h"
 
-1513164118 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\services\admin_service.h
+1513180064 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\services\admin_service.h
 	"topping.h"
 	<iostream>
 	"admin_repo.h"
@@ -307,6 +313,8 @@
 	"vectors.h"
 	"sides.h"
 	"menu_pizza.h"
+	"pizza.h"
+	"admin_service.h"
 
 1513030145 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\repositories\toppingrepository.h
 	"topping.h"
@@ -326,10 +334,18 @@
 
 1513165801 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\repositories\delivery_repo.h
 
-1513165632 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\repositories\salesperson_repo.cpp
+1513188928 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\repositories\salesperson_repo.cpp
 	"salesperson_repo.h"
 
-1513165631 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\repositories\salesperson_repo.h
+1513188999 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\repositories\salesperson_repo.h
+	<fstream>
+	<vector>
+	<iostream>
+	"sides.h"
+	"menu_pizza.h"
+	"topping.h"
+	"vectors.h"
+	"pizza.h"
 
 1513165663 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\baker_service.cpp
 	"baker_service.h"
@@ -341,8 +357,24 @@
 
 1513165767 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\services\delivery_service.h
 
-1513165592 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\salesperson_service.cpp
+1513187532 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\services\salesperson_service.cpp
 	"salesperson_service.h"
 
-1513165592 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\services\salesperson_service.h
+1513188999 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\services\salesperson_service.h
+	<vector>
+	<iostream>
+	"vectors.h"
+	"salesperson_repo.h"
+	"pizza.h"
+
+1513182380 source:c:\users\snæbjörn\documents\github\mainassignment\mainassignment\src\model\orders.cpp
+	"orders.h"
+
+1513177840 c:\users\snæbjörn\documents\github\mainassignment\mainassignment\include\model\orders.h
+	<iostream>
+	<vector>
+	<string>
+	"sides.h"
+	"menu_pizza.h"
+	"pizza.h"
 

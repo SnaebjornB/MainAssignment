@@ -16,6 +16,8 @@
 					<Add directory="include/UI" />
 					<Add directory="include/Models" />
 					<Add directory="include/Model" />
+					<Add directory="include/Services" />
+					<Add directory="include/Repositories" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -28,6 +30,8 @@
 					<Add directory="include/UI" />
 					<Add directory="include/Models" />
 					<Add directory="include/Model" />
+					<Add directory="include/Services" />
+					<Add directory="include/Repositories" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -38,6 +42,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Model/menu_pizza.h" />
+		<Unit filename="include/Model/orders.h" />
 		<Unit filename="include/Model/pizza.h" />
 		<Unit filename="include/Model/sides.h" />
 		<Unit filename="include/Model/soda.h" />
@@ -45,7 +51,13 @@
 		<Unit filename="include/Model/vectors.h" />
 		<Unit filename="include/Repositories/ToppingRepository.h" />
 		<Unit filename="include/Repositories/admin_repo.h" />
+		<Unit filename="include/Repositories/baker_repo.h" />
+		<Unit filename="include/Repositories/delivery_repo.h" />
+		<Unit filename="include/Repositories/salesperson_repo.h" />
 		<Unit filename="include/Services/admin_service.h" />
+		<Unit filename="include/Services/baker_service.h" />
+		<Unit filename="include/Services/delivery_service.h" />
+		<Unit filename="include/Services/salesperson_service.h" />
 		<Unit filename="include/Services/topping_service.h" />
 		<Unit filename="include/UI/adminui.h" />
 		<Unit filename="include/UI/bakerui.h" />
@@ -53,6 +65,8 @@
 		<Unit filename="include/UI/mainui.h" />
 		<Unit filename="include/UI/salespersonui.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Model/menu_pizza.cpp" />
+		<Unit filename="src/Model/orders.cpp" />
 		<Unit filename="src/Model/pizza.cpp" />
 		<Unit filename="src/Model/sides.cpp" />
 		<Unit filename="src/Model/soda.cpp" />
@@ -60,7 +74,13 @@
 		<Unit filename="src/Model/vectors.cpp" />
 		<Unit filename="src/Repositories/ToppingRepository.cpp" />
 		<Unit filename="src/Repositories/admin_repo.cpp" />
+		<Unit filename="src/Repositories/baker_repo.cpp" />
+		<Unit filename="src/Repositories/delivery_repo.cpp" />
+		<Unit filename="src/Repositories/salesperson_repo.cpp" />
 		<Unit filename="src/Services/admin_service.cpp" />
+		<Unit filename="src/Services/baker_service.cpp" />
+		<Unit filename="src/Services/delivery_service.cpp" />
+		<Unit filename="src/Services/salesperson_service.cpp" />
 		<Unit filename="src/Services/topping_service.cpp" />
 		<Unit filename="src/UI/adminui.cpp" />
 		<Unit filename="src/UI/bakerui.cpp" />

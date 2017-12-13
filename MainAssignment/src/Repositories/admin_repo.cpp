@@ -97,13 +97,13 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
     string txt = ".txt";
     string filename = type;
     filename.append(txt);
-    
+
     ofstream fout;
     fout.open((filename).c_str(), ios::trunc);
     fout.close();
-    
+
     fout.open((filename).c_str(), ios::app);
-    
+
     if(fout.is_open()){
         if(type == "topping"){
             if (vectors.topping_list.size() > 0){
@@ -187,7 +187,7 @@ void Admin_Repo::write_location(string location){
 void Admin_Repo::write_price_margarita(Pizza& pizza) {
     ofstream fout;
     fout.open("margaritaPrice.txt");
-    pizza.set_margarita_price(false);
+    pizza.set_size_helper(false);
     if(fout.is_open()) {
         fout << pizza;
         fout.close();
