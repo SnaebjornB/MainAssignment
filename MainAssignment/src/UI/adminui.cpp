@@ -39,9 +39,10 @@ void AdminUI::main_input_checker(char input){
 void AdminUI::topping_menu(){
     cout << "------------------------" << endl
          << "1. Add topping" << endl
-         << "2. Edit current toppings" << endl
-         << "3. Remove a topping" << endl
-         << "4. Change price of topping category" << endl
+         << "2. Print all toppings" << endl
+         << "3. Edit current toppings" << endl
+         << "4. Remove a topping" << endl
+         << "5. Change price of topping category" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
          cin >> input;
@@ -56,7 +57,10 @@ void AdminUI::topping_input_checker(char input){
              << " to the list of toppings." << endl;
         topping_menu();
     }
-    else if(input == '2'){
+    if(input == '2') {
+        print_toppings();
+    }
+    else if(input == '3'){
         string type = "topping";
         print_toppings();
 
@@ -69,7 +73,7 @@ void AdminUI::topping_input_checker(char input){
         admin_service.write_type(vectors, type);
         topping_menu();
     }
-    else if(input == '3'){
+    else if(input == '4'){
         string type = "topping";
         print_toppings();
 
@@ -80,7 +84,7 @@ void AdminUI::topping_input_checker(char input){
         admin_service.erase_type(vectors, num_of_line, type);
         topping_menu();
     }
-    else if(input == '4'){
+    else if(input == '5'){
         int price;
         string type = "topping";
         admin_service.read_types(vectors, type);
@@ -112,8 +116,9 @@ void AdminUI::topping_input_checker(char input){
 void AdminUI::sides_menu(){
     cout << "------------------------" << endl
          << "1. Add a side-dish" << endl
-         << "2. Edit current sides" << endl
-         << "3. Remove a side" << endl
+         << "2. Print all sides" << endl
+         << "3. Edit current sides" << endl
+         << "4. Remove a side" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
          cin >> input;
@@ -128,7 +133,10 @@ void AdminUI::sides_input_checker(char input){
         cout << "You added " << sides << " to the list of side dishes." << endl;
         sides_menu();
     }
-    else if(input == '2'){
+    else if(input == '2') {
+        print_sides();
+    }
+    else if(input == '3'){
         string type = "sides";
         print_sides();
 
@@ -141,7 +149,7 @@ void AdminUI::sides_input_checker(char input){
         admin_service.write_type(vectors, type);
         sides_menu();
     }
-    else if(input == '3'){
+    else if(input == '4'){
         string type = "sides";
         print_sides();
 
@@ -197,10 +205,11 @@ void AdminUI::location_input_checker(char input){
 void AdminUI::pizzamenu_menu(){
     cout << "------------------------" << endl
          << "1. Add a pizza recipe" << endl
-         << "2. Edit a pizza" << endl
-         << "3. Remove a pizza recipe" << endl
-         << "4. Change price of pizza size" << endl
-         << "5. View the pizza menu" << endl
+         << "2. Print pizza menu" << endl
+         << "3. Edit a pizza" << endl
+         << "4. Remove a pizza recipe" << endl
+         << "5. Change price of pizza size" << endl
+         << "6. View the pizza menu" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
          cin >> input;
@@ -215,7 +224,10 @@ void AdminUI::pizzamenu_input_checker(char input){
         cout << "You added " << menu_pizza << " to the pizza menu." << endl;
         pizzamenu_menu();
     }
-    else if(input == '2'){
+    else if(input == '2') {
+        print_pizza_menu();
+    }
+    else if(input == '3'){
         string type = "pizza_menu";
         print_pizza_menu();
 
@@ -228,7 +240,7 @@ void AdminUI::pizzamenu_input_checker(char input){
         admin_service.write_type(vectors, type);
         pizzamenu_menu();
     }
-    else if(input == '3'){
+    else if(input == '4'){
         string type = "pizza_menu";
         print_pizza_menu();
 
@@ -239,7 +251,7 @@ void AdminUI::pizzamenu_input_checker(char input){
         admin_service.erase_type(vectors, num_of_line, type);
         pizzamenu_menu();
     }
-    else if(input == '4') {
+    else if(input == '5') {
         cout << "price of 9\" is: ";
         int inches9 = 0;
         cin >> inches9;
@@ -255,7 +267,7 @@ void AdminUI::pizzamenu_input_checker(char input){
         
         admin_service.add_margarita_price(pizza);
     }
-    else if(input == '5') {
+    else if(input == '6') {
         cout << "5. View the pizza menu" << endl;                               //vantar
     }
     else if(input == 'b' || input == 'B'){
@@ -294,7 +306,7 @@ void AdminUI::print_toppings(){
     string type = "topping";
     admin_service.read_types(vectors, type);
     for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
-        cout << (i+1) << ". " << vectors.topping_list[i] << " ";
+        cout << (i+1) << ". " << vectors.topping_list[i];
     }
 }
 
@@ -316,7 +328,7 @@ void AdminUI::print_sides(){
     string type = "sides";
     admin_service.read_types(vectors, type);
     for(unsigned int i = 0; i < vectors.sides_list.size(); i++){
-        cout << (i+1) << ". " << vectors.sides_list[i] << " ";
+        cout << (i+1) << ". " << vectors.sides_list[i];
     }
 }
 
@@ -356,3 +368,4 @@ void AdminUI::print_pizza_menu(){
         cout << (i+1) << ". " << vectors.pizza_menu_list[i];
     }
 }
+
