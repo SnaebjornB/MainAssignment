@@ -52,3 +52,7 @@ void Admin_Service::add_location(string location){
     ///Send topping to data access layer
     admin_repo.write_location(location);
 }
+
+void Admin_Service::add_margarita_price(Pizza& pizza) {
+    admin_repo.write_price_margarita(pizza);
+}

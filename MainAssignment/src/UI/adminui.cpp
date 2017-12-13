@@ -199,6 +199,8 @@ void AdminUI::pizzamenu_menu(){
          << "1. Add a pizza recipe" << endl
          << "2. Edit a pizza" << endl
          << "3. Remove a pizza recipe" << endl
+         << "4. Change price of pizza size" << endl
+         << "5. View the pizza menu" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
          cin >> input;
@@ -236,6 +238,25 @@ void AdminUI::pizzamenu_input_checker(char input){
 
         admin_service.erase_type(vectors, num_of_line, type);
         pizzamenu_menu();
+    }
+    else if(input == '4') {
+        cout << "price of 9\" is: ";
+        int inches9 = 0;
+        cin >> inches9;
+        pizza.set_inches9(inches9);
+        cout << "price of 12\" is: ";
+        int inches12 = 0;
+        cin >> inches12;
+        pizza.set_inches12(inches12);
+        cout << "price of 16\" is: ";
+        int inches16 = 0;
+        cin >> inches16;
+        pizza.set_inches16(inches16);
+        
+        admin_service.add_margarita_price(pizza);
+    }
+    else if(input == '5') {
+        cout << "5. View the pizza menu" << endl;                               //vantar
     }
     else if(input == 'b' || input == 'B'){
         main_menu();

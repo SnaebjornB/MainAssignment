@@ -6,7 +6,7 @@
 #include <vector>
 #include "topping.h"
 #include <fstream>
-
+#include "salesperson_service.h"
 using namespace std;
 
 class Pizza
@@ -28,6 +28,9 @@ public:
     void set_size_helper(bool size_helper);
     void set_margarita_price(bool margarita_price);
     void set_total_price(bool margarita_price);
+    void set_inches9(int inches9);
+    void set_inches12(int inches12);
+    void set_inches16(int inches16);
 private:
     string name;
     int price;

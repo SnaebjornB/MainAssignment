@@ -10,7 +10,8 @@ void SalespersonUI::main_menu(){
          << "1. Take down new order" << endl
          << "2. Change/add to excisting order" << endl
          << "3. show price of order" << endl
-         << "4. Check order to paid" << endl << endl
+         << "4. View pizza menu" << endl
+         << "5. Check order to paid" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -27,7 +28,10 @@ void SalespersonUI::main_input_checker(char input){
         cout << "3. show price of order" << endl;                               ///vantar
     }
     else if(input == '4'){
-        cout << "4. Check order to paid" << endl;                               ///vantar
+        cout << "4. View pizza menu" << endl;                                   ///vantar
+    }
+    else if(input == '5'){
+        cout << "5. Check order to paid" << endl;                               ///vantar
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
@@ -163,7 +167,7 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
     if(input == '1' || input == '2' || input == '3') {
         pizza.margaritaprice(input);
     }
-    else if (input == 'b' || input == 'B') {
+    else if (input == 'b' || input == 'B') {                                    ///vanta 
         add_pizza_menu();
     }
     else{

@@ -6,9 +6,6 @@ class Salesperson_repo
 {
     public:
         Salesperson_repo();
-        virtual ~Salesperson_repo();
-
-    protected:
 
     private:
 };

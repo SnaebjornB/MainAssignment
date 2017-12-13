@@ -14,23 +14,25 @@ using namespace std;
 
 class Admin_Repo
 {
-    public:
-        Admin_Repo();
-        void write_topping(Topping topping);
-        void write_sides(Sides& sides);
-        void write_menu_pizza(Menu_Pizza& menu_pizza);
-        void write_location(string location);
-        Vectors read_type(Vectors& vectors, string type);
-        void put_back_type(Vectors& vectors, string type);
-        void erase_type(Vectors& vectors, unsigned int num_of_line, string type);
-
-
-
-    private:
-        Topping topping;
-        Sides sides;
-        Menu_Pizza menu_pizza;
-
+public:
+    Admin_Repo();
+    void write_topping(Topping topping);
+    void write_sides(Sides& sides);
+    void write_menu_pizza(Menu_Pizza& menu_pizza);
+    void write_location(string location);
+    Vectors read_type(Vectors& vectors, string type);
+    void put_back_type(Vectors& vectors, string type);
+    void erase_type(Vectors& vectors, unsigned int num_of_line, string type);
+    void write_price_margarita(Pizza& pizza);
+    
+private:
+    
+    Topping topping;
+    Sides sides;
+    Menu_Pizza menu_pizza;
+    Pizza pizza;
+    
+    
 };
 
 #endif // ADMIN_REPO_H

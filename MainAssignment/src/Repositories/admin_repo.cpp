@@ -97,20 +97,20 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
     string txt = ".txt";
     string filename = type;
     filename.append(txt);
-
+    
     ofstream fout;
     fout.open((filename).c_str(), ios::trunc);
     fout.close();
-
+    
     fout.open((filename).c_str(), ios::app);
-
+    
     if(fout.is_open()){
         if(type == "topping"){
             if (vectors.topping_list.size() > 0){
                 for (unsigned int i = 0; i < vectors.topping_list.size(); i++){
                     vectors.topping_list[i].set_helper(false);
                     if(i != (num_of_line - 1) ){
-                    fout << vectors.topping_list[i];
+                        fout << vectors.topping_list[i];
                     }
                 }
             }
@@ -121,7 +121,7 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
                 for (unsigned int i = 0; i < vectors.sides_list.size(); i++){
                     vectors.sides_list[i].set_helper(false);
                     if(i != (num_of_line - 1) ){
-                    fout << vectors.sides_list[i];
+                        fout << vectors.sides_list[i];
                     }
                 }
             }
@@ -132,13 +132,13 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
                 for (unsigned int i = 0; i < vectors.pizza_menu_list.size(); i++){
                     vectors.pizza_menu_list[i].set_helper(false);
                     if(i != (num_of_line - 1) ){
-                    fout << vectors.pizza_menu_list[i];
+                        fout << vectors.pizza_menu_list[i];
                     }
                 }
             }
             vectors.pizza_menu_list.clear();
         }
-    fout.close();
+        fout.close();
     }
 }
 
@@ -181,5 +181,18 @@ void Admin_Repo::write_location(string location){
     }
     else{
         ///Throw error
+    }
+}
+
+void Admin_Repo::write_price_margarita(Pizza& pizza) {
+    ofstream fout;
+    fout.open("margaritaPrice.txt");
+    pizza.set_margarita_price(false);
+    if(fout.is_open()) {
+        fout << pizza;
+        fout.close();
+    }
+    else{
+        //throw error
     }
 }

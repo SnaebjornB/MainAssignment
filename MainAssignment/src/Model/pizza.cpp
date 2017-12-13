@@ -34,6 +34,16 @@ int Pizza::get_size(){
     return this->size;
 }
 
+void Pizza::set_inches9(int inches9){
+    this -> inches9 = inches9;
+}
+void Pizza::set_inches12(int inches12){
+    this -> inches12 = inches12;
+}
+void Pizza::set_inches16(int inches16) {
+    this -> inches16 = inches16;
+}
+
 void Pizza::set_helper(bool status){
     this->pizza_helper = status;
 }
@@ -79,6 +89,7 @@ istream& operator >> (istream& in, Pizza& pizza){
 }
 
 void Pizza::margaritaprice(int size_margarita) {
+    
     if (size_margarita == 1) {
         price = inches9;
     }
@@ -93,6 +104,10 @@ void Pizza::margaritaprice(int size_margarita) {
 
 void Pizza::set_size_helper(bool size_helper) {
     this->size_helper = size_helper;
+}
+
+void Pizza::set_margarita_price(bool margarita_price) {
+    this->margarita_price = margarita_price;
 }
 
 
