@@ -122,8 +122,8 @@ void Orders::set_helper(bool status){
 ostream& operator << (ostream& out, Orders& orders){
     if(orders.orders_helper){
         out << "----------------------------------------------" << endl << endl
-            << "Sími: " << orders.phone_number
-            << "Nafn: " << orders.name << endl
+            << "Phone number: " << orders.phone_number
+            << "Name: " << orders.name << endl
             << orders.name_of_place << endl
             << orders.comment << endl;
         for(unsigned int i = 0; i < orders.menuPizzas_ordered.size(); i++){

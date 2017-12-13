@@ -14,12 +14,12 @@ void DeliveryUI::location() {
 void DeliveryUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
-         << "1. Get list of all orders" << endl
-         << "2. Get list of ready orders" << endl
-         << "3. get specific order" << endl
+         << "1. Get a list of all orders" << endl
+         << "2. Get a list of ready orders" << endl
+         << "3. Get a specific order" << endl
          << "4. Check order to paid" << endl
          << "5. Check order to done" << endl
-         << "c. change location " << endl << endl
+         << "c. Change location " << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
