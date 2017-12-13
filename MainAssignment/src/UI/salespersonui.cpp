@@ -172,18 +172,22 @@ void SalespersonUI::add_pizzasize_menu() {
 
 void SalespersonUI::add_pizzasize_input_checkout(char input) {
     if(input == '1' || input == '2' || input == '3') {
-        string type = "margaritaPrice";
+        string type = "topping";
         int choice;
         salesperson_service.get_base_price(pizza);
         pizza.margaritaprice(input);
         cout << "Select toppings (0 to stop): ";
         print_toppings(vectors, type);
-        while (choice != 0){
+        while (true){
             cin >> choice;
+                if (choice == 0){
+                    break;
+                }
             pizza.pizza_toppings.push_back(vectors.topping_list[choice - 1]);
         }
 
-
+        orders.otherPizzas_ordered.push_back(pizza);
+        add_to_excisting_order_menu();
     }
     else if (input == 'b' || input == 'B') {                                    ///vanta
         add_pizza_menu();

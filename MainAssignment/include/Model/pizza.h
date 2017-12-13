@@ -24,7 +24,7 @@ public:
     void set_helper(bool status);
     friend ostream& operator << (ostream& out, Pizza& pizza);
     friend istream& operator >> (istream& in, Pizza& pizza);
-    void margaritaprice(int size_margarita);
+    void margaritaprice(char size_margarita);
     void set_size_helper(bool size_helper);
     void set_margarita_price(bool margarita_price);
     void set_total_price();

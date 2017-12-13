@@ -85,18 +85,17 @@ istream& operator >> (istream& in, Pizza& pizza){
     return in;
 }
 
-void Pizza::margaritaprice(int size_margarita) {
+void Pizza::margaritaprice(char size_margarita) {
     price = 0;
-    if (size_margarita == 1) {
+    if (size_margarita == '1') {
         price = inches9;
     }
-    else if (size_margarita == 2) {
+    else if (size_margarita == '2') {
         price = inches12;
     }
-    else if (size_margarita == 3) {
+    else if (size_margarita == '3') {
         price = inches16;
     }
-    cout << price << endl;
 }
 
 void Pizza::set_size_helper(bool size_helper) {
