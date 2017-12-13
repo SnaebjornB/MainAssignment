@@ -224,10 +224,18 @@ void AdminUI::pizzamenu_input_checker(char input){
              << "Recreate this pizza:" << endl;
         vectors.pizza_menu_list[choice-1] = create_menu_pizza();
         admin_service.write_type(vectors, type);
-        sides_menu();
+        pizzamenu_menu();
     }
     else if(input == '3'){
-        cout << "3" << endl;
+        string type = "pizza_menu";
+        print_pizza_menu();
+
+        cout << "Choose the pizza you want to remove: ";
+        unsigned int num_of_line;
+        cin >> num_of_line;
+
+        admin_service.erase_type(vectors, num_of_line, type);
+        pizzamenu_menu();
     }
     else if(input == 'b' || input == 'B'){
         main_menu();
@@ -324,6 +332,6 @@ void AdminUI::print_pizza_menu(){
     string type = "pizza_menu";
     admin_service.read_types(vectors, type);
     for(unsigned int i = 0; i < vectors.pizza_menu_list.size(); i++){
-        cout << (i+1) << ". " << vectors.pizza_menu_list[i] << " ";
+        cout << (i+1) << ". " << vectors.pizza_menu_list[i];
     }
 }

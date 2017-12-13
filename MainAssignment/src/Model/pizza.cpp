@@ -39,7 +39,7 @@ void Pizza::set_helper(bool status){
 }
 
 ostream& operator << (ostream& out, Pizza& pizza){
-   
+
     if (pizza.margarita_price) {
         if(pizza.pizza_helper){
             out << pizza.size << "\" " << "Pizza with:" << endl;
@@ -54,7 +54,7 @@ ostream& operator << (ostream& out, Pizza& pizza){
             }
             out << endl;
         }
-    } 
+    }
     else {
         out << pizza.inches9 << " " << pizza.inches12 << " " << pizza.inches16;
     }
@@ -62,8 +62,8 @@ ostream& operator << (ostream& out, Pizza& pizza){
 }
 
 istream& operator >> (istream& in, Pizza& pizza){
-    
-    
+
+
     if(pizza.size_helper) {
         getline(in, pizza.name, ',') >> pizza.price >> pizza.size;
         for (int i = 0;  in >> pizza.topping_name[i]; i++){
@@ -89,7 +89,7 @@ int Pizza::total_price(int size_margarita) {
     else if (size_margarita == 3) {
         totalprice = inches16;
     }
-    for ( int i = 0 ; i < pizza_toppings.size() ; i++ ) {
+    for (unsigned int i = 0 ; i < pizza_toppings.size() ; i++ ) {
         totalprice += pizza_toppings[i].get_price();
     }
     return totalprice;

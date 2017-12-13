@@ -29,6 +29,7 @@ class Admin_Repo
     private:
         Topping topping;
         Sides sides;
+        Menu_Pizza menu_pizza;
 
 };
 

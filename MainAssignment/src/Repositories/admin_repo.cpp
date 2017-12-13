@@ -41,6 +41,12 @@ Vectors Admin_Repo::read_type(Vectors& vectors, string type){
                 vectors.sides_list.push_back(sides);
             }
         }
+        else if(type == "pizza_menu"){
+            vectors.pizza_menu_list.clear();
+            while(fin >> menu_pizza){
+                vectors.pizza_menu_list.push_back(menu_pizza);
+            }
+        }
         fin.close();
     }
 
@@ -120,6 +126,17 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
                 }
             }
             vectors.sides_list.clear();
+        }
+        else if(type == "pizza_menu"){
+            if (vectors.pizza_menu_list.size() > 0){
+                for (unsigned int i = 0; i < vectors.pizza_menu_list.size(); i++){
+                    vectors.pizza_menu_list[i].set_helper(false);
+                    if(i != (num_of_line - 1) ){
+                    fout << vectors.pizza_menu_list[i];
+                    }
+                }
+            }
+            vectors.pizza_menu_list.clear();
         }
     fout.close();
     }

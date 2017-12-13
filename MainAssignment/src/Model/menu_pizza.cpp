@@ -7,6 +7,7 @@ Menu_Pizza::Menu_Pizza(){
 Menu_Pizza::Menu_Pizza(string name, int price, int size){
     this->name = name;
     this->price = price;
+    this->size = size;
 }
 
 void Menu_Pizza::set_helper(bool status){
@@ -39,16 +40,16 @@ void Menu_Pizza::set_size(int size){
 
 ostream& operator << (ostream& out, Menu_Pizza& menu_pizza){
     if (menu_pizza.menu_pizza_helper){
-        out << menu_pizza.name;
+        out << menu_pizza.size << "\" " << menu_pizza.name;
     }
     else{
-        out << menu_pizza.name << ", " << menu_pizza.price << endl;
+        out << menu_pizza.name << ", " << menu_pizza.price << " " << menu_pizza.size << endl;
     }
     return out;
 }
 
 istream& operator >> (istream& in, Menu_Pizza& menu_pizza){
-    getline(in, menu_pizza.name, ',') >> menu_pizza.price;
+    getline(in, menu_pizza.name, ',') >> menu_pizza.price >> menu_pizza.size;
     in.ignore();
 
     return in;
