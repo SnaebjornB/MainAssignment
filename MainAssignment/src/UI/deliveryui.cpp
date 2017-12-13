@@ -27,7 +27,7 @@ void DeliveryUI::main_menu(){
 
 void DeliveryUI::main_input_checker(char input){
     if(input == '1'){
-        MainUI::main_menu();                            ///vantar
+        cout << "1. Get list of all orders" << endl;                            ///vantar
     }
     else if(input == '2'){
         cout << "2. Get list of ready orders" << endl;                          ///vantar
