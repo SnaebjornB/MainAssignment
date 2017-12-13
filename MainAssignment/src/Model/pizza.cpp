@@ -39,28 +39,68 @@ void Pizza::set_helper(bool status){
 }
 
 ostream& operator << (ostream& out, Pizza& pizza){
-    if(pizza.pizza_helper){
-        out << pizza.size << "\" " << "Pizza with:" << endl;
-        for(unsigned int i = 0; i < pizza.pizza_toppings.size(); i++){
-            out << pizza.pizza_toppings[i].get_name() << endl;
+   
+    if (pizza.margarita_price) {
+        if(pizza.pizza_helper){
+            out << pizza.size << "\" " << "Pizza with:" << endl;
+            for(unsigned int i = 0; i < pizza.pizza_toppings.size(); i++){
+                out << pizza.pizza_toppings[i].get_name() << endl;
+            }
         }
-    }
-    else{
-        out << pizza.name << ", " << pizza.price << " " << pizza.size << " ";
-        for(unsigned int i = 0; i < pizza.pizza_toppings.size(); i++){
-            out << pizza.pizza_toppings[i].get_name() << " ";
+        else{
+            out << pizza.name << ", " << pizza.price << " " << pizza.size << " ";
+            for(unsigned int i = 0; i < pizza.pizza_toppings.size(); i++){
+                out << pizza.pizza_toppings[i].get_name() << " ";
+            }
+            out << endl;
         }
-        out << endl;
+    } 
+    else {
+        out << pizza.inches9 << " " << pizza.inches12 << " " << pizza.inches16;
     }
     return out;
 }
 
 istream& operator >> (istream& in, Pizza& pizza){
-    getline(in, pizza.name, ',') >> pizza.price >> pizza.size;
-    for (int i = 0; !'\n'; i++){
-        in >> pizza.topping_name;
-        pizza.pizza_toppings[i].set_name(pizza.topping_name);
+    
+    
+    if(pizza.size_helper) {
+        getline(in, pizza.name, ',') >> pizza.price >> pizza.size;
+        for (int i = 0;  in >> pizza.topping_name[i]; i++){
+            in >> pizza.topping_name;
+            pizza.pizza_toppings[i].set_name(pizza.topping_name);
+        }
+        in.ignore();
     }
-    in.ignore();
+    else {
+        in >> pizza.inches9 >> pizza.inches12 >> pizza.inches16;
+    }
     return in;
 }
+
+int Pizza::total_price(int size_margarita) {
+    int totalprice = 0;
+    if (size_margarita == 1) {
+        totalprice = inches9;
+    }
+    else if (size_margarita == 2) {
+        totalprice = inches12;
+    }
+    else if (size_margarita == 3) {
+        totalprice = inches16;
+    }
+    for ( int i = 0 ; i < pizza_toppings.size() ; i++ ) {
+        totalprice += pizza_toppings[i].get_price();
+    }
+    return totalprice;
+}
+
+void Pizza::set_size_helper(bool size_helper) {
+    this->size_helper = size_helper;
+}
+
+void Pizza::set_margarita_price(bool margarita_price) {
+    this ->margarita_price = margarita_price;
+}
+
+

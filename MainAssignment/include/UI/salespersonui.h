@@ -28,6 +28,9 @@ public:
     void add_to_excisting_order_menu();
     void add_to_excisting_order_input_checkout(char input);
     
+    void add_pizzasize_menu();
+    void add_pizzasize_input_checkout(char input);
+    
 private:
     char input;
 };
