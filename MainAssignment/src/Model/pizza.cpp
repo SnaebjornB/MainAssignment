@@ -78,29 +78,22 @@ istream& operator >> (istream& in, Pizza& pizza){
     return in;
 }
 
-int Pizza::total_price(int size_margarita) {
-    int totalprice = 0;
+void Pizza::margaritaprice(int size_margarita) {
     if (size_margarita == 1) {
-        totalprice = inches9;
+        price = inches9;
     }
     else if (size_margarita == 2) {
-        totalprice = inches12;
+        price = inches12;
     }
     else if (size_margarita == 3) {
-        totalprice = inches16;
+        price = inches16;
     }
-    for (unsigned int i = 0 ; i < pizza_toppings.size() ; i++ ) {
-        totalprice += pizza_toppings[i].get_price();
-    }
-    return totalprice;
+    cout << price << endl;
 }
 
 void Pizza::set_size_helper(bool size_helper) {
     this->size_helper = size_helper;
 }
 
-void Pizza::set_margarita_price(bool margarita_price) {
-    this ->margarita_price = margarita_price;
-}
 
 

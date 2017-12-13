@@ -2,6 +2,7 @@
 #define SALESPERSONUI_H
 
 #include <iostream>
+#include "pizza.h"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ public:
     
 private:
     char input;
+    Pizza pizza;
 };
 
 #endif // SALESPERSONUI_H

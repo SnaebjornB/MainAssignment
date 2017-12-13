@@ -7,7 +7,6 @@ Sides::Sides(){
 Sides::Sides(string name, int price){
     this->name = name;
     this->price = price;
-    this->size = size;
 }
 
 string Sides::get_name(){

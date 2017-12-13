@@ -109,7 +109,7 @@ void SalespersonUI::add_pizza_input_checkout(char input) {
         cout << "1. Add a pizza from menu" << endl;                             ///vantar
     }
     else if (input == '2') {
-        cout << "2. Make your own pizza" << endl;                               ///vantar
+        add_pizzasize_menu();                             
     }
     else if (input == 'b' || input == 'B') {
         make_new_order_menu();
@@ -149,27 +149,22 @@ void SalespersonUI::add_to_excisting_order_input_checkout(char input) {
 
 void SalespersonUI::add_pizzasize_menu() {
     cout << "What size of pizza do you want?" << endl
-         << "----------------------------------------" << endl
-         << "1. 9\" inches" << endl
-         << "2. 12\" inches" << endl
-         << "3. 16\" inches" << endl
+         << "-------------------------------" << endl
+         << "1. 9\"  " << endl
+         << "2. 12\" " << endl
+         << "3. 16\" " << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
     cin >> input;
+    add_pizzasize_input_checkout(input);
 }
 
 void SalespersonUI::add_pizzasize_input_checkout(char input) {
-    if(input == '1') {
-        cout << "1. 9\" inches" << endl;                                        ///vantar
-    }
-    else if (input == '2') {
-        cout << "2. 12\" inches" << endl;                                       ///vantar
-    }
-    else if (input == '3') {
-        cout << "3. 16\" inches" << endl;                                       ///vantar
+    if(input == '1' || input == '2' || input == '3') {
+        pizza.margaritaprice(input);
     }
     else if (input == 'b' || input == 'B') {
-        change_order_menu();
+        add_pizza_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
