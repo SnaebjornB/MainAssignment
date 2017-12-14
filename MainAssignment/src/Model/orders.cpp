@@ -209,7 +209,9 @@ istream& operator >> (istream& in, Orders& orders){
         getline(in,orders.phone_number, ',');  getline(in,orders.name, ','); getline(in,orders.address, ',');
         getline(in,orders.comment, ',') >> orders.baking >> orders.ready >> orders.paid >> orders.delivered
            >> orders.home_delivery >> orders.orders_helper >> orders.total_price;
-
+           orders.menuPizzas_ordered.clear();
+           orders.otherPizzas_ordered.clear();
+           orders.sides_ordered.clear();
            for(int i = 0; i < orders.menu_pizza_counter; i++){
                 //in.ignore();
                 in >> orders.menu_pizza;

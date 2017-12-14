@@ -119,7 +119,8 @@ istream& operator >> (istream& in, Pizza& pizza){
         in >> pizza.topping_counter;
         if(true){
             in >> pizza.price >> pizza.size;
-            for (int i = 0;  i < 3; i++){
+            pizza.pizza_toppings.clear();
+            for (int i = 0;  i < 3; i++){ ///Harðkóðað inn að það séu 3 álegg á pizzunni.. Vonandi lagað
                 in >> pizza.topping;
                 pizza.pizza_toppings.push_back(pizza.topping);
             }
