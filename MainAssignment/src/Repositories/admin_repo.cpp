@@ -15,9 +15,11 @@ void Admin_Repo::write_topping(Topping topping){
         fout.close();
     }
     else{
-        ///Throw error
+        
     }
 }
+
+
 
 Vectors Admin_Repo::read_type(Vectors& vectors, string type){
     ///Nafnið á skranni sem við viljum opna
@@ -196,3 +198,4 @@ void Admin_Repo::write_price_margarita(Pizza& pizza) {
         //throw error
     }
 }
+

@@ -5,12 +5,10 @@ Admin_Service::Admin_Service()
     //ctor
 }
 
-void Admin_Service::add_topping(Topping& topping){
-    ///Validate topping(input)
-    //Blah blah blah
-
-    ///Send topping to DAta access layer
-    admin_repo.write_topping(topping);
+void Admin_Service::add_topping(Topping topping){
+    if(invalidNameException.isvalidName(topping) && invalidInchesException.isvalidInches(topping) && invalidTypeException.isvalidType(topping)) {
+        admin_repo.write_topping(topping);
+    }
     //cout << car << endl;
 }
 
@@ -55,4 +53,8 @@ void Admin_Service::add_location(string location){
 
 void Admin_Service::add_margarita_price(Pizza& pizza) {
     admin_repo.write_price_margarita(pizza);
+}
+
+void Admin_Service::change_topping(Topping topping) {
+
 }

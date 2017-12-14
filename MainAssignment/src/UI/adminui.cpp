@@ -43,7 +43,7 @@ void AdminUI::topping_menu(){
          << "3. Edit current toppings" << endl
          << "4. Remove a topping" << endl
          << "5. Change price of topping category" << endl
-         << "Enter b to go back" << endl << endl
+         << "Enter B to go back or Q to quit." << endl << endl
          << "Input: ";
          cin >> input;
          topping_input_checker(input);
@@ -51,6 +51,18 @@ void AdminUI::topping_menu(){
 
 void AdminUI::topping_input_checker(char input){
     if(input == '1'){
+        try {
+            admin_service.add_topping(create_topping());
+        }
+        catch(InvalidNameException e) {
+            cout << e.getMessage() << endl;
+        }
+        catch(InvalidInchesException e) {
+            cout << e.getMessage() << endl;
+        }
+        catch(InvalidTypeException e) {
+            cout << e.getMessage() << endl;
+        }
         Topping topping = create_topping();
         admin_service.add_topping(topping);
         cout << "You added " << topping
@@ -61,17 +73,24 @@ void AdminUI::topping_input_checker(char input){
         print_toppings();
     }
     else if(input == '3'){
-        string type = "topping";
         print_toppings();
-
-        cout << "Choose the topping you want to change: ";
+        string type = "topping";
         int choice;
-        cin >> choice;
+        
+        do {
+            cout << "Choose the topping you want to change: ";
+            cin >> choice;
+            if ( choice < 0 || choice > vectors.topping_list.size()) {
+                cout << "Invalid input! Please choose again." << endl;
+            }
+        } while ( choice < 0 || choice > vectors.topping_list.size());
+        
         cout << endl << "You selected:" << vectors.topping_list[choice-1] << endl
-             << "Recreate this topping:" << endl;
+        << "Recreate this topping:" << endl;
         vectors.topping_list[choice-1] = create_topping();
         admin_service.write_type(vectors, type);
         topping_menu();
+        
     }
     else if(input == '4'){
         string type = "topping";
@@ -107,6 +126,9 @@ void AdminUI::topping_input_checker(char input){
     else if(input == 'b' || input == 'B'){
         main_menu();
     }
+    else if(input == 'q' || input == 'Q'){
+        cout << endl <<"Thank you and have a nice day." << endl << endl;
+    }
     else{
         cout << "Invalid input! Please choose again." << endl;
         topping_menu();
@@ -119,7 +141,7 @@ void AdminUI::sides_menu(){
          << "2. Print all sides" << endl
          << "3. Edit current sides" << endl
          << "4. Remove a side" << endl
-         << "Enter b to go back" << endl << endl
+         << "Enter B to go back or Q to quit." << endl << endl
          << "Input: ";
          cin >> input;
          sides_input_checker(input);
@@ -163,6 +185,9 @@ void AdminUI::sides_input_checker(char input){
     else if(input == 'b' || input == 'B'){
         main_menu();
     }
+    else if(input == 'q' || input == 'Q'){
+        cout << endl <<"Thank you and have a nice day." << endl << endl;
+    }
     else{
         cout << "Invalid input! Please choose again." << endl;
         sides_menu();
@@ -172,7 +197,7 @@ void AdminUI::sides_input_checker(char input){
 void AdminUI::location_menu(){
     cout << "------------------------" << endl
          << "1. Add a location" << endl
-         << "Enter b to go back" << endl << endl
+         << "Enter B to go back or Q to quit." << endl << endl
          << "Input: ";
          cin >> input;
          location_input_checker(input);
@@ -196,6 +221,9 @@ void AdminUI::location_input_checker(char input){
     else if(input == 'b' || input == 'B'){
         main_menu();
     }
+    else if(input == 'q' || input == 'Q'){
+        cout << endl <<"Thank you and have a nice day." << endl << endl;
+    }
     else{
         cout << "Invalid input! Please choose again." << endl;
         location_menu();
@@ -210,7 +238,7 @@ void AdminUI::pizzamenu_menu(){
          << "4. Remove a pizza recipe" << endl
          << "5. Change price of pizza size" << endl
          << "6. View the pizza menu" << endl
-         << "Enter b to go back" << endl << endl
+         << "Enter B to go back or Q to quit." << endl << endl
          << "Input: ";
          cin >> input;
          pizzamenu_input_checker(input);
@@ -273,6 +301,9 @@ void AdminUI::pizzamenu_input_checker(char input){
     else if(input == 'b' || input == 'B'){
         main_menu();
     }
+    else if(input == 'q' || input == 'Q'){
+        cout << endl <<"Thank you and have a nice day." << endl << endl;
+    }
     else{
         cout << "Invalid input! Please choose again." << endl;
         location_menu();
@@ -285,6 +316,7 @@ Topping AdminUI::create_topping(){
     string name;
     char type;
     int price, size;
+    
 
     cout << "Name: ";
     cin.ignore();

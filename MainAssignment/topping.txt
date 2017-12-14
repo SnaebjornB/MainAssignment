@@ -3,7 +3,7 @@ pepperoni, 12 300 m
 pepperoni, 16 400 m
 ham, 9 200 m
 ham, 12 300 m
-ham, 16 400 m
+3f3, 13 1 m
 ground beef, 9 200 m
 ground beef, 12 300 m
 ground beef, 16 400 m
@@ -73,4 +73,3 @@ chili flakes, 16 0 s
 garlic oil, 9 0 s
 garlic oil, 12 0 s
 garlic oil, 16 0 s
-

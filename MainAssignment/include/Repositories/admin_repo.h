@@ -25,6 +25,8 @@ public:
     void erase_type(Vectors& vectors, unsigned int num_of_line, string type);
     void write_price_margarita(Pizza& pizza);
     
+    
+    
 private:
     
     Topping topping;
