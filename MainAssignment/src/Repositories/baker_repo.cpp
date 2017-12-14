@@ -28,20 +28,32 @@ Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string&
     ///
     ///Þetta prentar út innihald skjalsins, eina línu í einu. Útfæra að það lesi það inn í vektor og skili honum.
     /// Búa til vektor sem inniheldur Orders og skila honum svo
+    /*
     string txt = ".txt";
     status.append(location_name);
     status.append(txt);
+    */
+
+    int i = 0;          ///Debugger
+    cout << i << endl; ///Debugger
+    string line; ///Debug  ///Eyða þegar er komið i lag
 
     ifstream fin;
-        ///ofstream fout;?
+    ofstream fout;
 
-    fin.open((status).c_str(), ios::app);
+    fin.open("orders.txt");   ///(test).c_str()
     if(fin.is_open()){
-        string line;
-        while(getline(fin, line)){
-            cout << line << endl;
+        cout << "opnar skra" << endl; ///debugger
+        vectors.orders_list.clear();
+        cout << "hreinsar vektor" << endl; ///debugger
+        while(fin >> orders){ ///  getline(fin, line)  ///Skipta a þessum skilyrðum inn i while-loopinu
+            cout << "kemst inn i loop" << endl; ///Debugger
+            vectors.orders_list.push_back(orders);  ///Breyta í orders_list og line -> orders ///locations_list
+            cout << vectors.orders_list[i] << endl; ///Breyta í orders_list
+            i++; ///Debugger
         }
         fin.close();
+        cout << "lokar skra" << endl; ///debugger
     }
     return vectors;
 }

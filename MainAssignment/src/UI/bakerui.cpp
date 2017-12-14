@@ -89,5 +89,6 @@ void BakerUI::print_locations(){
 
 void BakerUI::print_orders(string& status){
     ///Lesa active orders inn á vector
+    Vectors vectors;
     baker_service.read_orders(vectors, status);
 }

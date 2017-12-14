@@ -66,6 +66,9 @@ class Orders
         int pizza_counter;
         int menu_pizza_counter;
         int sides_counter;
+        Menu_Pizza menu_pizza;
+        Sides sides;
+        Pizza pizza;
 
 
 

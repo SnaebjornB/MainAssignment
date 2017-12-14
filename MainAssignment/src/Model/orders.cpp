@@ -170,7 +170,7 @@ ostream& operator << (ostream& out, Orders& orders){
     }
     else{
         out << orders.phone_number << "," << orders.name << "," << orders.address << ","
-            << orders.comment << " " << orders.baking << " " << orders.ready << " " << orders.paid
+            << orders.comment << ", " << orders.baking << " " << orders.ready << " " << orders.paid
             << " " << orders.delivered << " " << orders.home_delivery << " " << orders.orders_helper
             << " " << orders.total_price << " " << orders.pizza_counter << " " << orders.menu_pizza_counter
             << " " << orders.sides_counter << " ";
@@ -200,13 +200,16 @@ istream& operator >> (istream& in, Orders& orders){
        >> orders.menu_pizza_counter >> orders.sides_counter;
 
        for(int i = 0; i < orders.menu_pizza_counter; i++){
-            in >> orders.menuPizzas_ordered[i];
+            in >> orders.menu_pizza;
+            orders.menuPizzas_ordered.push_back(orders.menu_pizza);
         }
         for(int i = 0; i < orders.pizza_counter; i++){
-            in >> orders.otherPizzas_ordered[i];
+            in >> orders.pizza;
+            orders.otherPizzas_ordered.push_back(orders.pizza);
         }
         for(int i = 0; i < orders.sides_counter; i++){
-            in >> orders.sides_ordered[i];
+            in >> orders.sides;
+            orders.sides_ordered.push_back(orders.sides);
         }
     return in;
 }
