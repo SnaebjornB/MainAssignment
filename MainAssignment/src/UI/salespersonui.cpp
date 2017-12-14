@@ -8,10 +8,9 @@ void SalespersonUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
          << "1. Take down a new order" << endl
-         << "2. Change/add to excisting order" << endl
-         << "3. show price of order" << endl
-         << "4. View pizza menu" << endl
-         << "5. Check order to paid" << endl << endl
+         << "2. Change/add to existing order" << endl
+         << "3. View pizza menu" << endl
+         << "4. Check order to paid" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -19,24 +18,50 @@ void SalespersonUI::main_menu(){
 
 void SalespersonUI::main_input_checker(char input){
     if(input == '1'){
-        make_new_order_menu();
+        order_prompt();
     }
     else if(input == '2'){
         change_order_menu();
     }
     else if(input == '3'){
-        cout << "3. show price of order" << endl;                               ///vantar
+        cout << "3. View pizza menu" << endl;                                   ///vantar
     }
-    else if(input == '4'){
-        cout << "4. View pizza menu" << endl;                                   ///vantar
-    }
-    else if(input == '5'){
-        cout << "5. Check order to paid" << endl;                               ///vantar
-    }
+
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
         main_menu();
     }
+}
+
+void SalespersonUI::order_prompt(){
+    string phone_number, name, address;
+    char delivery;
+
+    cout << "Phone number: ";
+    cin >> phone_number;
+
+    cout << "Name: ";
+    cin >> name;
+
+    cout << "Home delivery (y if it is, n if it's not) ";
+    cin >> delivery;
+
+    if(delivery == 'y' || delivery == 'Y'){
+        cout << "Address: ";
+        cin >> ws;
+        getline(cin, address);
+        orders.set_home_delivery_status(true);
+    }
+    else if(delivery == 'n' || delivery == 'N'){
+        orders.set_home_delivery_status(false);
+                                         /// Vantar að útfæra location breytu og gera address = location eða svo..
+    }
+    orders.set_phone_number(phone_number);
+    orders.set_name(name);
+    orders.set_address(address);
+
+    make_new_order_menu();
+
 }
 
 void SalespersonUI::make_new_order_menu() {
@@ -45,7 +70,9 @@ void SalespersonUI::make_new_order_menu() {
          << "1. Add a Pizza from the menu" << endl
          << "2. Create a new pizza" << endl
          << "3. Add Sides or Soda" << endl
-         << "4. Finish order" << endl
+         << "4. Show price of order" << endl
+         << "5. Check order as paid" << endl
+         << "5. Finish order" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
     cin >> input;
@@ -70,9 +97,17 @@ void SalespersonUI::make_new_order_input_checker(char input) {
         add_pizzasize_menu();
     }
     else if (input == '3') {
-        cout << "2. Add Sides or Soda" << endl;                                 ///vantar
+        string type = "sides";
+        Vectors vectors;
+        int choice;
+        cout << "Choose sides: " << endl;
+        print_sides(vectors, type);
+        cin >> choice;
     }
-    else if (input == '4') {
+    else if(input == '4'){
+        cout << "5. Check order to paid" << endl;                               ///vantar
+    }
+    else if (input == '5') {
         salesperson_service.write_order(orders);
     }
     else if (input == 'b' || input == 'B') {
@@ -200,6 +235,15 @@ Vectors SalespersonUI::print_toppings(Vectors& vectors, string type){
     salesperson_service.read_types(vectors, type);
     for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
         cout << (i+1) << ". " << vectors.topping_list[i] << endl;
+    }
+
+    return vectors;
+}
+
+Vectors SalespersonUI::print_sides(Vectors& vectors, string type){
+    salesperson_service.read_types(vectors, type);
+    for(unsigned int i = 0; i < vectors.sides_list.size(); i++){
+        cout << (i+1) << ". " << vectors.sides_list[i] << endl;
     }
 
     return vectors;

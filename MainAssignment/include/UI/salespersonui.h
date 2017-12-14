@@ -37,6 +37,9 @@ public:
     void add_pizzasize_menu();
     void add_pizzasize_input_checkout(char input);
 
+    void order_prompt();
+
+    Vectors print_sides(Vectors& vectors, string type);
     Vectors print_pizza_menu(Vectors& vectors, string type);
     Vectors print_toppings(Vectors& vectors, string type);
 
