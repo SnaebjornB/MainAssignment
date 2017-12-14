@@ -110,7 +110,8 @@ void SalespersonUI::make_new_order_input_checker(char input) {
         make_new_order_menu();
     }
     else if(input == '4'){
-        cout << "5. Check order to paid" << endl;                               ///vantar
+        cout << "The total for this order is: " << orders.get_total_price() << endl;
+        make_new_order_menu();
     }
     else if (input == '5') {
         salesperson_service.write_order(orders);

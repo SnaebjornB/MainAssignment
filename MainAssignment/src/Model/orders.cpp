@@ -99,6 +99,17 @@ void Orders::set_name_of_place(string change){
 }
 
 int Orders::get_total_price(){
+    total_price = 0;
+
+    for (unsigned int i = 0; i < otherPizzas_ordered.size(); i++){
+        total_price += otherPizzas_ordered[i].set_total_price();
+    }
+    for (unsigned int i = 0; i < menuPizzas_ordered.size(); i++){
+        total_price += menuPizzas_ordered[i].get_price();
+    }
+    for (unsigned int i = 0; i < sides_ordered.size(); i++){
+        total_price += sides_ordered[i].get_price();
+    }
     return this->total_price;
 }
 

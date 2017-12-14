@@ -68,11 +68,13 @@ void Pizza::set_size_helper(bool size_helper) {
     this->size_helper = size_helper;
 }
 
-void Pizza::set_total_price(){
+int Pizza::set_total_price(){
     total_price = price;
     for(unsigned int i = 0; i < pizza_toppings.size(); i++){
         total_price += pizza_toppings[i].get_price();
     }
+
+    return this->total_price;
 }
 
 void Pizza::set_write_order_helper(bool status){

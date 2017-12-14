@@ -42,6 +42,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Exceptions/InvalidInchesEx.h" />
+		<Unit filename="include/Exceptions/InvalidNameEx.h" />
+		<Unit filename="include/Exceptions/InvalidTypeEx.h" />
 		<Unit filename="include/Model/menu_pizza.h" />
 		<Unit filename="include/Model/orders.h" />
 		<Unit filename="include/Model/pizza.h" />
@@ -65,6 +68,9 @@
 		<Unit filename="include/UI/mainui.h" />
 		<Unit filename="include/UI/salespersonui.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Exceptions/InvalidInchesEx.cpp" />
+		<Unit filename="src/Exceptions/InvalidNameEx.cpp" />
+		<Unit filename="src/Exceptions/InvalidTypeEx.cpp" />
 		<Unit filename="src/Model/menu_pizza.cpp" />
 		<Unit filename="src/Model/orders.cpp" />
 		<Unit filename="src/Model/pizza.cpp" />
