@@ -12,6 +12,8 @@
 #include <string>
 #include <iostream>
 #include "topping.h"
+#include "menu_pizza.h"
+
 using namespace std;
 
 class InvalidInchesException {
@@ -19,7 +21,8 @@ public:
     InvalidInchesException();
     InvalidInchesException(string message);
     string getMessage();
-    bool isvalidToppingInches(Topping topping);
+    bool isvalidToppingInches(Topping& topping);
+    bool isvalidMenuPizzaInches(Menu_Pizza& menu_pizza);
 private:
     string message;
 };

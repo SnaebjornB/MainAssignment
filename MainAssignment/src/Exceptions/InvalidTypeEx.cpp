@@ -20,9 +20,9 @@ string InvalidTypeException::getMessage() {
     return this->message;
 }
 
-bool InvalidTypeException::isvalidToppingType(Topping topping) {
+bool InvalidTypeException::isvalidToppingType(Topping& topping) {
     char type = topping.get_type();
-    if (isdigit(type) || type != 'm' || type != 'v' || type != 's' || type != 'c') {
+    if (isdigit(type) || !(type == 'm' || type == 'v' || type == 's' || type == 'c')) {
         throw (InvalidTypeException("invalid type!"));
     }
     return true;

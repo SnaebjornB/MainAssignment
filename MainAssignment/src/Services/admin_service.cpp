@@ -8,7 +8,8 @@ Admin_Service::Admin_Service()
 void Admin_Service::add_topping(Topping topping){
     if(invalidNameException.isvalidToppingName(topping) &&
        invalidInchesException.isvalidToppingInches(topping) &&
-       invalidTypeException.isvalidToppingType(topping)) {
+       invalidTypeException.isvalidToppingType(topping) &&
+       invalidPriceException.isvalidToppingPrice(topping)) {
 
         admin_repo.write_topping(topping);
     }
@@ -31,26 +32,24 @@ void Admin_Service::erase_type(Vectors& vectors, unsigned int num_of_line, strin
 }
 
 void Admin_Service::add_sides(Sides sides){
-    if (invalidNameException.isvalidSidesName(sides)){
+    if (invalidNameException.isvalidSidesName(sides) &&
+        invalidPriceException.isvalidSidesPrice(sides)){
+        
         admin_repo.write_sides(sides);
     }
 }
 
 void Admin_Service::add_menu_pizza(Menu_Pizza& menu_pizza){
-    ///Validate topping(input)
-    //Blah blah blah
-
-    ///Send topping to DAta access layer
-    admin_repo.write_menu_pizza(menu_pizza);
-    //cout << car << endl;
+    if(invalidPriceException.isvalidMenuPizzaPrice(menu_pizza)) {
+        admin_repo.write_menu_pizza(menu_pizza);
+    }
 }
 
 void Admin_Service::add_location(string location){
-    ///Validate Location
-    //Blah blah blah
-
-    ///Send topping to data access layer
-    admin_repo.write_location(location);
+    if(invalidNameException.isvalidLocationName(location)) {
+        admin_repo.write_location(location);
+    }
+    
 }
 
 void Admin_Service::add_margarita_price(Pizza& pizza) {

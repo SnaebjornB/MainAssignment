@@ -54,7 +54,6 @@ void AdminUI::topping_input_checker(char input){
         Topping topping = create_topping();
         try {
             admin_service.add_topping(topping);
-            admin_service.add_topping(topping);
             cout << "You added " << topping
             << " to the list of toppings." << endl;
         }
@@ -67,7 +66,9 @@ void AdminUI::topping_input_checker(char input){
         catch(InvalidTypeException e) {
             cout << e.getMessage() << endl;
         }
-
+        catch(InvalidPriceException e) {
+            cout << e.getMessage() << endl;
+        }
 
         topping_menu();
     }
@@ -95,6 +96,8 @@ void AdminUI::topping_input_checker(char input){
         Topping topping = create_topping();
         try {
             admin_service.add_topping(topping);
+            vectors.topping_list[choice-1] = topping;
+            admin_service.write_type(vectors, type);
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
@@ -105,9 +108,11 @@ void AdminUI::topping_input_checker(char input){
         catch(InvalidTypeException e) {
             cout << e.getMessage() << endl;
         }
+        catch(InvalidPriceException e) {
+            cout << e.getMessage() << endl;
+        }
 
-        vectors.topping_list[choice-1] = topping;
-        admin_service.write_type(vectors, type);
+ 
         topping_menu();
     }
     else if(input == '4'){
@@ -178,20 +183,26 @@ void AdminUI::sides_menu(){
 
 void AdminUI::sides_input_checker(char input){
     if(input == '1'){
+        
+        Sides sides = create_sides();
+        
         try {
-            admin_service.add_sides(create_sides());
+            admin_service.add_sides(sides);
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
         }
-        Sides sides = create_sides();
-        admin_service.add_sides(sides);
+        catch(InvalidPriceException e) {
+            cout << e.getMessage() << endl;
+        }
+        
         sides.set_helper(true);
         cout << "You added " << sides << " to the list of side dishes." << endl;
         sides_menu();
     }
     else if(input == '2') {
         print_sides();
+        sides_menu();
     }
     else if(input == '3'){
         string type = "sides";
@@ -210,15 +221,20 @@ void AdminUI::sides_input_checker(char input){
         cout << endl << "You selected:" << vectors.sides_list[choice-1] << endl
         << "Recreate this side-dish:" << endl;
 
+        Sides sides = create_sides();
+        
         try {
-            admin_service.add_sides(create_sides());
+            admin_service.add_sides(sides);
+            vectors.sides_list[choice-1] = sides;
+            admin_service.write_type(vectors, type);
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
         }
+        catch(InvalidPriceException e) {
+            cout << e.getMessage() << endl;
+        }
 
-        vectors.sides_list[choice-1] = create_sides();
-        admin_service.write_type(vectors, type);
         sides_menu();
     }
     else if(input == '4'){
@@ -260,17 +276,20 @@ void AdminUI::location_menu(){
 
 void AdminUI::location_input_checker(char input){
     if(input == '1'){
-        ///Add-a location í skrá með locations
-        string location;
-
+       string location;
         cout << "Location's name: ";
         cin.ignore();
         getline (cin, location);
+        try {
+            admin_service.add_location(location);
+            cout << "You added " << location << " to the list of locations." << endl;
+            
+        }
+        catch(InvalidNameException e) {
+            cout << e.getMessage() << endl;
+        }
 
-        admin_service.add_location(location);
-
-        cout << "You added " << location << " to the list of locations." << endl;
-        location_menu();
+        main_menu();
 
     }
     else if(input == 'b' || input == 'B'){
@@ -302,8 +321,17 @@ void AdminUI::pizzamenu_menu(){
 void AdminUI::pizzamenu_input_checker(char input){
     if(input == '1'){
         Menu_Pizza menu_pizza = create_menu_pizza();
-        admin_service.add_menu_pizza(menu_pizza);
         menu_pizza.set_helper(true);
+        try {
+        admin_service.add_menu_pizza(menu_pizza);
+        }
+        /*catch(InvalidNameException e) {
+            cout << e.getMessage() << endl;
+        }*/
+        catch(InvalidPriceException e) {
+            cout << e.getMessage() << endl;
+        }
+        
         cout << "You added " << menu_pizza << " to the pizza menu." << endl;
         pizzamenu_menu();
     }
@@ -415,7 +443,7 @@ void AdminUI::print_sides(){
     string type = "sides";
     admin_service.read_types(vectors, type);
     for(unsigned int i = 0; i < vectors.sides_list.size(); i++){
-        cout << (i+1) << ". " << vectors.sides_list[i];
+        cout << (i+1) << ". " << vectors.sides_list[i] << endl;
     }
 }
 

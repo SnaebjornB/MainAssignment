@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include "topping.h"
+
 using namespace std;
 
 class InvalidTypeException {
@@ -19,7 +20,7 @@ public:
     InvalidTypeException();
     InvalidTypeException(string message);
     string getMessage();
-    bool isvalidToppingType(Topping topping);
+    bool isvalidToppingType(Topping& topping);
 private:
     string message;
 
