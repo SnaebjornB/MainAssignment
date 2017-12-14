@@ -13,7 +13,7 @@ class Baker_repo
     public:
         Baker_repo();
         Vectors read_locations(Vectors& vectors);
-        Vectors read_orders(Vectors& vectors, string location_name);
+        Vectors read_orders(Vectors& vectors, string& location_name, string& status);
 
 
     private:

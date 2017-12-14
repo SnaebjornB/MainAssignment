@@ -16,7 +16,7 @@ class BakerUI
         void main_input_checker(char input);
         void main_input_checker(char input, string location_name);
         void print_locations();
-        void print_orders(string location_name);
+        void print_orders(string& location_name, string& status);
 
     private:
         char input;

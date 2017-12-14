@@ -11,8 +11,8 @@ Vectors Baker_service::read_locations(Vectors& vectors){
     return vectors;
 }
 
-Vectors Baker_service::read_orders(Vectors& vectors, string location_name){
-    baker_repo.read_orders(vectors, location_name);
+Vectors Baker_service::read_orders(Vectors& vectors, string& location_name, string& status){
+    baker_repo.read_orders(vectors, location_name, status);
 
     return vectors;
 }

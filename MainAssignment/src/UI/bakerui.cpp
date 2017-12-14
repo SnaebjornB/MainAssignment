@@ -22,7 +22,7 @@ void BakerUI::main_menu(string location_name){
 
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
-         << "1. Get list of all active orders" << endl
+         << "1. Get list of all orders" << endl
          << "2. Show next order to make" << endl
          << "3. Check order as in making" << endl
          << "4. Check order as ready" << endl
@@ -36,7 +36,11 @@ void BakerUI::main_input_checker(char input, string location_name){
     if(input == '1'){
         cout << "1. Get list of all orders" << endl;
         ///Prenta út ActiveOrdersLocation_Name.txt
-        print_orders(location_name);
+        string status = "ordered";
+        print_orders(location_name, status);
+        ///Prenta út MakingOrdersLocation_name
+        status = "making";
+        print_orders(location_name, status);
 
     }
     else if(input == '2'){
@@ -49,14 +53,17 @@ void BakerUI::main_input_checker(char input, string location_name){
     }
     else if(input == '3'){
         cout << "3. Check order as in making" << endl;
-        ///Prentar út activeOrders
-
+        ///Prenta út OrderesOrdersLocation_Name.txt
+        string status = "ordered";
+        print_orders(location_name, status);
         ///Velja nr. af order sem þú vilt merkja sem "in making"
 
     }
     else if(input == '4'){
         cout << "4. Check order ready" << endl;
-        ///Prentar út activeOrders
+        ///Prenta út MakingOrdersLocation_name
+        string status = "making";
+        print_orders(location_name, status);
 
         ///Velja nr. af order sem þú vilt merkja sem "ready"
 
@@ -80,7 +87,7 @@ void BakerUI::print_locations(){
     }
 }
 
-void BakerUI::print_orders(string location_name){
-    ///Lesa orders inn á vector
-    baker_service.read_orders(vectors, location_name);
+void BakerUI::print_orders(string& location_name, string& status){
+    ///Lesa active orders inn á vector
+    baker_service.read_orders(vectors, location_name, status);
 }
