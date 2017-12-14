@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include "vectors.h"
+#include "orders.h"
+
 
 using namespace std;
 
@@ -17,6 +19,7 @@ class Baker_repo
 
 
     private:
+        Orders orders;
 };
 
 #endif // BAKER_REPO_H
