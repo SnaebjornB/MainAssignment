@@ -130,15 +130,19 @@ void AdminUI::topping_input_checker(char input){
     }
     else if(input == '5'){
         int price;
+        int pizza_size = 0;
         string type = "topping";
         admin_service.read_types(vectors, type);
         cout << "Insert the letter that represents the category you want to assign a new price to: ";
         cin >> input;
+        cout << "what size of pizza?";
+        cin >> pizza_size;
         cout << "What is the new price? ";
         cin >> price;
 
         for (unsigned int i = 0; i < vectors.topping_list.size(); i++){
-            if(input == vectors.topping_list[i].get_type()){
+            if(input == vectors.topping_list[i].get_type() && pizza_size == vectors.topping_list[i].get_size()){
+                
                 vectors.topping_list[i].set_price(price);
             }
         }
