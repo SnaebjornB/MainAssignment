@@ -75,8 +75,8 @@ void AdminUI::topping_input_checker(char input){
     else if(input == '3'){
         print_toppings();
         string type = "topping";
-        int choice;
-        
+        unsigned int choice;
+
         do {
             cout << "Choose the topping you want to change: ";
             cin >> choice;
@@ -84,13 +84,13 @@ void AdminUI::topping_input_checker(char input){
                 cout << "Invalid input! Please choose again." << endl;
             }
         } while ( choice < 0 || choice > vectors.topping_list.size());
-        
+
         cout << endl << "You selected:" << vectors.topping_list[choice-1] << endl
         << "Recreate this topping:" << endl;
         vectors.topping_list[choice-1] = create_topping();
         admin_service.write_type(vectors, type);
         topping_menu();
-        
+
     }
     else if(input == '4'){
         string type = "topping";
@@ -292,7 +292,7 @@ void AdminUI::pizzamenu_input_checker(char input){
         int inches16 = 0;
         cin >> inches16;
         pizza.set_inches16(inches16);
-        
+
         admin_service.add_margarita_price(pizza);
     }
     else if(input == '6') {
@@ -316,7 +316,7 @@ Topping AdminUI::create_topping(){
     string name;
     char type;
     int price, size;
-    
+
 
     cout << "Name: ";
     cin.ignore();

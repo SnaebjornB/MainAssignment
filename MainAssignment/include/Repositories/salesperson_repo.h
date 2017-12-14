@@ -9,6 +9,7 @@
 #include "topping.h"
 #include "vectors.h"
 #include "pizza.h"
+#include "orders.h"
 
 using namespace std;
 
@@ -18,12 +19,14 @@ class Salesperson_repo
         Salesperson_repo();
         Vectors read_type(Vectors& vectors, string type);
         void get_base_price(Pizza& pizza);
+        void write_order(Orders& orders);
 
     private:
         Topping topping;
         Sides sides;
         Menu_Pizza menu_pizza;
         Pizza pizza;
+        Orders orders;
 
 };
 

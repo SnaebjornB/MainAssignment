@@ -42,8 +42,10 @@ void SalespersonUI::main_input_checker(char input){
 void SalespersonUI::make_new_order_menu() {
     cout << "What would you like to add to the order?" << endl
          << "----------------------------------------" << endl
-         << "1. Add Pizza" << endl
-         << "2. Add Sides or Soda" << endl
+         << "1. Add a Pizza from the menu" << endl
+         << "2. Create a new pizza" << endl
+         << "3. Add Sides or Soda" << endl
+         << "4. Finish order" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
     cin >> input;
@@ -52,10 +54,23 @@ void SalespersonUI::make_new_order_menu() {
 
 void SalespersonUI::make_new_order_input_checker(char input) {
     if(input == '1') {
-        add_pizza_menu();
+        string type = "pizza_menu";
+        Vectors vectors;
+        int choice;
+        cout << "Choose the pizza you want to add to the order:" << endl;
+        print_pizza_menu(vectors, type);
+        cin >> choice;
+        orders.menuPizzas_ordered.push_back(vectors.pizza_menu_list[choice - 1]);
+        make_new_order_menu();
     }
     else if (input == '2') {
+        add_pizzasize_menu();
+    }
+    else if (input == '3') {
         cout << "2. Add Sides or Soda" << endl;                                 ///vantar
+    }
+    else if (input == '4') {
+        salesperson_service.write_order(orders);
     }
     else if (input == 'b' || input == 'B') {
         main_menu();
@@ -97,40 +112,6 @@ void SalespersonUI::change_order_input_checker(char input) {
     }
 }
 
-void SalespersonUI::add_pizza_menu() {
-    cout << "Whould you like to order a pizza from the menu or make your own?" << endl
-         << "---------------------------------------------------------------------" << endl
-         << "1. Add a pizza from menu" << endl
-         << "2. Make your own pizza" << endl
-         << "Enter b to go back" << endl << endl
-         << "Input: ";
-    cin >> input;
-    add_pizza_input_checkout(input);
-}
-
-void SalespersonUI::add_pizza_input_checkout(char input) {
-    if(input == '1') {
-        string type = "pizza_menu";
-        Vectors vectors;
-        int choice;
-        cout << "Choose the pizza you want to add to the order:" << endl;
-        print_pizza_menu(vectors, type);
-        cin >> choice;
-        orders.menuPizzas_ordered.push_back(vectors.pizza_menu_list[choice - 1]);
-        add_pizza_menu();
-    }
-    else if (input == '2') {
-        add_pizzasize_menu();
-    }
-    else if (input == 'b' || input == 'B') {
-        make_new_order_menu();
-    }
-    else{
-        cout << endl << "Invalid input! Please choose again." << endl;
-        add_pizza_menu();
-    }
-}
-
 void SalespersonUI::add_to_excisting_order_menu() {
     cout << "What would you like to add to the order?" << endl
     << "----------------------------------------" << endl
@@ -144,7 +125,7 @@ void SalespersonUI::add_to_excisting_order_menu() {
 
 void SalespersonUI::add_to_excisting_order_input_checkout(char input) {
     if(input == '1') {
-        add_pizza_menu();
+        cout << "1." << endl;
     }
     else if (input == '2') {
         cout << "2. Add Sides or Soda" << endl;                                 ///vantar
@@ -189,8 +170,8 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
         orders.otherPizzas_ordered.push_back(pizza);
         add_to_excisting_order_menu();
     }
-    else if (input == 'b' || input == 'B') {                                    ///vanta
-        add_pizza_menu();
+    else if (input == 'b' || input == 'B') {
+        make_new_order_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;

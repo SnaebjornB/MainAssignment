@@ -9,7 +9,7 @@
 #include "sides.h"
 #include "menu_pizza.h"
 #include "pizza.h"
-#include "admin_service.h"
+
 
 #include "InvalidNameEx.h"
 #include "InvalidInchesEx.h"
@@ -29,7 +29,7 @@ public:
     Vectors read_types(Vectors& vectors, string type);
     void write_type(Vectors& vectors, string type);
     void erase_type(Vectors& vectors, unsigned int num_of_line, string type);
-    
+
 private:
     Admin_Repo admin_repo;
     InvalidNameException invalidNameException;
