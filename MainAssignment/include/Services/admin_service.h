@@ -14,6 +14,7 @@
 #include "InvalidNameEx.h"
 #include "InvalidInchesEx.h"
 #include "InvalidTypeEx.h"
+#include "InvalidPriceEx.h"
 
 using namespace std;
 
@@ -35,6 +36,7 @@ private:
     InvalidNameException invalidNameException;
     InvalidInchesException invalidInchesException;
     InvalidTypeException invalidTypeException;
+    InvalidPriceException invalidPriceException;
 };
 
 #endif // ADMIN_SERVICE_H
