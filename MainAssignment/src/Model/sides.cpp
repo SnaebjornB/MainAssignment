@@ -49,7 +49,7 @@ ostream& operator << (ostream& out, Sides& sides){
         out << sides.name << ", " << sides.price << endl;
     }
     else{
-        out << sides.name << ", " << sides.price;
+        out << sides.name << ", " << sides.price << " ";
     }
 
     return out;

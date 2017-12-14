@@ -6,6 +6,9 @@
 #include <fstream>
 #include "vectors.h"
 #include "orders.h"
+#include "pizza.h"
+#include "menu_pizza.h"
+#include "sides.h"
 
 
 using namespace std;
@@ -19,7 +22,12 @@ class Baker_repo
 
 
     private:
+        Topping topping;
+        Sides sides;
+        Menu_Pizza menu_pizza;
+        Pizza pizza;
         Orders orders;
+
 };
 
 #endif // BAKER_REPO_H

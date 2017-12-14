@@ -44,7 +44,8 @@ void SalespersonUI::order_prompt(){
     cin >> phone_number;
 
     cout << "Name: ";
-    cin >> name;
+    cin >> ws;
+    getline(cin, name);
 
     cout << "Home delivery (y if it is, n if it's not) ";
     cin >> delivery;

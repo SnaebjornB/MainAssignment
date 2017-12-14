@@ -52,7 +52,7 @@ ostream& operator << (ostream& out, Topping& topping){
         out << topping.pizza_size << "\" " << topping.name;
     }
     else{
-        out << topping.name << ", " << topping.pizza_size << " " << topping.price << " " << topping.type << endl;
+        out << topping.name << ", " << topping.pizza_size << " " << topping.price << " " << topping.type << " ";
     }
 
     return out;
