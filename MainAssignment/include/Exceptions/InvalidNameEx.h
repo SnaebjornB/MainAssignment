@@ -13,6 +13,8 @@
 #include <iostream>
 #include "topping.h"
 #include "sides.h"
+#include "menu_pizza.h"
+
 using namespace std;
 
 class InvalidNameException {
@@ -22,6 +24,8 @@ public:
     string getMessage();
     bool isvalidToppingName(Topping& topping);
     bool isvalidSidesName(Sides& sides);
+    bool isvalidLocationName(string location);
+    bool isvalidMenuPizza(Menu_Pizza & menu_pizza);
 private:
     string message;
 

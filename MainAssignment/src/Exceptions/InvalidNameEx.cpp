@@ -39,3 +39,24 @@ bool InvalidNameException::isvalidSidesName(Sides& sides){
     }
     return true;
 }
+
+bool InvalidNameException::isvalidLocationName(string location) {
+    string name = location;
+    for (unsigned int i = 0; i < name.length(); i++) {
+        if (!(isalpha(name[i]) || name[i] == ' ')) {
+            throw (InvalidNameException("invalid name!"));
+        }
+    }
+    return true;
+}
+
+bool isvalidMenuPizza(Menu_Pizza & menu_pizza){
+    string name = menu_pizza.get_name();
+for (unsigned int i = 0; i < name.length(); i++) {
+    if (!(isalpha(name[i]) || name[i] == ' ')) {
+        throw (InvalidNameException("invalid name!"));
+    }
+}
+return true;
+}
+

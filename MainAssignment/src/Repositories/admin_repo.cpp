@@ -78,6 +78,7 @@ void Admin_Repo::put_back_type(Vectors& vectors, string type){
             if (vectors.sides_list.size() > 0){
                 for (unsigned int i = 0; i < vectors.sides_list.size(); i++){
                     vectors.sides_list[i].set_helper(false);
+                    vectors.sides_list[i].set_write_helper (true);
                     fout << vectors.sides_list[i];
                 }
             }
@@ -122,6 +123,9 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
             if (vectors.sides_list.size() > 0){
                 for (unsigned int i = 0; i < vectors.sides_list.size(); i++){
                     vectors.sides_list[i].set_helper(false);
+                    vectors.sides_list[i].set_write_helper (true);
+            
+                    
                     if(i != (num_of_line - 1) ){
                         fout << vectors.sides_list[i];
                     }
@@ -145,7 +149,9 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
 }
 
 void Admin_Repo::write_sides(Sides& sides){
+    sides.set_write_helper(true);
     sides.set_helper(false);
+    
     ofstream fout;
     fout.open("sides.txt", ios::app);
 
@@ -176,7 +182,6 @@ void Admin_Repo::write_location(string location){
     //sides.set_helper(false);
     ofstream fout;
     fout.open("locations.txt", ios::app);
-
     if(fout.is_open()){
         fout << location << endl;
         fout.close();
