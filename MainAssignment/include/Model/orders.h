@@ -42,8 +42,11 @@ class Orders
         void add_to_pizza_counter();
         void add_to_menu_pizza_counter();
         void add_to_sides_counter();
+        void set_in_helper(bool status);
+        Orders operator = (Orders& right_side);
         friend ostream& operator << (ostream& out, Orders& orders);
         friend istream& operator >> (istream& in, Orders& orders);
+
 
         vector<Sides> sides_ordered;
         vector<Menu_Pizza> menuPizzas_ordered;
@@ -57,6 +60,7 @@ class Orders
         bool home_delivery;
         bool orders_helper;
         bool write_helper;
+        bool in_helper;
         string comment;
         string address;
         string name;

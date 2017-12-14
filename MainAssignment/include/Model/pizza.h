@@ -47,6 +47,7 @@ private:
     int total_price;
     bool write_order_helper;
     int topping_counter;
+    Topping topping;
 };
 
 #endif // PIZZA_H

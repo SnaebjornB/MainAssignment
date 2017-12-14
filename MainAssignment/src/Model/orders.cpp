@@ -16,6 +16,9 @@ Orders::Orders()
     pizza_counter = 0;
     menu_pizza_counter = 0;
     sides_counter = 0;
+    otherPizzas_ordered.clear();
+    menuPizzas_ordered.clear();
+    sides_ordered.clear();
 }
 
 bool Orders::get_baking_status(){
@@ -145,6 +148,14 @@ void Orders::add_to_sides_counter(){
     this->sides_counter++;
 }
 
+void Orders::set_in_helper(bool status){
+    this->in_helper = status;
+}
+
+Orders Orders::operator = (Orders& right_side){
+    return right_side;
+}
+
 ostream& operator << (ostream& out, Orders& orders){
     if(orders.orders_helper){
         out << "----------------------------------------------" << endl << endl
@@ -161,7 +172,7 @@ ostream& operator << (ostream& out, Orders& orders){
             out << orders.otherPizzas_ordered[i] << endl;
         }
         for(unsigned int i = 0; i < orders.sides_ordered.size(); i++){
-            orders.otherPizzas_ordered[i].set_helper(true);
+            orders.sides_ordered[i].set_helper(true);
             out << orders.sides_ordered[i] << endl;
         }
         out << '\t' << '\t' << "Total: " << orders.total_price << endl << endl
@@ -169,11 +180,11 @@ ostream& operator << (ostream& out, Orders& orders){
 
     }
     else{
-        out << orders.phone_number << "," << orders.name << "," << orders.address << ","
+        out << orders.pizza_counter << " " << orders.menu_pizza_counter << " " << orders.sides_counter
+            << " " << orders.phone_number << "," << orders.name << "," << orders.address << ","
             << orders.comment << ", " << orders.baking << " " << orders.ready << " " << orders.paid
             << " " << orders.delivered << " " << orders.home_delivery << " " << orders.orders_helper
-            << " " << orders.total_price << " " << orders.pizza_counter << " " << orders.menu_pizza_counter
-            << " " << orders.sides_counter << " ";
+            << " " << orders.total_price << " ";
 
         for(unsigned int i = 0; i < orders.menuPizzas_ordered.size(); i++){
             orders.menuPizzas_ordered[i].set_helper(false);
@@ -194,22 +205,29 @@ ostream& operator << (ostream& out, Orders& orders){
 }
 
 istream& operator >> (istream& in, Orders& orders){
-    getline(in,orders.phone_number, ',');  getline(in,orders.name, ','); getline(in,orders.address, ',');
-    getline(in,orders.comment, ',') >> orders.baking >> orders.ready >> orders.paid >> orders.delivered
-       >> orders.home_delivery >> orders.orders_helper >> orders.total_price >> orders.pizza_counter
-       >> orders.menu_pizza_counter >> orders.sides_counter;
+    if(orders.in_helper){
+        getline(in,orders.phone_number, ',');  getline(in,orders.name, ','); getline(in,orders.address, ',');
+        getline(in,orders.comment, ',') >> orders.baking >> orders.ready >> orders.paid >> orders.delivered
+           >> orders.home_delivery >> orders.orders_helper >> orders.total_price;
 
-       for(int i = 0; i < orders.menu_pizza_counter; i++){
-            in >> orders.menu_pizza;
-            orders.menuPizzas_ordered.push_back(orders.menu_pizza);
-        }
-        for(int i = 0; i < orders.pizza_counter; i++){
-            in >> orders.pizza;
-            orders.otherPizzas_ordered.push_back(orders.pizza);
-        }
-        for(int i = 0; i < orders.sides_counter; i++){
-            in >> orders.sides;
-            orders.sides_ordered.push_back(orders.sides);
-        }
+           for(int i = 0; i < orders.menu_pizza_counter; i++){
+                //in.ignore();
+                in >> orders.menu_pizza;
+                orders.menuPizzas_ordered.push_back(orders.menu_pizza);
+            }
+            for(int i = 0; i < orders.pizza_counter; i++){
+                orders.pizza.set_size_helper(true);
+                in >> orders.pizza;
+                orders.otherPizzas_ordered.push_back(orders.pizza);
+            }
+            for(int i = 0; i < orders.sides_counter; i++){
+                in >> orders.sides;
+                orders.sides_ordered.push_back(orders.sides);
+            }
+        //in.ignore();
+    }
+    else{
+        in >> orders.pizza_counter >> orders.menu_pizza_counter >> orders.sides_counter;
+    }
     return in;
 }

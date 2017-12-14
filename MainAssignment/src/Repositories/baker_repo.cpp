@@ -46,15 +46,35 @@ Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string&
         cout << "opnar skra" << endl; ///debugger
         vectors.orders_list.clear();
         cout << "hreinsar vektor" << endl; ///debugger
-        while(fin >> orders){ ///  getline(fin, line)  ///Skipta a þessum skilyrðum inn i while-loopinu
-            cout << "kemst inn i loop" << endl; ///Debugger
-            vectors.orders_list.push_back(orders);  ///Breyta í orders_list og line -> orders ///locations_list
-            cout << vectors.orders_list[i] << endl; ///Breyta í orders_list
-            i++; ///Debugger
+        while(true){ ///  getline(fin, line)  ///Skipta a þessum skilyrðum inn i while-loopinu
+            if(fin.eof()){
+                break;
+            }
+                Orders order;
+                order.set_in_helper(false);
+                fin >> order;
+                cout << "kemst inn i loop" << endl; ///Debugger
+                order.set_in_helper(true);
+                fin >> order;
+                vectors.orders_list.push_back(order);  ///Breyta í orders_list og line -> orders ///locations_list
+                vectors.orders_list[i].set_helper(true);
+                cout << vectors.orders_list[i] << endl; ///Breyta í orders_list
+                i++; ///Debugger
+
         }
-        fin.close();
         cout << "lokar skra" << endl; ///debugger
     }
+    /*if(fin.is_open()){
+        cout << "opnar skra" << endl; ///debugger
+        vectors.orders_list[i].set_in_helper(true);
+        while(fin >> orders){ ///  getline(fin, line)  ///Skipta a þessum skilyrðum inn i while-loopinu
+            cout << "kemst inn i loop" << endl; ///Debugger
+            vectors.orders_list[i] = orders;  ///Breyta í orders_list og line -> orders ///locations_list
+            cout << vectors.orders_list[i] << endl; ///Breyta í orders_list
+        }*/
+        fin.close();
+        cout << "lokar skra" << endl; ///debugger
+    //}
     return vectors;
 }
 
