@@ -12,6 +12,7 @@
 #include <string>
 #include <iostream>
 #include "topping.h"
+#include "sides.h"
 using namespace std;
 
 class InvalidNameException {
@@ -19,7 +20,8 @@ public:
     InvalidNameException();
     InvalidNameException(string message);
     string getMessage();
-    bool isvalidName(Topping& topping);
+    bool isvalidToppingName(Topping& topping);
+    bool isvalidSidesName(Sides& sides);
 private:
     string message;
 

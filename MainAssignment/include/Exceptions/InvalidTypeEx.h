@@ -19,7 +19,7 @@ public:
     InvalidTypeException();
     InvalidTypeException(string message);
     string getMessage();
-    bool isvalidType(Topping topping);
+    bool isvalidToppingType(Topping topping);
 private:
     string message;
     
