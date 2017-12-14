@@ -20,8 +20,18 @@ string InvalidNameException::getMessage() {
     return this->message;
 }
 
-bool InvalidNameException::isvalidName(Topping& topping){
+bool InvalidNameException::isvalidToppingName(Topping& topping){
     string name = topping.get_name();
+    for (unsigned int i = 0; i < name.length(); i++) {
+        if (!(isalpha(name[i]) || name[i] == ' ')) {
+            throw (InvalidNameException("invalid name!"));
+        }
+    }
+    return true;
+}
+
+bool InvalidNameException::isvalidSidesName(Sides& sides){
+    string name = sides.get_name();
     for (unsigned int i = 0; i < name.length(); i++) {
         if (!(isalpha(name[i]) || name[i] == ' ')) {
             throw (InvalidNameException("invalid name!"));

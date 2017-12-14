@@ -19,7 +19,7 @@ public:
     InvalidInchesException();
     InvalidInchesException(string message);
     string getMessage();
-    bool isvalidInches(Topping topping);
+    bool isvalidToppingInches(Topping topping);
 private:
     string message;
 };

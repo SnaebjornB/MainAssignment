@@ -21,7 +21,7 @@ class Admin_Service {
 public:
     Admin_Service();
     void add_topping(Topping topping);
-    void add_sides(Sides& sides);
+    void add_sides(Sides sides);
     void add_menu_pizza(Menu_Pizza& menu_pizza);
     void add_margarita_price(Pizza& pizza);
     void add_location(string location);

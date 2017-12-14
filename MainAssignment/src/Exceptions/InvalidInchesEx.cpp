@@ -20,7 +20,7 @@ string InvalidInchesException::getMessage() {
     return this->message;
 }
 
-bool InvalidInchesException::isvalidInches(Topping topping) {
+bool InvalidInchesException::isvalidToppingInches(Topping topping) {
     int  size = topping.get_size();
     if (!(size == 9 || size == 12 || size == 16)) {
         throw (InvalidInchesException("invalid size!"));
