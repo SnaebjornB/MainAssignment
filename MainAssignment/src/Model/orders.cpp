@@ -173,7 +173,7 @@ ostream& operator << (ostream& out, Orders& orders){
             out << orders.otherPizzas_ordered[i];
         }
         for(unsigned int i = 0; i < orders.sides_ordered.size(); i++){
-            orders.otherPizzas_ordered[i].set_helper(false);
+            orders.sides_ordered[i].set_helper(false);
             out << orders.sides_ordered[i];
         }
         out << endl;

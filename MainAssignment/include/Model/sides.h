@@ -18,6 +18,7 @@ class Sides
         void set_price(int price);
         void set_size(char size);
         void set_helper(bool status);
+        void set_write_helper(bool status);
         friend ostream& operator << (ostream& out, Sides& sides);
         friend istream& operator >> (istream& in, Sides& sides);
 
@@ -26,6 +27,7 @@ class Sides
         int price;
         char size;
         bool sides_helper;
+        bool write_helper;
 };
 
 #endif // SIDES_H

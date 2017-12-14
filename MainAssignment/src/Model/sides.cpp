@@ -37,12 +37,19 @@ void Sides::set_helper(bool status){
     this->sides_helper = status;
 }
 
+void Sides::set_write_helper(bool status){
+    this->write_helper = status;
+}
+
 ostream& operator << (ostream& out, Sides& sides){
     if (sides.sides_helper){
         out << sides.name;
     }
-    else{
+    else if (sides.write_helper){
         out << sides.name << ", " << sides.price << endl;
+    }
+    else{
+        out << sides.name << ", " << sides.price;
     }
 
     return out;

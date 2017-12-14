@@ -9,8 +9,7 @@ void SalespersonUI::main_menu(){
          << "-----------------------" << endl
          << "1. Take down a new order" << endl
          << "2. Change/add to existing order" << endl
-         << "3. View pizza menu" << endl
-         << "4. Check order to paid" << endl << endl
+         << "3. View pizza menu" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -103,6 +102,12 @@ void SalespersonUI::make_new_order_input_checker(char input) {
         cout << "Choose sides: " << endl;
         print_sides(vectors, type);
         cin >> choice;
+        vectors.sides_list[choice - 1].set_helper(false);
+        vectors.sides_list[choice - 1].set_write_helper(false);
+        orders.sides_ordered.push_back(vectors.sides_list[choice - 1]);
+        cout << orders.sides_ordered[0];
+        orders.add_to_sides_counter();
+        make_new_order_menu();
     }
     else if(input == '4'){
         cout << "5. Check order to paid" << endl;                               ///vantar

@@ -56,6 +56,7 @@ class Orders
         bool delivered;
         bool home_delivery;
         bool orders_helper;
+        bool write_helper;
         string comment;
         string address;
         string name;
@@ -65,6 +66,7 @@ class Orders
         int pizza_counter;
         int menu_pizza_counter;
         int sides_counter;
+
 
 
 };
