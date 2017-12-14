@@ -51,8 +51,12 @@ void AdminUI::topping_menu(){
 
 void AdminUI::topping_input_checker(char input){
     if(input == '1'){
+        Topping topping = create_topping();
         try {
-            admin_service.add_topping(create_topping());
+            admin_service.add_topping(topping);
+            admin_service.add_topping(topping);
+            cout << "You added " << topping
+            << " to the list of toppings." << endl;
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
@@ -63,14 +67,13 @@ void AdminUI::topping_input_checker(char input){
         catch(InvalidTypeException e) {
             cout << e.getMessage() << endl;
         }
-        Topping topping = create_topping();
-        admin_service.add_topping(topping);
-        cout << "You added " << topping
-             << " to the list of toppings." << endl;
+
+
         topping_menu();
     }
     if(input == '2') {
         print_toppings();
+        topping_menu();
     }
     else if(input == '3'){                      //ATH
         print_toppings();
@@ -89,8 +92,9 @@ void AdminUI::topping_input_checker(char input){
         cout << endl << "You selected:" << vectors.topping_list[choice-1] << endl
         << "Recreate this topping:" << endl;
 
+        Topping topping = create_topping();
         try {
-            admin_service.add_topping(create_topping());
+            admin_service.add_topping(topping);
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
@@ -102,7 +106,7 @@ void AdminUI::topping_input_checker(char input){
             cout << e.getMessage() << endl;
         }
 
-        vectors.topping_list[choice-1] = create_topping();
+        vectors.topping_list[choice-1] = topping;
         admin_service.write_type(vectors, type);
         topping_menu();
     }
