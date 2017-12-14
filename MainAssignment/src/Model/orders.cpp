@@ -13,6 +13,9 @@ Orders::Orders()
     name[0] = '\0';
     phone_number[0] = '\0';
     total_price = 0;
+    pizza_counter = 0;
+    menu_pizza_counter = 0;
+    sides_counter = 0;
 }
 
 bool Orders::get_baking_status(){
@@ -119,6 +122,18 @@ void Orders::set_helper(bool status){
     this->orders_helper = status;
 }
 
+void Orders::add_to_pizza_counter(){
+    this->pizza_counter++;
+}
+
+void Orders::add_to_menu_pizza_counter(){
+    this->menu_pizza_counter++;
+}
+
+void Orders::add_to_sides_counter(){
+    this->sides_counter++;
+}
+
 ostream& operator << (ostream& out, Orders& orders){
     if(orders.orders_helper){
         out << "----------------------------------------------" << endl << endl
@@ -146,7 +161,8 @@ ostream& operator << (ostream& out, Orders& orders){
         out << orders.phone_number << "," << orders.name << "," << orders.address << ","
             << orders.comment << " " << orders.baking << " " << orders.ready << " " << orders.paid
             << " " << orders.delivered << " " << orders.home_delivery << " " << orders.orders_helper
-            << " " << orders.total_price;
+            << " " << orders.total_price << " " << orders.pizza_counter << " " << orders.menu_pizza_counter
+            << " " << orders.sides_counter << " ";
 
         for(unsigned int i = 0; i < orders.menuPizzas_ordered.size(); i++){
             orders.menuPizzas_ordered[i].set_helper(false);

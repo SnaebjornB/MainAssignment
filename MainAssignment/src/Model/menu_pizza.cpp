@@ -38,12 +38,19 @@ void Menu_Pizza::set_size(int size){
     this->size = size;
 }
 
+void Menu_Pizza::set_print_helper(bool status){
+    this->print_helper = status;
+}
+
 ostream& operator << (ostream& out, Menu_Pizza& menu_pizza){
     if (menu_pizza.menu_pizza_helper){
         out << menu_pizza.size << "\" " << menu_pizza.name;
     }
-    else{
+    else if (menu_pizza.print_helper){
         out << menu_pizza.name << ", " << menu_pizza.price << " " << menu_pizza.size << endl;
+    }
+    else{
+        out << menu_pizza.name << ", " << menu_pizza.price << " " << menu_pizza.size << " ";
     }
     return out;
 }

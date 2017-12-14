@@ -31,6 +31,8 @@ public:
     void set_inches9(int inches9);
     void set_inches12(int inches12);
     void set_inches16(int inches16);
+    void set_write_order_helper(bool status);
+    void add_to_topping_counter();
 private:
     string name;
     int price;
@@ -43,6 +45,8 @@ private:
     int inches16;
     bool margarita_price;
     int total_price;
+    bool write_order_helper;
+    int topping_counter;
 };
 
 #endif // PIZZA_H

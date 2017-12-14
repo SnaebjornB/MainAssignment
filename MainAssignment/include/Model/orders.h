@@ -39,6 +39,9 @@ class Orders
         void set_helper(bool status);
         string get_name_of_place();
         void set_name_of_place(string change);
+        void add_to_pizza_counter();
+        void add_to_menu_pizza_counter();
+        void add_to_sides_counter();
         friend ostream& operator << (ostream& out, Orders& orders);
         friend istream& operator >> (istream& in, Orders& orders);
 
@@ -59,6 +62,9 @@ class Orders
         string phone_number;
         string name_of_place;
         int total_price;
+        int pizza_counter;
+        int menu_pizza_counter;
+        int sides_counter;
 
 
 };

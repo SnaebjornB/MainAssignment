@@ -20,11 +20,13 @@ class Menu_Pizza
         void set_helper(bool status);
         friend ostream& operator << (ostream& out, Menu_Pizza& menu_pizza);
         friend istream& operator >> (istream& in, Menu_Pizza& menu_pizza);
+        void set_print_helper(bool status);
 
     private:
         string name;
         int price;
         bool menu_pizza_helper;
+        bool print_helper;
         int size;
 };
 

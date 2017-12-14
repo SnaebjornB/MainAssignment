@@ -60,7 +60,10 @@ void SalespersonUI::make_new_order_input_checker(char input) {
         cout << "Choose the pizza you want to add to the order:" << endl;
         print_pizza_menu(vectors, type);
         cin >> choice;
+        vectors.pizza_menu_list[choice - 1].set_print_helper(false);
+        vectors.pizza_menu_list[choice - 1].set_helper(false);
         orders.menuPizzas_ordered.push_back(vectors.pizza_menu_list[choice - 1]);
+        orders.add_to_menu_pizza_counter();
         make_new_order_menu();
     }
     else if (input == '2') {
@@ -165,9 +168,14 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
                     break;
                 }
             pizza.pizza_toppings.push_back(vectors.topping_list[choice - 1]);
+            pizza.add_to_topping_counter();
         }
-
+        pizza.set_write_order_helper(false);
+        pizza.set_helper(false);
+        pizza.set_size_helper(true);
         orders.otherPizzas_ordered.push_back(pizza);
+        orders.add_to_pizza_counter();
+        pizza.pizza_toppings.clear();
         add_to_excisting_order_menu();
     }
     else if (input == 'b' || input == 'B') {

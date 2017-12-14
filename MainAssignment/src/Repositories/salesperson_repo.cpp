@@ -49,17 +49,17 @@ void Salesperson_repo::get_base_price(Pizza& pizza){
 }
 
 void Salesperson_repo::write_order(Orders& orders){
+    cout << "1";
     orders.set_helper(false);
-    pizza.set_helper(false);
-    pizza.set_size_helper(true);
     ofstream fout;
     fout.open("orders.txt", ios::app);
-
+    cout << "2";
     if(fout.is_open()){
         fout << orders;
         fout.close();
     }
     else{
-        ///Throw error
+       cout << "Ha?"; ///Throw error
     }
+    cout << "3";
 }
