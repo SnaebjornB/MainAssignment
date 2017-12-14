@@ -14,11 +14,11 @@ void BakerUI::location() {
     ///Velja nafn númer num_of_location
     location_name = vectors.locations_list[num_of_location-1];
 
-    cout << "You chose: " << location_name << endl;
+    baker_service.set_private_location_name(location_name);
 
-    main_menu(location_name);
+    main_menu();
 }
-void BakerUI::main_menu(string location_name){
+void BakerUI::main_menu(){
 
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
@@ -29,18 +29,18 @@ void BakerUI::main_menu(string location_name){
          << "c. change location " << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
-    main_input_checker(input, location_name);
+    main_input_checker(input);
 }
 
-void BakerUI::main_input_checker(char input, string location_name){
+void BakerUI::main_input_checker(char input){
     if(input == '1'){
         cout << "1. Get list of all orders" << endl;
         ///Prenta út ActiveOrdersLocation_Name.txt
         string status = "ordered";
-        print_orders(location_name, status);
+        print_orders(status);
         ///Prenta út MakingOrdersLocation_name
         status = "making";
-        print_orders(location_name, status);
+        print_orders(status);
 
     }
     else if(input == '2'){
@@ -55,7 +55,7 @@ void BakerUI::main_input_checker(char input, string location_name){
         cout << "3. Check order as in making" << endl;
         ///Prenta út OrderesOrdersLocation_Name.txt
         string status = "ordered";
-        print_orders(location_name, status);
+        print_orders(status);
         ///Velja nr. af order sem þú vilt merkja sem "in making"
 
     }
@@ -63,7 +63,7 @@ void BakerUI::main_input_checker(char input, string location_name){
         cout << "4. Check order ready" << endl;
         ///Prenta út MakingOrdersLocation_name
         string status = "making";
-        print_orders(location_name, status);
+        print_orders(status);
 
         ///Velja nr. af order sem þú vilt merkja sem "ready"
 
@@ -73,7 +73,7 @@ void BakerUI::main_input_checker(char input, string location_name){
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
-       main_menu(location_name);
+       main_menu();
     }
 }
 
@@ -87,7 +87,7 @@ void BakerUI::print_locations(){
     }
 }
 
-void BakerUI::print_orders(string& location_name, string& status){
+void BakerUI::print_orders(string& status){
     ///Lesa active orders inn á vector
-    baker_service.read_orders(vectors, location_name, status);
+    baker_service.read_orders(vectors, status);
 }
