@@ -6,6 +6,7 @@
 #include "vectors.h"
 #include "salesperson_repo.h"
 #include "pizza.h"
+#include "orders.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ class Salesperson_service
         Salesperson_service();
         Vectors read_types(Vectors& vectors, string type);
         void get_base_price(Pizza& pizza);
+        void write_order(Orders& orders);
 
     private:
         Salesperson_repo salesperson_repo;

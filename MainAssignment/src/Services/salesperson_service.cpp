@@ -13,3 +13,7 @@ Vectors Salesperson_service::read_types(Vectors& vectors, string type){
 void Salesperson_service::get_base_price(Pizza& pizza){
     salesperson_repo.get_base_price(pizza);
 }
+
+void Salesperson_service::write_order(Orders& orders){
+    salesperson_repo.write_order(orders);
+}
