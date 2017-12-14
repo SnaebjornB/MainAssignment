@@ -85,10 +85,10 @@ void AdminUI::topping_input_checker(char input){
                 cout << "Invalid input! Please choose again." << endl;
             }
         } while ( choice <= 0 || choice > sizeofVector);
-        
+
         cout << endl << "You selected:" << vectors.topping_list[choice-1] << endl
         << "Recreate this topping:" << endl;
-        
+
         try {
             admin_service.add_topping(create_topping());
         }
@@ -101,7 +101,7 @@ void AdminUI::topping_input_checker(char input){
         catch(InvalidTypeException e) {
             cout << e.getMessage() << endl;
         }
-        
+
         vectors.topping_list[choice-1] = create_topping();
         admin_service.write_type(vectors, type);
         topping_menu();
@@ -109,10 +109,10 @@ void AdminUI::topping_input_checker(char input){
     else if(input == '4'){
         print_toppings();
         string type = "topping";
-    
+
         int num_of_line;
         int sizeofVector = (int) vectors.topping_list.size();
-        
+
         do {
             cout << "Choose the topping you want to change: ";
             cin >> num_of_line;
@@ -120,7 +120,7 @@ void AdminUI::topping_input_checker(char input){
                 cout << "Invalid input! Please choose again." << endl;
             }
         } while ( num_of_line <= 0 || num_of_line > sizeofVector);
-        
+
         admin_service.erase_type(vectors, num_of_line, type);
         topping_menu();
     }
@@ -191,24 +191,24 @@ void AdminUI::sides_input_checker(char input){
         cout << "Choose the side-dish you want to change: ";
         int choice;
         int sizeofVector = (int)vectors.sides_list.size();
-        
+
         do{
             cin >> choice;
             if (choice <= 0 || choice > sizeofVector) {
                 cout << "Invalid input! Please choose again." << endl;
             }
         } while ( choice <= 0 || choice > sizeofVector);
-        
+
         cout << endl << "You selected:" << vectors.sides_list[choice-1] << endl
         << "Recreate this side-dish:" << endl;
-        
+
         try {
             admin_service.add_sides(create_sides());
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
         }
-        
+
         vectors.sides_list[choice-1] = create_sides();
         admin_service.write_type(vectors, type);
         sides_menu();
@@ -225,7 +225,7 @@ void AdminUI::sides_input_checker(char input){
                 cout << "Invalid input! Please choose again." << endl;
             }
         } while ( num_of_line <= 0 || num_of_line > sizeofVector);
-        
+
         admin_service.erase_type(vectors, num_of_line, type);
         sides_menu();
     }

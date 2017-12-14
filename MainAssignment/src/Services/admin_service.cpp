@@ -6,10 +6,10 @@ Admin_Service::Admin_Service()
 }
 
 void Admin_Service::add_topping(Topping topping){
-    if(invalidNameException.isvalidToppingName(topping) && 
-       invalidInchesException.isvalidToppingInches(topping) && 
+    if(invalidNameException.isvalidToppingName(topping) &&
+       invalidInchesException.isvalidToppingInches(topping) &&
        invalidTypeException.isvalidToppingType(topping)) {
-        
+
         admin_repo.write_topping(topping);
     }
     //cout << car << endl;

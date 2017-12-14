@@ -1,4 +1,5 @@
 #include "salespersonui.h"
+#include "mainui.h"
 
 SalespersonUI::SalespersonUI() {
     //ctor
@@ -25,7 +26,10 @@ void SalespersonUI::main_input_checker(char input){
     else if(input == '3'){
         cout << "3. View pizza menu" << endl;                                   ///vantar
     }
-
+    else if(input == 'b'){
+        MainUI mainui;
+        mainui.main_menu();                                   ///vantar
+    }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
         main_menu();
@@ -114,7 +118,31 @@ void SalespersonUI::make_new_order_input_checker(char input) {
         make_new_order_menu();
     }
     else if (input == '5') {
+        char choice;
+        while(true){
+            cout << "Has the order been paid? (y/n): ";
+            cin >> choice;
+            if (choice == 'y' || choice == 'Y'){
+                orders.set_paid_status(true);
+                cout << "Order was marked as paid" << endl;
+                make_new_order_menu();
+            }
+            else if(choice == 'n' || choice == 'N'){
+                cout << "Order was not marked as paid" << endl;
+                make_new_order_menu();
+            }
+            else{
+                cout << "Invalid input!" << endl;
+            }
+        }
+    }
+    else if (input == '6') {
+        string comment;
+        cout << "Comment: ";
+        cin >> comment;
+        orders.set_comment(comment);
         salesperson_service.write_order(orders);
+        main_menu();
     }
     else if (input == 'b' || input == 'B') {
         main_menu();
@@ -217,7 +245,7 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
         orders.otherPizzas_ordered.push_back(pizza);
         orders.add_to_pizza_counter();
         pizza.pizza_toppings.clear();
-        add_to_excisting_order_menu();
+        make_new_order_menu();
     }
     else if (input == 'b' || input == 'B') {
         make_new_order_menu();

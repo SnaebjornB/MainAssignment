@@ -22,6 +22,6 @@ public:
     bool isvalidToppingType(Topping topping);
 private:
     string message;
-    
+
 };
 #endif /* InvalidTypeEx_hpp */

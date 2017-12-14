@@ -50,6 +50,7 @@ private:
     Salesperson_service salesperson_service;
     Orders orders;
     Vectors vectors;
+    string location;
 };
 
 #endif // SALESPERSONUI_H

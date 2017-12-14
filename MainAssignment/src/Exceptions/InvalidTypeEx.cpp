@@ -9,7 +9,7 @@
 #include "InvalidTypeEx.h"
 
 InvalidTypeException::InvalidTypeException() {
-    
+
 }
 
 InvalidTypeException::InvalidTypeException(string message) {

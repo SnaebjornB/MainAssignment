@@ -194,5 +194,19 @@ ostream& operator << (ostream& out, Orders& orders){
 }
 
 istream& operator >> (istream& in, Orders& orders){
+    getline(in,orders.phone_number, ',');  getline(in,orders.name, ','); getline(in,orders.address, ',');
+    getline(in,orders.comment, ',') >> orders.baking >> orders.ready >> orders.paid >> orders.delivered
+       >> orders.home_delivery >> orders.orders_helper >> orders.total_price >> orders.pizza_counter
+       >> orders.menu_pizza_counter >> orders.sides_counter;
+
+       for(int i = 0; i < orders.menu_pizza_counter; i++){
+            in >> orders.menuPizzas_ordered[i];
+        }
+        for(int i = 0; i < orders.pizza_counter; i++){
+            in >> orders.otherPizzas_ordered[i];
+        }
+        for(int i = 0; i < orders.sides_counter; i++){
+            in >> orders.sides_ordered[i];
+        }
     return in;
 }
