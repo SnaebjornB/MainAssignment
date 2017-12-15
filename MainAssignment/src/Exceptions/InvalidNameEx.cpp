@@ -50,7 +50,7 @@ bool InvalidNameException::isvalidLocationName(string location) {
     return true;
 }
 
-bool isvalidMenuPizza(Menu_Pizza & menu_pizza){
+bool InvalidNameException::isvalidMenuPizzaName(Menu_Pizza & menu_pizza){
     string name = menu_pizza.get_name();
 for (unsigned int i = 0; i < name.length(); i++) {
     if (!(isalpha(name[i]) || name[i] == ' ')) {

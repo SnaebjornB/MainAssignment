@@ -40,8 +40,11 @@ void Admin_Service::add_sides(Sides sides){
 }
 
 void Admin_Service::add_menu_pizza(Menu_Pizza& menu_pizza){
-    if(invalidPriceException.isvalidMenuPizzaPrice(menu_pizza)) {
-        admin_repo.write_menu_pizza(menu_pizza);
+    if(invalidPriceException.isvalidMenuPizzaPrice(menu_pizza) &&
+       invalidNameException.isvalidMenuPizzaName(menu_pizza) &&
+       invalidInchesException.isvalidMenuPizzaInches(menu_pizza)) {
+       
+           admin_repo.write_menu_pizza(menu_pizza);
     }
 }
 

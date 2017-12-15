@@ -28,7 +28,7 @@ bool InvalidInchesException::isvalidToppingInches(Topping& topping) {
     return true;
 }
 
-bool isvalidMenuPizzaInches(Menu_Pizza& menu_pizza) {
+bool InvalidInchesException::isvalidMenuPizzaInches(Menu_Pizza& menu_pizza) {
     int  size = menu_pizza.get_size();
     if (!(size == 9 || size == 12 || size == 16)) {
         throw (InvalidInchesException("invalid size!"));

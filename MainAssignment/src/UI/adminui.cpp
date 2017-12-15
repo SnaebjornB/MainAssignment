@@ -311,7 +311,6 @@ void AdminUI::pizzamenu_menu(){
          << "3. Edit a pizza" << endl
          << "4. Remove a pizza recipe" << endl
          << "5. Change price of pizza size" << endl
-         << "6. View the pizza menu" << endl
          << "Enter B to go back or Q to quit." << endl << endl
          << "Input: ";
          cin >> input;
@@ -321,22 +320,27 @@ void AdminUI::pizzamenu_menu(){
 void AdminUI::pizzamenu_input_checker(char input){
     if(input == '1'){
         Menu_Pizza menu_pizza = create_menu_pizza();
-        menu_pizza.set_helper(true);
+        
         try {
         admin_service.add_menu_pizza(menu_pizza);
+                    cout << "You added " << menu_pizza << " to the pizza menu." << endl;
         }
-        /*catch(InvalidNameException e) {
+        catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
-        }*/
+        }
         catch(InvalidPriceException e) {
             cout << e.getMessage() << endl;
         }
+        catch(InvalidInchesException e) {
+            cout << e.getMessage() << endl;
+        }
         
-        cout << "You added " << menu_pizza << " to the pizza menu." << endl;
+
         pizzamenu_menu();
     }
     else if(input == '2') {
         print_pizza_menu();
+        pizzamenu_menu();
     }
     else if(input == '3'){
         string type = "pizza_menu";
@@ -345,9 +349,25 @@ void AdminUI::pizzamenu_input_checker(char input){
         cout << "Choose the pizza you want to change: ";
         int choice;
         cin >> choice;
-        cout << endl << "You selected:" << vectors.pizza_menu_list[choice-1] << endl
-             << "Recreate this pizza:" << endl;
-        vectors.pizza_menu_list[choice-1] = create_menu_pizza();
+        Menu_Pizza menu_pizza = create_menu_pizza();
+        
+        try {
+            admin_service.add_menu_pizza(menu_pizza);
+            vectors.pizza_menu_list[choice-1] = menu_pizza;
+            cout << endl << "You selected:" << vectors.pizza_menu_list[choice-1] << endl
+            << "Recreate this pizza:" << endl;
+        }
+        catch(InvalidNameException e) {
+            cout << e.getMessage() << endl;
+        }
+        catch(InvalidPriceException e) {
+            cout << e.getMessage() << endl;
+        }
+        catch(InvalidInchesException e) {
+            cout << e.getMessage() << endl;
+        }
+        
+            
         admin_service.write_type(vectors, type);
         pizzamenu_menu();
     }
@@ -363,24 +383,45 @@ void AdminUI::pizzamenu_input_checker(char input){
         pizzamenu_menu();
     }
     else if(input == '5') {
-        cout << "price of 9\" is: ";
         int inches9 = 0;
-        cin >> inches9;
-        pizza.set_inches9(inches9);
-        cout << "price of 12\" is: ";
         int inches12 = 0;
-        cin >> inches12;
-        pizza.set_inches12(inches12);
-        cout << "price of 16\" is: ";
         int inches16 = 0;
-        cin >> inches16;
-        pizza.set_inches16(inches16);
+        
+        do {
+        cout << "price of 9\" is: ";
+        cin >> inches9;
+            if (inches9 < 0) {
+                cout << "wrong input, try again." << endl;
+            }
+        }
+        while (inches9 < 0);
+        
+        do {
+        cout << "price of 12\" is: ";
+        cin >> inches12;
+            if (inches12 < 0) {
+                cout << "wrong input, try again." << endl;
+            }
+        }
+        while (inches12 < 0);
+        
+        do {
+            cout << "price of 16\" is: ";
+            cin >> inches16;
+            if (inches16 < 0) {
+                cout << "wrong input, try again." << endl;
+            }
+        }
+        while (inches16 < 0);
+        
 
+        pizza.set_inches16(inches16);
+        pizza.set_inches12(inches12);
+        pizza.set_inches9(inches9);
         admin_service.add_margarita_price(pizza);
+        pizzamenu_menu();
     }
-    else if(input == '6') {
-        cout << "5. View the pizza menu" << endl;                               //vantar
-    }
+
     else if(input == 'b' || input == 'B'){
         main_menu();
     }
@@ -478,8 +519,12 @@ string AdminUI::create_location(){
 
 void AdminUI::print_pizza_menu(){
     string type = "pizza_menu";
+    
     admin_service.read_types(vectors, type);
+    
     for(unsigned int i = 0; i < vectors.pizza_menu_list.size(); i++){
+        vectors.pizza_menu_list[i].set_helper(false);
+        vectors.pizza_menu_list[i].set_print_helper(true);
         cout << (i+1) << ". " << vectors.pizza_menu_list[i];
     }
 }

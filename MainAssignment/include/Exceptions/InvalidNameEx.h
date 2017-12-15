@@ -25,7 +25,7 @@ public:
     bool isvalidToppingName(Topping& topping);
     bool isvalidSidesName(Sides& sides);
     bool isvalidLocationName(string location);
-    bool isvalidMenuPizza(Menu_Pizza & menu_pizza);
+    bool isvalidMenuPizzaName(Menu_Pizza & menu_pizza);
 private:
     string message;
 

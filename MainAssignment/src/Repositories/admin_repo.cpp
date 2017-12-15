@@ -19,8 +19,6 @@ void Admin_Repo::write_topping(Topping topping){
     }
 }
 
-
-
 Vectors Admin_Repo::read_type(Vectors& vectors, string type){
     ///Nafnið á skranni sem við viljum opna
     string filename = type;
@@ -166,6 +164,7 @@ void Admin_Repo::write_sides(Sides& sides){
 
 void Admin_Repo::write_menu_pizza(Menu_Pizza& menu_pizza){
     menu_pizza.set_helper(false);
+    menu_pizza.set_print_helper(true);
     ofstream fout;
     fout.open("pizza_menu.txt", ios::app);
 
