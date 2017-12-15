@@ -74,12 +74,11 @@ Vectors Baker_repo::change_order_status(Vectors& vectors, string& location_name,
 
     ifstream fin;
     ofstream fout ,fileout;
-    cout << "komst hingað!!!" << endl;
+
     fout.open((current_status).c_str(), ios::trunc);
     fout.close();
     fout.open((current_status).c_str(), ios::app);   ///(test).c_str()
     fileout.open((next_status).c_str(), ios::app);
-    cout << "og hingað!!!" << endl;
 
         for(unsigned int j = 0; j < vectors.orders_list.size(); j++){
             if(!(vectors.orders_list[j].get_baking_status())){

@@ -10,6 +10,7 @@
 #include "orders.h"
 
 #include "InvalidNameEx.h"
+#include "InvalidPhonenumberEx.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ class Salesperson_service
         Pizza pizza;
 
         InvalidNameException invalidNameException;
+        InvalidPhonenumberException invalidPhonenumberException;
 };
 
 #endif // SALESPERSON_SERVICE_H
