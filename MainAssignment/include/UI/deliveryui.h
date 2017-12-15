@@ -14,6 +14,7 @@ public:
     void main_input_checker(char input);
 private:
     char input;
+    string location_name;
 };
 
 #endif // DELIVERYUI_H

@@ -11,9 +11,8 @@ Vectors Baker_service::read_locations(Vectors& vectors){
     return vectors;
 }
 
-Vectors Baker_service::read_orders(Vectors& vectors, string& status){
-    string location_name = get_private_location_name();
-    baker_repo.read_orders(vectors, location_name, status);
+Vectors Baker_service::read_orders(Vectors& vectors, string& status, string location){
+    baker_repo.read_orders(vectors, location, status);
 
     return vectors;
 }
@@ -26,3 +25,6 @@ string Baker_service::get_private_location_name(){
     return this->private_location_name;
 }
 
+void Baker_service::check_in_making(Vectors& vectors, string location, string current_status, string next_status){
+    baker_repo.change_order_status(vectors, location, current_status, next_status);
+}

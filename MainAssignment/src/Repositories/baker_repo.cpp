@@ -23,16 +23,15 @@ Vectors Baker_repo::read_locations(Vectors& vectors){
 
 }
 
-Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string& status){
+Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string status){
     ///Opna ActiveOrdersLocation_Name.txt og lesa inn i vector.
     ///
     ///Þetta prentar út innihald skjalsins, eina línu í einu. Útfæra að það lesi það inn í vektor og skili honum.
     /// Búa til vektor sem inniheldur Orders og skila honum svo
-    /*
+
     string txt = ".txt";
     status.append(location_name);
     status.append(txt);
-    */
 
     int i = 0;          ///Debugger
     cout << i << endl; ///Debugger
@@ -40,7 +39,7 @@ Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string&
     ifstream fin;
     ofstream fout;
 
-    fin.open("orders.txt");   ///(test).c_str()
+    fin.open((status).c_str());   ///(test).c_str()
     if(fin.is_open()){
         vectors.orders_list.clear();
         orders.set_in_helper(false);
@@ -65,19 +64,22 @@ Vectors Baker_repo::change_order_status(Vectors& vectors, string& location_name,
     ///
     ///Þetta prentar út innihald skjalsins, eina línu í einu. Útfæra að það lesi það inn í vektor og skili honum.
     /// Búa til vektor sem inniheldur Orders og skila honum svo
-    /*
+
     string txt = ".txt";
-    status.append(location_name);
-    status.append(txt);
-    */
+    current_status.append(location_name);
+    current_status.append(txt);
+
+    next_status.append(location_name);
+    next_status.append(txt);
 
     ifstream fin;
     ofstream fout ,fileout;
-
-    fout.open("orders.txt", ios::trunc);
+    cout << "komst hingað!!!" << endl;
+    fout.open((current_status).c_str(), ios::trunc);
     fout.close();
-    fout.open("orders.txt", ios::app);   ///(test).c_str()
-    fileout.open("testmaking.txt", ios::app);
+    fout.open((current_status).c_str(), ios::app);   ///(test).c_str()
+    fileout.open((next_status).c_str(), ios::app);
+    cout << "og hingað!!!" << endl;
 
         for(unsigned int j = 0; j < vectors.orders_list.size(); j++){
             if(!(vectors.orders_list[j].get_baking_status())){
@@ -89,7 +91,7 @@ Vectors Baker_repo::change_order_status(Vectors& vectors, string& location_name,
             else if(vectors.orders_list[j].get_baking_status()){
                 if(fileout.is_open()){
                     vectors.orders_list[j].set_helper(false);
-                    fout << vectors.orders_list[j];
+                    fileout << vectors.orders_list[j];
                 }
             }
         }

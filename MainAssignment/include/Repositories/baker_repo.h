@@ -18,7 +18,7 @@ class Baker_repo
     public:
         Baker_repo();
         Vectors read_locations(Vectors& vectors);
-        Vectors read_orders(Vectors& vectors, string& location_name, string& status);
+        Vectors read_orders(Vectors& vectors, string& location_name, string status);
         Vectors change_order_status(Vectors& vectors, string& location_name, string& current_status, string next_status);
 
 

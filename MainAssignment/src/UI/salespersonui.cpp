@@ -5,6 +5,17 @@ SalespersonUI::SalespersonUI() {
     //ctor
 }
 
+void SalespersonUI::location() {
+    print_locations();
+    cout << "pick your location: ";
+    unsigned int num_of_location;
+    cin >> num_of_location;
+    ///Velja nafn númer num_of_location
+    location_name = vectors.locations_list[num_of_location-1];
+
+    main_menu();
+}
+
 void SalespersonUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
@@ -20,22 +31,22 @@ void SalespersonUI::main_input_checker(char input){
     if(input == '1'){
         Orders orders = order_prompt();
         try {
-            salesperson_service.add_order(orders);
+            salesperson_service.add_order(orders, location_name);
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
         }
-        
+
     }
     else if(input == '2'){
         cout << "change order" << endl;
     }
     else if(input == '3'){
-        cout << "3. View pizza menu" << endl;   
+        cout << "3. View pizza menu" << endl;
     }
     else if(input == 'b'){
         MainUI mainui;
-        mainui.main_menu(); 
+        mainui.main_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
@@ -49,15 +60,15 @@ Orders SalespersonUI::order_prompt(){
 
         cout << "Phone number: ";
         cin >> phone_number;
-  
-        
+
+
         cout << "Name: ";
     cin >> ws;
     getline(cin, name);
 
 
-    
-    
+
+
     do {
         cout << "Home delivery (y if it is, n if it's not) ";
         cin >> delivery;
@@ -159,7 +170,7 @@ void SalespersonUI::make_new_order_input_checker(char input) {
         cout << "Comment: ";
         cin >> comment;
         orders.set_comment(comment);
-        salesperson_service.write_order(orders);
+        salesperson_service.write_order(orders, location_name);
         main_menu();
     }
     else if (input == 'b' || input == 'B') {
@@ -268,4 +279,14 @@ Vectors SalespersonUI::print_sides(Vectors& vectors, string type){
     }
 
     return vectors;
+}
+
+void SalespersonUI::print_locations(){
+    ///lesa loactions.txt inn í vector
+    salesperson_service.read_locations(vectors);
+
+    ///Prenta út vector
+    for(unsigned int i = 0; i < vectors.locations_list.size(); i++){
+        cout << (i+1) << ". " << vectors.locations_list[i] << endl;
+    }
 }

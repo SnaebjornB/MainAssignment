@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include <string>
 #include "sides.h"
 #include "menu_pizza.h"
 #include "topping.h"
@@ -19,7 +20,8 @@ class Salesperson_repo
         Salesperson_repo();
         Vectors read_type(Vectors& vectors, string type);
         void get_base_price(Pizza& pizza);
-        void write_order(Orders& orders);
+        void write_order(Orders& orders, string location);
+        Vectors read_locations(Vectors& vectors);
 
     private:
         Topping topping;

@@ -38,6 +38,9 @@ public:
     void add_pizzasize_input_checkout(char input);
 
     Orders order_prompt();
+    void location();
+
+    void print_locations();
 
     Vectors print_sides(Vectors& vectors, string type);
     Vectors print_pizza_menu(Vectors& vectors, string type);
@@ -50,7 +53,7 @@ private:
     Salesperson_service salesperson_service;
     Orders orders;
     Vectors vectors;
-    string location;
+    string location_name;
 };
 
 #endif // SALESPERSONUI_H

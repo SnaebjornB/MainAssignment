@@ -48,11 +48,17 @@ void Salesperson_repo::get_base_price(Pizza& pizza){
     fin.close();
 }
 
-void Salesperson_repo::write_order(Orders& orders){
+void Salesperson_repo::write_order(Orders& orders, string location_name){
+    string txt = ".txt";
+    string status = "ordered";
+
+    status.append(location_name);
+    status.append(txt);
+
     orders.set_helper(false);
     ofstream fout;
-    cout << "1";
-    fout.open("orders.txt", ios::app);
+    fout.open((status).c_str(), ios::app);
+
     if(fout.is_open()){
         fout << orders;
         fout.close();
@@ -60,5 +66,22 @@ void Salesperson_repo::write_order(Orders& orders){
     else{
         ///Throw error
     }
-    cout << "2";
+}
+
+Vectors Salesperson_repo::read_locations(Vectors& vectors){
+    ///Opna locations.txt lesa inn í vector
+    ifstream fin;
+    ofstream fout;
+    string name;
+    fin.open("locations.txt");
+    if(fin.is_open()){
+        vectors.locations_list.clear();
+        while(getline(fin, name)){                             ///fin >> name
+            vectors.locations_list.push_back(name);
+        }
+        fin.close();
+    }
+
+    return vectors;
+
 }

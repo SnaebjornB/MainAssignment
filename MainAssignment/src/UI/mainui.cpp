@@ -22,7 +22,7 @@ void MainUI::input_checker(char input){
         adminui.main_menu();
     }
     else if(input == '2'){
-        salesui.main_menu();
+        salesui.location();
     }
     else if(input == '3'){
         bakerui.location();

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 #include "vectors.h"
 #include "salesperson_repo.h"
 #include "pizza.h"
@@ -18,13 +19,14 @@ class Salesperson_service
         Salesperson_service();
         Vectors read_types(Vectors& vectors, string type);
         void get_base_price(Pizza& pizza);
-        void write_order(Orders& orders);
-    void add_order(Orders& orders);
+        void write_order(Orders& orders, string location);
+        void add_order(Orders& orders, string location);
+        Vectors read_locations(Vectors& vectors);
 
     private:
         Salesperson_repo salesperson_repo;
         Pizza pizza;
-    
+
         InvalidNameException invalidNameException;
 };
 
