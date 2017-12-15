@@ -137,6 +137,7 @@ void AdminUI::topping_input_checker(char input){
         } while ( num_of_line <= 0 || num_of_line > sizeofVector);
 
         admin_service.erase_type(vectors, num_of_line, type);
+
         topping_menu();
     }
     else if(input == '5'){
@@ -191,6 +192,8 @@ void AdminUI::sides_input_checker(char input){
 
         try {
             admin_service.add_sides(sides);
+            sides.set_helper(true);
+            cout << "You added " << sides << " to the list of side dishes." << endl;
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
@@ -199,8 +202,6 @@ void AdminUI::sides_input_checker(char input){
             cout << e.getMessage() << endl;
         }
 
-        sides.set_helper(true);
-        cout << "You added " << sides << " to the list of side dishes." << endl;
         sides_menu();
     }
     else if(input == '2') {
@@ -327,9 +328,15 @@ void AdminUI::pizzamenu_input_checker(char input){
         string type = "pizza_menu";
         print_pizza_menu();
 
-        cout << "Choose the pizza you want to change: ";
         int choice;
-        cin >> choice;
+        int checker = (int) vectors.pizza_menu_list.size();
+        do {
+            cout << "Choose the pizza you want to change: ";
+            cin >> choice;
+            if(choice < 1 || choice > checker){
+                cout << "Invalid input! Try again." << endl;
+            }
+        }while(choice < 1 || choice > checker);
         Menu_Pizza menu_pizza = create_menu_pizza();
 
         try {

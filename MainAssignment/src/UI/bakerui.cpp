@@ -8,10 +8,16 @@ BakerUI::BakerUI()
 
 void BakerUI::location() {
     print_locations();
-    cout << "pick your location: ";
-    unsigned int num_of_location;
-    cin >> num_of_location;
 
+    int num_of_location;
+    int checker = (int)vectors.locations_list.size();
+    do{
+        cout << "pick your location: ";
+        cin >> num_of_location;
+        if(num_of_location < 0 || num_of_location > checker){
+            cout << "Invalid input! Try again." << endl;
+        }
+    }while(num_of_location < 0 || num_of_location > checker);
     location_name = vectors.locations_list[num_of_location-1];
 
     main_menu();

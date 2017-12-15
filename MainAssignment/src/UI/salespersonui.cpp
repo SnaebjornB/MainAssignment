@@ -7,9 +7,16 @@ SalespersonUI::SalespersonUI() {
 
 void SalespersonUI::location() {
     print_locations();
-    cout << "pick your location: ";
-    unsigned int num_of_location;
-    cin >> num_of_location;
+
+    int num_of_location;
+    int checker = (int)vectors.locations_list.size();
+    do{
+        cout << "pick your location: ";
+        cin >> num_of_location;
+        if(num_of_location < 0 || num_of_location > checker){
+            cout << "Invalid input! Try again." << endl;
+        }
+    }while(num_of_location < 0 || num_of_location > checker);
     location_name = vectors.locations_list[num_of_location-1];
 
     main_menu();
@@ -197,13 +204,21 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
     if(input == '1' || input == '2' || input == '3') {
         string type = "topping";
         int choice;
+
         salesperson_service.get_base_price(pizza);
         pizza.margaritaprice(input);
 
         print_toppings(vectors, type, input);
+        int checker = vectors.topping_list.size();
+
         while (true){
-            cout << "Select toppings (0 to stop): ";
-            cin >> choice;
+            do{
+                cout << "Select toppings (0 to stop): ";
+                cin >> choice;
+                if(choice < 0 || choice > checker){
+                    cout << "Invalid input! Try again." << endl;
+                }
+            }while(choice < 0 || choice > checker);
                 if (choice == 0){
                     break;
                 }
@@ -306,10 +321,15 @@ void SalespersonUI::add_menu_pizza(){
     string type = "pizza_menu";
     Vectors vectors;
     int choice;
-
-    cout << "Choose the pizza you want to add to the order:" << endl;
+    int checker = (int) vectors.pizza_menu_list.size();
     print_pizza_menu(vectors, type);
-    cin >> choice;
+    do{
+        cout << "Choose the pizza you want to add to the order: ";
+        cin >> choice;
+        if(choice < 1 || choice > checker){
+            cout << "Invalid input! Try again" << endl;
+        }
+    }while(choice < 1 || choice > checker);
 
     vectors.pizza_menu_list[choice - 1].set_print_helper(false);
     vectors.pizza_menu_list[choice - 1].set_helper(false);
