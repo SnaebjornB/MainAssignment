@@ -110,8 +110,17 @@ void BakerUI::check_in_making(int choice, Vectors& vectors){
 void BakerUI::change_status(string current_status, string next_status){
     print_orders(vectors,current_status);
     ///Velja nr. af order sem þú vilt merkja sem "in making"
-    int choice = 0;
-    cin >> choice;
+        int choice = 0;
+    do {
+  
+        cin >> choice;
+        
+        if (choice > vectors.orders_list.size() || choice < 1) {
+            cout << "Invalid input, try again" << endl;
+        }
+    }
+    while (choice > vectors.orders_list.size() || choice < 1);
+    
     /// tengja niður á við og fá til að virka
     vectors.orders_list[choice - 1].set_baking_status(true);
     baker_service.check_in_making(vectors, location_name, current_status, next_status);
