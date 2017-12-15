@@ -70,14 +70,22 @@ void DeliveryUI::print_all_orders(){
     delivery_service.read_orders(vectors, ordered, location_name);
     delivery_service.read_orders(vectors, making, location_name);
     delivery_service.read_orders(vectors, ready, location_name);
+    int checker = (int) vectors.pizza_menu_list.size();
 
     if (vectors.orders_list.size() > 0){
         for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
             cout << (i+1) << ". " << vectors.orders_list[i].get_name()
              << " " << vectors.orders_list[i].get_phone_number() << endl;
         }
-        cout << "Which order do you need to view? ";
-        cin >> choice;
+
+        do {
+            cout << "Which order do you need to view? ";
+            cin >> choice;
+            if(choice < 1 || choice > checker){
+                cout << "Invalid input! Try again." << endl;
+            }
+        }while(choice < 1 || choice > checker);
+
         cout << vectors.orders_list[choice - 1] << endl;
 
         current_order.clear();
@@ -127,9 +135,12 @@ void DeliveryUI::print_specific_order(){
     delivery_service.read_orders(vectors, ready, location_name);
 
     for(unsigned int i = 0; i < (vectors.orders_list.size()); i++){
-        if(phone_number.compare(vectors.orders_list[i].get_phone_number())){// == vectors.orders_list[i].get_phone_number()){
+        if(phone_number == vectors.orders_list[i].get_phone_number()){
             cout << vectors.orders_list[i] << endl;
             current_order.push_back(vectors.orders_list[i]);
+        }
+        else{
+            break;
         }
     }
     vectors.orders_list.clear();
@@ -140,64 +151,120 @@ void DeliveryUI::print_specific_order(){
 void DeliveryUI::check_order_paid(){
     string phone_number, ordered = "ordered", making = "making", ready = "ready";
     int choice = 0;
-
-    cout << "Is this the order you want to check paid? (y/n) " << endl << current_order[0] << endl;
-    cin >> input;
-    phone_number = current_order[0].get_phone_number();
-    delivery_service.read_orders(vectors, ordered, location_name);
-    delivery_service.read_orders(vectors, making, location_name);
-    delivery_service.read_orders(vectors, ready, location_name);
-
-    if (input == 'y' || input == 'Y'){
-        for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
-            if (phone_number.compare(vectors.orders_list[i].get_phone_number())){
-                vectors.orders_list[i].set_paid_status(true);
+    if(current_order.size() > 0){
+        cout << "Is this the order you want to check paid? (y/n) " << endl << current_order[0] << endl;
+        cin >> input;
+        phone_number = current_order[0].get_phone_number();
+        if (input == 'y' || input == 'Y'){
+            for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
+                if (phone_number.compare(vectors.orders_list[i].get_phone_number())){
+                    vectors.orders_list[i].set_paid_status(true);
+                }
             }
         }
-    }
-    else if (input == 'n' || input == 'N'){
+        else{
+        delivery_service.read_orders(vectors, ordered, location_name);
+        delivery_service.read_orders(vectors, making, location_name);
+        delivery_service.read_orders(vectors, ready, location_name);
         cout << "Please select the order you want to mark paid: " << endl;
         for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
             cout << (i+1) << ". " << vectors.orders_list[i].get_name()
              << " " << vectors.orders_list[i].get_phone_number() << endl;
         }
-    cout << "input: ";
-    cin >> choice;
+        cout << "input: ";
+        cin >> choice;
 
-    vectors.orders_list[choice -1].set_paid_status(true);
+        vectors.orders_list[choice -1].set_paid_status(true);
     }
+    }
+    else{
+        delivery_service.read_orders(vectors, ordered, location_name);
+        delivery_service.read_orders(vectors, making, location_name);
+        delivery_service.read_orders(vectors, ready, location_name);
+
+        cout << "Please select the order you want to mark paid: " << endl;
+
+        for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
+            cout << (i+1) << ". " << vectors.orders_list[i].get_name()
+             << " " << vectors.orders_list[i].get_phone_number() << endl;
+        }
+
+        cout << "input: ";
+        cin >> choice;
+
+        int checker = (int) vectors.orders_list.size();
+
+        do {
+            cout << "input: ";
+            cin >> choice;
+            if(choice < 1 || choice > checker){
+                cout << "Invalid input! Try again." << endl;
+            }
+        }while(choice < 1 || choice > checker);
+
+        vectors.orders_list[choice -1].set_paid_status(true);
+    }
+
     main_menu();
 }
 
 void DeliveryUI::check_order_delivered(){
     string phone_number, ordered = "ordered", making = "making", ready = "ready";
     int choice = 0;
-
-    cout << "Is this the order you want to check paid? (y/n) " << endl << current_order[0] << endl;
-    cin >> input;
-    phone_number = current_order[0].get_phone_number();
-    delivery_service.read_orders(vectors, ordered, location_name);
-    delivery_service.read_orders(vectors, making, location_name);
-    delivery_service.read_orders(vectors, ready, location_name);
-
-    if (input == 'y' || input == 'Y'){
-        for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
-            if (phone_number.compare(vectors.orders_list[i].get_phone_number())){
-                vectors.orders_list[i].set_delivered_status(true);
+    if(current_order.size() > 0){
+        cout << "Is this the order you want to check paid? (y/n) " << endl << current_order[0] << endl;
+        cin >> input;
+        phone_number = current_order[0].get_phone_number();
+        if (input == 'y' || input == 'Y'){
+            for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
+                if (phone_number.compare(vectors.orders_list[i].get_phone_number())){
+                    vectors.orders_list[i].set_paid_status(true);
+                }
             }
         }
-    }
-    else if (input == 'n' || input == 'N'){
+        else{
+        delivery_service.read_orders(vectors, ordered, location_name);
+        delivery_service.read_orders(vectors, making, location_name);
+        delivery_service.read_orders(vectors, ready, location_name);
         cout << "Please select the order you want to mark paid: " << endl;
         for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
             cout << (i+1) << ". " << vectors.orders_list[i].get_name()
              << " " << vectors.orders_list[i].get_phone_number() << endl;
         }
-    cout << "input: ";
-    cin >> choice;
+        cout << "input: ";
+        cin >> choice;
 
-    vectors.orders_list[choice -1].set_delivered_status(true);
+        vectors.orders_list[choice -1].set_delivered_status(true);
     }
+    }
+    else{
+        delivery_service.read_orders(vectors, ordered, location_name);
+        delivery_service.read_orders(vectors, making, location_name);
+        delivery_service.read_orders(vectors, ready, location_name);
+
+        cout << "Please select the order you want to mark paid: " << endl;
+
+        for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
+            cout << (i+1) << ". " << vectors.orders_list[i].get_name()
+             << " " << vectors.orders_list[i].get_phone_number() << endl;
+        }
+
+        cout << "input: ";
+        cin >> choice;
+
+        int checker = (int) vectors.orders_list.size();
+
+        do {
+            cout << "input: ";
+            cin >> choice;
+            if(choice < 1 || choice > checker){
+                cout << "Invalid input! Try again." << endl;
+            }
+        }while(choice < 1 || choice > checker);
+
+        vectors.orders_list[choice -1].set_delivered_status(true);
+    }
+
     main_menu();
 }
 

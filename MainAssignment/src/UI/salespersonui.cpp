@@ -209,7 +209,7 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
         pizza.margaritaprice(input);
 
         print_toppings(vectors, type, input);
-        int checker = vectors.topping_list.size();
+        int checker = (int)vectors.topping_list.size();
 
         while (true){
             do{
@@ -321,8 +321,9 @@ void SalespersonUI::add_menu_pizza(){
     string type = "pizza_menu";
     Vectors vectors;
     int choice;
-    int checker = (int) vectors.pizza_menu_list.size();
     print_pizza_menu(vectors, type);
+    int checker = (int) vectors.pizza_menu_list.size();
+
     do{
         cout << "Choose the pizza you want to add to the order: ";
         cin >> choice;
@@ -345,9 +346,16 @@ void SalespersonUI::add_sides(){
     Vectors vectors;
     int choice;
 
-    cout << "Choose sides: " << endl;
     print_sides(vectors, type);
-    cin >> choice;
+    int checker = (int) vectors.sides_list.size();
+
+    do{
+        cout << "Choose sides: " << endl;
+        cin >> choice;
+        if(choice < 1 || choice > checker){
+            cout << "Invalid input! Try again." << endl;
+        }
+    }while(choice < 1 || choice > checker);
 
     vectors.sides_list[choice - 1].set_helper(false);
     vectors.sides_list[choice - 1].set_write_helper(false);

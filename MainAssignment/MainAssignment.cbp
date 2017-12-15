@@ -44,6 +44,8 @@
 		</Compiler>
 		<Unit filename="include/Exceptions/InvalidInchesEx.h" />
 		<Unit filename="include/Exceptions/InvalidNameEx.h" />
+		<Unit filename="include/Exceptions/InvalidPhonenumberEx.h" />
+		<Unit filename="include/Exceptions/InvalidPriceEx.h" />
 		<Unit filename="include/Exceptions/InvalidTypeEx.h" />
 		<Unit filename="include/Model/menu_pizza.h" />
 		<Unit filename="include/Model/orders.h" />
@@ -70,6 +72,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Exceptions/InvalidInchesEx.cpp" />
 		<Unit filename="src/Exceptions/InvalidNameEx.cpp" />
+		<Unit filename="src/Exceptions/InvalidPhonenumberEx.cpp" />
+		<Unit filename="src/Exceptions/InvalidPriceEx.cpp" />
 		<Unit filename="src/Exceptions/InvalidTypeEx.cpp" />
 		<Unit filename="src/Model/menu_pizza.cpp" />
 		<Unit filename="src/Model/orders.cpp" />

@@ -19,7 +19,8 @@ class BakerUI
         Vectors print_orders(Vectors& vectors, string status);
         void print_next_order(Vectors& vectors, string status);
         void check_in_making(int choice, Vectors& vectors);
-        void change_status(string current_status, string next_status);
+        void change_status_making(string current_status, string next_status);
+        void change_status_ready(string current_status, string next_status);
 
     private:
         char input;

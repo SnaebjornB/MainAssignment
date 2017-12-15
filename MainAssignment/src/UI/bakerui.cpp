@@ -43,6 +43,7 @@ void BakerUI::main_input_checker(char input){
         string status = "ordered";
         print_orders(vectors, status);
         vectors.orders_list.clear();
+        main_menu();
     }
     else if(input == '2'){
         string status = "ordered";
@@ -54,7 +55,7 @@ void BakerUI::main_input_checker(char input){
 
         string current_status = "ordered";
         string next_status = "making";
-        change_status(current_status, next_status);
+        change_status_making(current_status, next_status);
 
     }
     else if(input == '4'){
@@ -62,7 +63,7 @@ void BakerUI::main_input_checker(char input){
 
         string current_status = "making";
         string next_status = "ready";
-        change_status(current_status, next_status);
+        change_status_ready(current_status, next_status);
     }
     else if(input == 'q' || input == 'Q'){
         MainUI mainui;
@@ -105,11 +106,30 @@ void BakerUI::check_in_making(int choice, Vectors& vectors){
     vectors.orders_list[choice-1].set_baking_status(true);
 }
 
-void BakerUI::change_status(string current_status, string next_status){
+void BakerUI::change_status_ready(string current_status, string next_status){
     print_orders(vectors, current_status);
         unsigned int choice = 0;
     do {
+        cout << "Choose the order you want to mark as ready: ";
+        cin >> choice;
 
+        if (choice > vectors.orders_list.size() || choice < 1) {
+            cout << "Invalid input, try again" << endl;
+        }
+    }
+    while (choice > vectors.orders_list.size() || choice < 1);
+
+    vectors.orders_list[choice - 1].set_baking_status(true);
+    baker_service.check_in_making(vectors, location_name, current_status, next_status);
+
+    main_menu();
+}
+
+void BakerUI::change_status_making(string current_status, string next_status){
+    print_orders(vectors, current_status);
+        unsigned int choice = 0;
+    do {
+        cout << "Choose the order you want to mark as in the oven";
         cin >> choice;
 
         if (choice > vectors.orders_list.size() || choice < 1) {

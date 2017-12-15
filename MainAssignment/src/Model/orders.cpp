@@ -174,25 +174,31 @@ Orders Orders::operator = (Orders& right_side){
 
 ostream& operator << (ostream& out, Orders& orders){
     if(orders.orders_helper){
-        out << "----------------------------------------------" << endl << endl
+        out << "-------------------------------------------" << endl << endl
             << "Phone number: " << orders.phone_number
             << "Name: " << orders.name << endl
             << orders.name_of_place << endl
             << orders.comment << endl;
         for(unsigned int i = 0; i < orders.menuPizzas_ordered.size(); i++){
             orders.menuPizzas_ordered[i].set_helper(true);
-            out << orders.menuPizzas_ordered[i] << endl;
+            out << orders.menuPizzas_ordered[i] << endl << endl;
         }
         for(unsigned int i = 0; i < orders.otherPizzas_ordered.size(); i++){
             orders.otherPizzas_ordered[i].set_helper(true);
-            out << orders.otherPizzas_ordered[i] << endl;
+            out << orders.otherPizzas_ordered[i] << endl << endl;
         }
         for(unsigned int i = 0; i < orders.sides_ordered.size(); i++){
             orders.sides_ordered[i].set_helper(true);
-            out << orders.sides_ordered[i] << endl;
+            out << orders.sides_ordered[i] << endl << endl;
         }
-        out << '\t' << '\t' << "Total: " << orders.total_price << endl << endl
-            << "----------------------------------------------" << endl;
+        out << '\t' << '\t' << '\t';
+         if(orders.get_paid_status()){
+            out << "Paid" << endl << endl;
+         }
+         else{
+            out << "Total: " << orders.total_price << endl << endl;
+         }
+            out << "----------------------------------------------" << endl;
 
     }
     else{
