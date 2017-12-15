@@ -60,10 +60,6 @@ Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string 
 }
 
 Vectors Baker_repo::change_order_status(Vectors& vectors, string& location_name, string& current_status, string next_status){
-    ///Opna ActiveOrdersLocation_Name.txt og lesa inn i vector.
-    ///
-    ///Þetta prentar út innihald skjalsins, eina línu í einu. Útfæra að það lesi það inn í vektor og skili honum.
-    /// Búa til vektor sem inniheldur Orders og skila honum svo
 
     string txt = ".txt";
     current_status.append(location_name);
@@ -74,12 +70,11 @@ Vectors Baker_repo::change_order_status(Vectors& vectors, string& location_name,
 
     ifstream fin;
     ofstream fout ,fileout;
-    cout << "komst hingað!!!" << endl;
+
     fout.open((current_status).c_str(), ios::trunc);
     fout.close();
-    fout.open((current_status).c_str(), ios::app);   ///(test).c_str()
+    fout.open((current_status).c_str(), ios::app);
     fileout.open((next_status).c_str(), ios::app);
-    cout << "og hingað!!!" << endl;
 
         for(unsigned int j = 0; j < vectors.orders_list.size(); j++){
             if(!(vectors.orders_list[j].get_baking_status())){

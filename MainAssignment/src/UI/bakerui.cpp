@@ -56,26 +56,16 @@ void BakerUI::main_input_checker(char input){
         ///Prenta út OrderesOrdersLocation_Name.txt
         string current_status = "ordered";
         string next_status = "making";
-        print_orders(vectors,current_status);
-        ///Velja nr. af order sem þú vilt merkja sem "in making"
-        int choice = 0;
-        cin >> choice;
-        /// tengja niður á við og fá til að virka
-        vectors.orders_list[choice - 1].set_baking_status(true);
-        cout << vectors.orders_list[choice - 1];
-        baker_service.check_in_making(vectors, location_name, current_status, next_status);
-
-
-        main_menu();
+        change_status(current_status, next_status);
 
     }
     else if(input == '4'){
         cout << "4. Check order ready" << endl;
         ///Prenta út MakingOrdersLocation_name
-        string status = "making";
-        print_orders(vectors, status);
+        string current_status = "making";
+        string next_status = "ready";
+        change_status(current_status, next_status);
 
-        ///Velja nr. af order sem þú vilt merkja sem "ready"
 
     }
     else{
@@ -113,4 +103,16 @@ void BakerUI::print_next_order(Vectors& vectors, string status){
 
 void BakerUI::check_in_making(int choice, Vectors& vectors){
     vectors.orders_list[choice-1].set_baking_status(true);
+}
+
+void BakerUI::change_status(string current_status, string next_status){
+    print_orders(vectors,current_status);
+    ///Velja nr. af order sem þú vilt merkja sem "in making"
+    int choice = 0;
+    cin >> choice;
+    /// tengja niður á við og fá til að virka
+    vectors.orders_list[choice - 1].set_baking_status(true);
+    baker_service.check_in_making(vectors, location_name, current_status, next_status);
+
+    main_menu();
 }

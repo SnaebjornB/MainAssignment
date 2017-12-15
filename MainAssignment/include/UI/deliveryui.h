@@ -2,6 +2,8 @@
 #define DELIVERYUI_H
 
 #include <iostream>
+#include "delivery_service.h"
+#include <string>
 
 using namespace std;
 
@@ -12,9 +14,18 @@ public:
     void location();
     void main_menu();
     void main_input_checker(char input);
+    void print_all_orders();
+    void print_locations();
+    void print_ready_orders();
+    void print_specific_order();
+
 private:
     char input;
+    Vectors vectors;
+    Delivery_service delivery_service;
     string location_name;
+    vector<Orders> current_order;
+
 };
 
 #endif // DELIVERYUI_H
