@@ -20,8 +20,7 @@ void SalespersonUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
          << "1. Take down a new order" << endl
-         << "2. Add to existing order" << endl
-         << "3. View pizza menu" << endl << endl
+         << "2. Add to existing order" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -36,13 +35,16 @@ void SalespersonUI::main_input_checker(char input){
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
         }
-
+        catch(InvalidPhonenumberException e) {
+            cout << e.getMessage() << endl;
+        }
+        make_new_order_menu();
     }
     else if(input == '2'){
-        cout << "change order" << endl;
-    }
-    else if(input == '3'){
-        cout << "3. View pizza menu" << endl;
+        cout << "Choose The order you want to change: " << endl;
+        
+        
+        add_to_existing_order_menu();
     }
     else if(input == 'b'){
         MainUI mainui;
@@ -58,20 +60,19 @@ Orders SalespersonUI::order_prompt(){
     string phone_number, name, address;
     char delivery;
 
-        cout << "Phone number: ";
-        cin >> phone_number;
+    cout << "Phone number: ";
+    cin >> phone_number;
 
 
-        cout << "Name: ";
+    cout << "Name: ";
     cin >> ws;
     getline(cin, name);
-
-
-
 
     do {
         cout << "Home delivery (y if it is, n if it's not) ";
         cin >> delivery;
+        
+        
         if(delivery == 'y' || delivery == 'Y'){
             cout << "Address: ";
             cin >> ws;
@@ -85,15 +86,16 @@ Orders SalespersonUI::order_prompt(){
         else {
             cout << "wrong input, try again." << endl;
         }
-    } while(!(delivery == 'y' || delivery == 'Y' || delivery == 'n' || delivery == 'N'));
+    }
+    while (!(delivery == 'y' || delivery == 'Y' ||delivery == 'n' || delivery == 'N'));
 
     orders.set_phone_number(phone_number);
     orders.set_name(name);
     orders.set_address(address);
 
-    make_new_order_menu();
+    Orders orders(phone_number, name, address);
 
-    return  Orders(phone_number, name, address);
+    return  orders;
 }
 
 void SalespersonUI::make_new_order_menu() {
@@ -104,7 +106,7 @@ void SalespersonUI::make_new_order_menu() {
          << "3. Add Sides or Soda" << endl
          << "4. Show price of order" << endl
          << "5. Check order as paid" << endl
-         << "5. Finish order" << endl
+         << "6. Finish order" << endl
          << "Enter b to go back" << endl << endl
          << "Input: ";
     cin >> input;
@@ -194,6 +196,7 @@ void SalespersonUI::add_to_existing_order_menu() {
 }
 
 void SalespersonUI::add_to_existing_order_input_checkout(char input) {
+    
     if(input == '1') {
         cout << "1." << endl;
     }
