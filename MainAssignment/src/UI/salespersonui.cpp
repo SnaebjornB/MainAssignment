@@ -41,7 +41,10 @@ void SalespersonUI::main_input_checker(char input){
         make_new_order_menu();
     }
     else if(input == '2'){
-        cout << "change order" << endl;
+        cout << "Choose The order you want to change: " << endl;
+        
+        
+        add_to_existing_order_menu();
     }
     else if(input == 'b'){
         MainUI mainui;
@@ -193,6 +196,7 @@ void SalespersonUI::add_to_existing_order_menu() {
 }
 
 void SalespersonUI::add_to_existing_order_input_checkout(char input) {
+    
     if(input == '1') {
         cout << "1." << endl;
     }
