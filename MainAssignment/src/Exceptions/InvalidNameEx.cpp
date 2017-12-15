@@ -52,11 +52,21 @@ bool InvalidNameException::isvalidLocationName(string location) {
 
 bool InvalidNameException::isvalidMenuPizzaName(Menu_Pizza & menu_pizza){
     string name = menu_pizza.get_name();
-for (unsigned int i = 0; i < name.length(); i++) {
-    if (!(isalpha(name[i]) || name[i] == ' ')) {
-        throw (InvalidNameException("invalid name!"));
+    for (unsigned int i = 0; i < name.length(); i++) {
+        if (!(isalpha(name[i]) || name[i] == ' ')) {
+            throw (InvalidNameException("invalid name!"));
+        }
     }
+    return true;
 }
-return true;
+
+bool InvalidNameException::isValidOrdersName(Orders& orders) {
+    string name = orders.get_name();
+    for (unsigned int i = 0; i < name.length(); i++) {
+        if (!(isalpha(name[i]) || name[i] == ' ')) {
+            throw (InvalidNameException("invalid name!"));
+        }
+    }
+    return true;
 }
 

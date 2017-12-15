@@ -18,17 +18,24 @@ void SalespersonUI::main_menu(){
 
 void SalespersonUI::main_input_checker(char input){
     if(input == '1'){
-        order_prompt();
+        Orders orders = order_prompt();
+        try {
+            salesperson_service.add_order(orders);
+        }
+        catch(InvalidNameException e) {
+            cout << e.getMessage() << endl;
+        }
+        
     }
     else if(input == '2'){
         cout << "change order" << endl;
     }
     else if(input == '3'){
-        cout << "3. View pizza menu" << endl;                                   ///vantar
+        cout << "3. View pizza menu" << endl;   
     }
     else if(input == 'b'){
         MainUI mainui;
-        mainui.main_menu();                                   ///vantar
+        mainui.main_menu(); 
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
@@ -36,36 +43,46 @@ void SalespersonUI::main_input_checker(char input){
     }
 }
 
-void SalespersonUI::order_prompt(){
+Orders SalespersonUI::order_prompt(){
     string phone_number, name, address;
     char delivery;
 
-    cout << "Phone number: ";
-    cin >> phone_number;
-
-    cout << "Name: ";
+        cout << "Phone number: ";
+        cin >> phone_number;
+  
+        
+        cout << "Name: ";
     cin >> ws;
     getline(cin, name);
 
-    cout << "Home delivery (y if it is, n if it's not) ";
-    cin >> delivery;
 
-    if(delivery == 'y' || delivery == 'Y'){
-        cout << "Address: ";
-        cin >> ws;
-        getline(cin, address);
-        orders.set_home_delivery_status(true);
-    }
-    else if(delivery == 'n' || delivery == 'N'){
-        orders.set_home_delivery_status(false);
-                                         /// Vantar að útfæra location breytu og gera address = location eða svo..
-    }
+    
+    
+    do {
+        cout << "Home delivery (y if it is, n if it's not) ";
+        cin >> delivery;
+        if(delivery == 'y' || delivery == 'Y'){
+            cout << "Address: ";
+            cin >> ws;
+            getline(cin, address);
+            orders.set_home_delivery_status(true);
+        }
+        else if(delivery == 'n' || delivery == 'N'){
+            orders.set_home_delivery_status(false);
+            /// Vantar að útfæra location breytu og gera address = location eða svo..
+        }
+        else {
+            cout << "wrong input, try again." << endl;
+        }
+    } while(!(delivery == 'y' || delivery == 'Y' || delivery == 'n' || delivery == 'N'));
+
     orders.set_phone_number(phone_number);
     orders.set_name(name);
     orders.set_address(address);
 
     make_new_order_menu();
 
+    return  Orders(phone_number, name, address);
 }
 
 void SalespersonUI::make_new_order_menu() {

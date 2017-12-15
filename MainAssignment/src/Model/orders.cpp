@@ -21,6 +21,12 @@ Orders::Orders()
     sides_ordered.clear();
 }
 
+Orders::Orders(string phone_number, string name, string address) {
+    this->phone_number = phone_number;
+    this->name = name;
+    this->address = address;
+}
+
 bool Orders::get_baking_status(){
     return this->baking;
 }
