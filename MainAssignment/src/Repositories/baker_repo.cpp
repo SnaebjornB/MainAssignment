@@ -33,23 +33,23 @@ Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string 
     status.append(location_name);
     status.append(txt);
 
-    int i = 0;          ///Debugger
-    cout << i << endl; ///Debugger
+    int i = 0;      
+ 
 
     ifstream fin;
     ofstream fout;
 
-    fin.open((status).c_str());   ///(test).c_str()
+    fin.open((status).c_str());   
     if(fin.is_open()){
         vectors.orders_list.clear();
         orders.set_in_helper(false);
         while(fin >> orders){
-            if(fin.eof()){ /// líklega óþarfi
+            if(fin.eof()){ 
                 break;
             }
             orders.set_in_helper(true);
             fin >> orders;
-            vectors.orders_list.push_back(orders);  ///Breyta í orders_list og line -> orders ///locations_list
+            vectors.orders_list.push_back(orders); 
             vectors.orders_list[i].set_helper(true);
             orders.set_in_helper(false);
             i++;

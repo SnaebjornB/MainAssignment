@@ -31,11 +31,13 @@ void BakerUI::main_menu(){
 
 void BakerUI::main_input_checker(char input){
     if(input == '1'){
-        cout << "1. Get list of all orders" << endl;
+        
         ///Prenta út ActiveOrdersLocation_Name.txt
         string status = "ordered";
         print_orders(vectors, status);
         ///Prenta út MakingOrdersLocation_name
+        vectors.orders_list.clear();
+        
         status = "making";
         print_orders(vectors, status);
         main_menu();
