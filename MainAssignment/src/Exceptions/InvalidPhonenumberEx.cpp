@@ -9,7 +9,7 @@
 #include "InvalidPhonenumberEx.h"
 
 InvalidPhonenumberException::InvalidPhonenumberException() {
-    
+
 }
 
 InvalidPhonenumberException::InvalidPhonenumberException(string message) {
@@ -25,7 +25,7 @@ bool InvalidPhonenumberException::isvalidOrdersPhonenumber(Orders& orders) {
     if (!(number.length() == 7)) {
         throw (InvalidPhonenumberException("invalid phone number!"));
     }
-    
+
     for (int i = 0 ;  i < number.length() ; i++) {
         if (!isdigit(number[i])) {
             throw (InvalidPhonenumberException("invalid phone number!"));

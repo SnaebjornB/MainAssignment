@@ -18,6 +18,8 @@ public:
     void print_locations();
     void print_ready_orders();
     void print_specific_order();
+    void check_order_paid();
+    void check_order_delivered();
 
 private:
     char input;

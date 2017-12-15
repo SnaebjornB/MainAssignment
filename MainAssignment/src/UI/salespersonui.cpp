@@ -34,16 +34,18 @@ void SalespersonUI::main_input_checker(char input){
         }
         catch(InvalidNameException e) {
             cout << e.getMessage() << endl;
+            Orders orders = order_prompt();
         }
         catch(InvalidPhonenumberException e) {
             cout << e.getMessage() << endl;
+            Orders orders = order_prompt();
         }
         make_new_order_menu();
     }
     else if(input == '2'){
         cout << "Choose The order you want to change: " << endl;
-        
-        
+
+
         add_to_existing_order_menu();
     }
     else if(input == 'b'){
@@ -71,8 +73,8 @@ Orders SalespersonUI::order_prompt(){
     do {
         cout << "Home delivery (y if it is, n if it's not) ";
         cin >> delivery;
-        
-        
+
+
         if(delivery == 'y' || delivery == 'Y'){
             cout << "Address: ";
             cin >> ws;
@@ -172,6 +174,7 @@ void SalespersonUI::make_new_order_input_checker(char input) {
         cout << "Comment: ";
         cin >> comment;
         orders.set_comment(comment);
+        orders.set_total_price();
         salesperson_service.write_order(orders, location_name);
         main_menu();
     }
@@ -196,7 +199,7 @@ void SalespersonUI::add_to_existing_order_menu() {
 }
 
 void SalespersonUI::add_to_existing_order_input_checkout(char input) {
-    
+
     if(input == '1') {
         cout << "1." << endl;
     }

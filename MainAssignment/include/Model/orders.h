@@ -34,7 +34,7 @@ class Orders
         void set_name(string change);
         void set_phone_number(string change);
         int get_total_price();
-        void set_total_price(int price);
+        void set_total_price();
         void calculate_total();
         void set_helper(bool status);
         string get_name_of_place();

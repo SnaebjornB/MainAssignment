@@ -35,7 +35,7 @@ Vectors Delivery_repo::read_orders(Vectors& vectors, string& location_name, stri
 
     fin.open((status).c_str());
     if(fin.is_open()){
-        vectors.orders_list.clear();
+        //vectors.orders_list.clear();
         orders.set_in_helper(false);
         while(fin >> orders){
             if(fin.eof()){

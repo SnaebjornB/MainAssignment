@@ -122,8 +122,18 @@ int Orders::get_total_price(){
     return this->total_price;
 }
 
-void Orders::set_total_price(int price){
-    this->total_price = price;
+void Orders::set_total_price(){
+    total_price = 0;
+
+    for (unsigned int i = 0; i < otherPizzas_ordered.size(); i++){
+        total_price += otherPizzas_ordered[i].set_total_price();
+    }
+    for (unsigned int i = 0; i < menuPizzas_ordered.size(); i++){
+        total_price += menuPizzas_ordered[i].get_price();
+    }
+    for (unsigned int i = 0; i < sides_ordered.size(); i++){
+        total_price += sides_ordered[i].get_price();
+    }
 }
 
 void Orders::calculate_total(){

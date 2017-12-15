@@ -20,8 +20,7 @@ void Salesperson_service::write_order(Orders& orders, string location){
 
 void Salesperson_service::add_order(Orders& orders, string location) {
     if(invalidNameException.isValidOrdersName(orders) &&
-       invalidPhonenumberException.isvalidOrdersPhonenumber(orders) ) {
-    salesperson_repo.write_order(orders, location);
+       invalidPhonenumberException.isvalidOrdersPhonenumber(orders)) {
     }
 }
 
