@@ -36,49 +36,65 @@ Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string&
 
     int i = 0;          ///Debugger
     cout << i << endl; ///Debugger
-    string line; ///Debug  ///Eyða þegar er komið i lag
 
     ifstream fin;
     ofstream fout;
 
     fin.open("orders.txt");   ///(test).c_str()
     if(fin.is_open()){
-        cout << "opnar skra" << endl; ///debugger
         vectors.orders_list.clear();
-        cout << "hreinsar vektor" << endl; ///debugger
         orders.set_in_helper(false);
-        while(fin >> orders){ ///  getline(fin, line)  ///Skipta a þessum skilyrðum inn i while-loopinu
-            if(fin.eof()){
+        while(fin >> orders){
+            if(fin.eof()){ /// líklega óþarfi
                 break;
             }
-                //Orders order;
-
-                //fin >> orders;
-                cout << "kemst inn i loop" << endl; ///Debugger
-                orders.set_in_helper(true);
-                fin >> orders;
-                vectors.orders_list.push_back(orders);  ///Breyta í orders_list og line -> orders ///locations_list
-                vectors.orders_list[i].set_helper(true);
-                cout << vectors.orders_list[i] << endl; ///Breyta í orders_list
-                i++; ///Debugger
-                cout << vectors.orders_list.size() << endl;
-                orders.set_in_helper(false);
-
-
+            orders.set_in_helper(true);
+            fin >> orders;
+            vectors.orders_list.push_back(orders);  ///Breyta í orders_list og line -> orders ///locations_list
+            vectors.orders_list[i].set_helper(true);
+            orders.set_in_helper(false);
+            i++;
         }
-        cout << "lokar skra" << endl; ///debugger
     }
-    /*if(fin.is_open()){
-        cout << "opnar skra" << endl; ///debugger
-        vectors.orders_list[i].set_in_helper(true);
-        while(fin >> orders){ ///  getline(fin, line)  ///Skipta a þessum skilyrðum inn i while-loopinu
-            cout << "kemst inn i loop" << endl; ///Debugger
-            vectors.orders_list[i] = orders;  ///Breyta í orders_list og line -> orders ///locations_list
-            cout << vectors.orders_list[i] << endl; ///Breyta í orders_list
-        }*/
         fin.close();
-        cout << "lokar skra" << endl; ///debugger
-    //}
+    return vectors;
+}
+
+Vectors Baker_repo::change_order_status(Vectors& vectors, string& location_name, string& current_status, string next_status){
+    ///Opna ActiveOrdersLocation_Name.txt og lesa inn i vector.
+    ///
+    ///Þetta prentar út innihald skjalsins, eina línu í einu. Útfæra að það lesi það inn í vektor og skili honum.
+    /// Búa til vektor sem inniheldur Orders og skila honum svo
+    /*
+    string txt = ".txt";
+    status.append(location_name);
+    status.append(txt);
+    */
+
+    ifstream fin;
+    ofstream fout ,fileout;
+
+    fout.open("orders.txt", ios::trunc);
+    fout.close();
+    fout.open("orders.txt", ios::app);   ///(test).c_str()
+    fileout.open("testmaking.txt", ios::app);
+
+        for(unsigned int j = 0; j < vectors.orders_list.size(); j++){
+            if(!(vectors.orders_list[j].get_baking_status())){
+                if(fout.is_open()){
+                    vectors.orders_list[j].set_helper(false);
+                    fout << vectors.orders_list[j];
+                }
+            }
+            else if(vectors.orders_list[j].get_baking_status()){
+                if(fileout.is_open()){
+                    vectors.orders_list[j].set_helper(false);
+                    fout << vectors.orders_list[j];
+                }
+            }
+        }
+    fout.close();
+    fileout.close();
     return vectors;
 }
 
