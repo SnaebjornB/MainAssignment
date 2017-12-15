@@ -9,7 +9,7 @@ void SalespersonUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
          << "1. Take down a new order" << endl
-         << "2. Change/add to existing order" << endl
+         << "2. Add to existing order" << endl
          << "3. View pizza menu" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
@@ -21,7 +21,7 @@ void SalespersonUI::main_input_checker(char input){
         order_prompt();
     }
     else if(input == '2'){
-        change_order_menu();
+        cout << "change order" << endl;
     }
     else if(input == '3'){
         cout << "3. View pizza menu" << endl;                                   ///vantar
@@ -154,38 +154,7 @@ void SalespersonUI::make_new_order_input_checker(char input) {
     }
 }
 
-void SalespersonUI::change_order_menu() {
-    cout << "What whould you like to do?" << endl
-         << "-----------------------" << endl
-         << "1. Add to excisting order" << endl
-         << "2. Remove sides" << endl
-         << "3. Remove pizza" << endl
-         << "Enter b to go back" << endl << endl
-         << "Please insert the corresponding number: ";
-    cin >> input;
-    change_order_input_checker(input);
-}
-
-void SalespersonUI::change_order_input_checker(char input) {
-    if(input == '1'){
-        add_to_excisting_order_menu();
-    }
-    else if(input == '2'){
-        cout << "2. Remove sides" << endl;                                      ///vantar
-    }
-    else if(input == '3'){
-        cout << "3. Remove pizza" << endl;                                      ///vantar
-    }
-    else if (input == 'b' || input == 'B') {
-        main_menu();
-    }
-    else{
-        cout << endl << "Invalid input! Please choose again." << endl;
-        change_order_menu();
-    }
-}
-
-void SalespersonUI::add_to_excisting_order_menu() {
+void SalespersonUI::add_to_existing_order_menu() {
     cout << "What would you like to add to the order?" << endl
     << "----------------------------------------" << endl
     << "1. Add Pizza" << endl
@@ -193,10 +162,10 @@ void SalespersonUI::add_to_excisting_order_menu() {
     << "Enter b to go back" << endl << endl
     << "Input: ";
     cin >> input;
-    add_to_excisting_order_input_checkout(input);
+    add_to_existing_order_input_checkout(input);
 }
 
-void SalespersonUI::add_to_excisting_order_input_checkout(char input) {
+void SalespersonUI::add_to_existing_order_input_checkout(char input) {
     if(input == '1') {
         cout << "1." << endl;
     }
@@ -204,11 +173,11 @@ void SalespersonUI::add_to_excisting_order_input_checkout(char input) {
         cout << "2. Add Sides or Soda" << endl;                                 ///vantar
     }
     else if (input == 'b' || input == 'B') {
-        change_order_menu();
+        main_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
-        add_to_excisting_order_menu();
+        add_to_existing_order_menu();
     }
 }
 
