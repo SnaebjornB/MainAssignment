@@ -9,4 +9,9 @@ chocolate heavensticks, 700
 mozzarella sticks, 700
 onion rings, 600
 french fries, 500
-chicken wings, 1000
+chicken wings, 1000Big Coke, 300
+Small Coke, 200
+Big Sprite, 300
+Small Sprite, 200
+Big Fanta, 300
+Small Fanta, 200

@@ -11,7 +11,7 @@ void BakerUI::location() {
     cout << "pick your location: ";
     unsigned int num_of_location;
     cin >> num_of_location;
-    ///Velja nafn númer num_of_location
+
     location_name = vectors.locations_list[num_of_location-1];
 
     main_menu();
@@ -21,7 +21,7 @@ void BakerUI::main_menu(){
 
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
-         << "1. Get list of all orders" << endl
+         << "1. Get list of orders to be made" << endl
          << "2. Show next order to make" << endl
          << "3. Check order as in making" << endl
          << "4. Check order as ready" << endl
@@ -37,25 +37,15 @@ void BakerUI::main_input_checker(char input){
         string status = "ordered";
         print_orders(vectors, status);
         vectors.orders_list.clear();
-
-        status = "making";
-        print_orders(vectors, status);
-        main_menu();
-
     }
     else if(input == '2'){
-        string status = "active";
+        string status = "ordered";
         print_next_order(vectors, status);
         main_menu();
-        ///Prentar út fyrstu Order í activeOrders sem er ekki með (bool baking = true)
-
-        ///Check order as in making
-
-        ///Check order as ready
     }
     else if(input == '3'){
         cout << "3. Check order as in making" << endl;
-        ///Prenta út OrderesOrdersLocation_Name.txt
+
         string current_status = "ordered";
         string next_status = "making";
         change_status(current_status, next_status);
@@ -63,7 +53,7 @@ void BakerUI::main_input_checker(char input){
     }
     else if(input == '4'){
         cout << "4. Check order ready" << endl;
-        ///Prenta út MakingOrdersLocation_name
+
         string current_status = "making";
         string next_status = "ready";
         change_status(current_status, next_status);
@@ -100,8 +90,9 @@ Vectors BakerUI::print_orders(Vectors& vectors, string status){
 
 void BakerUI::print_next_order(Vectors& vectors, string status){
     baker_service.read_orders(vectors, status, location_name);
-
-    cout << vectors.orders_list[0] << endl;
+    if(vectors.orders_list.size() > 0){
+        cout << vectors.orders_list[0] << endl;
+    }
 }
 
 void BakerUI::check_in_making(int choice, Vectors& vectors){
@@ -109,7 +100,7 @@ void BakerUI::check_in_making(int choice, Vectors& vectors){
 }
 
 void BakerUI::change_status(string current_status, string next_status){
-    print_orders(vectors,current_status);
+    print_orders(vectors, current_status);
         unsigned int choice = 0;
     do {
 

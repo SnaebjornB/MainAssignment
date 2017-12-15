@@ -65,20 +65,22 @@ void DeliveryUI::print_all_orders(){
     delivery_service.read_orders(vectors, making, location_name);
     delivery_service.read_orders(vectors, ready, location_name);
 
-    for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
-        cout << (i+1) << ". " << vectors.orders_list[i].get_name()
+    if (vectors.orders_list.size() > 0){
+        for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
+            cout << (i+1) << ". " << vectors.orders_list[i].get_name()
              << " " << vectors.orders_list[i].get_phone_number() << endl;
+        }
+        cout << "Which order do you need to view? ";
+        cin >> choice;
+        cout << vectors.orders_list[choice - 1] << endl;
+
+        current_order.clear();
+        current_order.push_back(vectors.orders_list[choice - 1]);
+        vectors.orders_list.clear();
     }
-    cout << "Which order do you need to view? ";
-    cin >> choice;
-
-    cout << vectors.orders_list[choice - 1] << endl;
-
-    current_order.clear();
-
-    current_order.push_back(vectors.orders_list[choice - 1]);
-
-    vectors.orders_list.clear();
+    else{
+        cout << "Could not find any orders!" << endl;
+    }
 
     main_menu();
 }
@@ -88,23 +90,23 @@ void DeliveryUI::print_ready_orders(){
     int choice = 0;
 
     delivery_service.read_orders(vectors, ready, location_name);
+    if (vectors.orders_list.size() > 0){
+        for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
+            cout << (i+1) << ". " << vectors.orders_list[i].get_name()
+                 << " " << vectors.orders_list[i].get_phone_number() << endl;
+        }
 
-    for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
-        cout << (i+1) << ". " << vectors.orders_list[i].get_name()
-             << " " << vectors.orders_list[i].get_phone_number() << endl;
+        cout << "Which order do you need to view? ";
+        cin >> choice;
+        cout << vectors.orders_list[choice - 1] << endl;
+
+        current_order.clear();
+        current_order.push_back(vectors.orders_list[choice - 1]);
+        vectors.orders_list.clear();
     }
-
-    cout << "Which order do you need to view? ";
-    cin >> choice;
-
-    cout << vectors.orders_list[choice - 1] << endl;
-
-    current_order.clear();
-
-    current_order.push_back(vectors.orders_list[choice - 1]);
-
-    vectors.orders_list.clear();
-
+    else{
+        cout << "Could not find any orders!" << endl;
+    }
     main_menu();
 }
 

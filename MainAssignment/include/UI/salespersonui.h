@@ -22,9 +22,6 @@ public:
     void make_new_order_menu();
     void make_new_order_input_checker(char input);
 
-    void change_order_menu();
-    void change_order_input_checker(char input);
-
     void add_pizza_menu();
     void add_pizza_input_checkout(char input);
 

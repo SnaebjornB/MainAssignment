@@ -33,23 +33,23 @@ Vectors Baker_repo::read_orders(Vectors& vectors, string& location_name, string 
     status.append(location_name);
     status.append(txt);
 
-    int i = 0;      
- 
+    int i = 0;
+
 
     ifstream fin;
     ofstream fout;
 
-    fin.open((status).c_str());   
+    fin.open((status).c_str());
     if(fin.is_open()){
         vectors.orders_list.clear();
-        orders.set_in_helper(false);
+        orders.set_in_helper(false); /// notağ til ağ sækja bara countera fyrir items á pöntun
         while(fin >> orders){
-            if(fin.eof()){ 
+            if(fin.eof()){
                 break;
             }
-            orders.set_in_helper(true);
+            orders.set_in_helper(true); /// notağ til ağ sækja rest
             fin >> orders;
-            vectors.orders_list.push_back(orders); 
+            vectors.orders_list.push_back(orders);
             vectors.orders_list[i].set_helper(true);
             orders.set_in_helper(false);
             i++;

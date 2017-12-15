@@ -163,6 +163,9 @@ void AdminUI::topping_input_checker(char input){
         topping_menu();
 
     }
+    else if(input == 'b' || input == 'B'){
+        main_menu();
+    }
     else{
         cout << "Invalid input! Please choose again." << endl;
         topping_menu();
