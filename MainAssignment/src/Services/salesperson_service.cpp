@@ -17,3 +17,9 @@ void Salesperson_service::get_base_price(Pizza& pizza){
 void Salesperson_service::write_order(Orders& orders){
     salesperson_repo.write_order(orders);
 }
+
+void Salesperson_service::add_order(Orders &orders) {
+    if(invalidNameException.isValidOrdersName(orders)) {
+    salesperson_repo.write_order(orders);
+    }
+}

@@ -14,7 +14,7 @@ class Orders
 {
     public:
         Orders();
-
+        Orders(string phone_number, string name, string address);
         bool get_baking_status();
         bool get_ready_status();
         bool get_paid_status();

@@ -8,6 +8,8 @@
 #include "pizza.h"
 #include "orders.h"
 
+#include "InvalidNameEx.h"
+
 using namespace std;
 
 class Salesperson_service
@@ -17,10 +19,13 @@ class Salesperson_service
         Vectors read_types(Vectors& vectors, string type);
         void get_base_price(Pizza& pizza);
         void write_order(Orders& orders);
+    void add_order(Orders& orders);
 
     private:
         Salesperson_repo salesperson_repo;
         Pizza pizza;
+    
+        InvalidNameException invalidNameException;
 };
 
 #endif // SALESPERSON_SERVICE_H

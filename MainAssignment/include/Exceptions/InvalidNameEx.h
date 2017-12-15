@@ -14,6 +14,7 @@
 #include "topping.h"
 #include "sides.h"
 #include "menu_pizza.h"
+#include "orders.h"
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public:
     bool isvalidSidesName(Sides& sides);
     bool isvalidLocationName(string location);
     bool isvalidMenuPizzaName(Menu_Pizza & menu_pizza);
+    bool isValidOrdersName(Orders& orders);
 private:
     string message;
 
