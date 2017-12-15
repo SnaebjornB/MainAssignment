@@ -10,7 +10,6 @@ void SalespersonUI::location() {
     cout << "pick your location: ";
     unsigned int num_of_location;
     cin >> num_of_location;
-    ///Velja nafn númer num_of_location
     location_name = vectors.locations_list[num_of_location-1];
 
     main_menu();
@@ -19,7 +18,8 @@ void SalespersonUI::location() {
 void SalespersonUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
-         << "1. Take down a new order" << endl << endl
+         << "1. Take down a new order" << endl
+         << "Input q to logout" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -47,7 +47,7 @@ void SalespersonUI::main_input_checker(char input){
 
         add_to_existing_order_menu();
     }
-    else if(input == 'b'){
+    else if(input == 'q' || input == 'Q'){
         MainUI mainui;
         mainui.main_menu();
     }
@@ -233,9 +233,10 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
         int choice;
         salesperson_service.get_base_price(pizza);
         pizza.margaritaprice(input);
-        cout << "Select toppings (0 to stop): ";
-        print_toppings(vectors, type);
+
+        print_toppings(vectors, type, input);
         while (true){
+            cout << "Select toppings (0 to stop): ";
             cin >> choice;
                 if (choice == 0){
                     break;
@@ -246,6 +247,7 @@ void SalespersonUI::add_pizzasize_input_checkout(char input) {
         pizza.set_write_order_helper(false);
         pizza.set_helper(false);
         pizza.set_size_helper(true);
+
         orders.otherPizzas_ordered.push_back(pizza);
         orders.add_to_pizza_counter();
         pizza.pizza_toppings.clear();
@@ -269,12 +271,26 @@ Vectors SalespersonUI::print_pizza_menu(Vectors& vectors, string type){
     return vectors;
 }
 
-Vectors SalespersonUI::print_toppings(Vectors& vectors, string type){
+Vectors SalespersonUI::print_toppings(Vectors& vectors, string type, char input){
     salesperson_service.read_types(vectors, type);
     for(unsigned int i = 0; i < vectors.topping_list.size(); i++){
-        cout << (i+1) << ". " << vectors.topping_list[i] << endl;
+        vectors.topping_list[i].set_helper(true);
+        if(input == '1'){
+            if(vectors.topping_list[i].get_size() == 9){
+                cout << (i+1) << ". " << vectors.topping_list[i] << endl;
+            }
+        }
+        if(input == '2'){
+            if(vectors.topping_list[i].get_size() == 12){
+                cout << (i+1) << ". " << vectors.topping_list[i] << endl;
+            }
+        }
+        if(input == '3'){
+            if(vectors.topping_list[i].get_size() == 16){
+                cout << (i+1) << ". " << vectors.topping_list[i] << endl;
+            }
+        }
     }
-
     return vectors;
 }
 
@@ -385,6 +401,7 @@ void SalespersonUI::finish_order(){
 
     orders.set_comment(comment);
     orders.set_total_price();
+    cout << orders;
     salesperson_service.write_order(orders, location_name);
 
     main_menu();

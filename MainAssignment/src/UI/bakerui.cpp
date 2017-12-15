@@ -1,4 +1,5 @@
 #include "bakerui.h"
+#include "mainui.h"
 
 BakerUI::BakerUI()
 {
@@ -24,6 +25,7 @@ void BakerUI::main_menu(){
          << "2. Show next order to make" << endl
          << "3. Check order as in making" << endl
          << "4. Check order as ready" << endl
+         << "Input q to logout" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -31,13 +33,11 @@ void BakerUI::main_menu(){
 
 void BakerUI::main_input_checker(char input){
     if(input == '1'){
-        
-        ///Prenta út ActiveOrdersLocation_Name.txt
+
         string status = "ordered";
         print_orders(vectors, status);
-        ///Prenta út MakingOrdersLocation_name
         vectors.orders_list.clear();
-        
+
         status = "making";
         print_orders(vectors, status);
         main_menu();
@@ -67,8 +67,10 @@ void BakerUI::main_input_checker(char input){
         string current_status = "making";
         string next_status = "ready";
         change_status(current_status, next_status);
-
-
+    }
+    else if(input == 'q' || input == 'Q'){
+        MainUI mainui;
+        mainui.main_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;
@@ -97,7 +99,6 @@ Vectors BakerUI::print_orders(Vectors& vectors, string status){
 }
 
 void BakerUI::print_next_order(Vectors& vectors, string status){
-    ///Lesa active orders inn á vector
     baker_service.read_orders(vectors, status, location_name);
 
     cout << vectors.orders_list[0] << endl;
@@ -109,19 +110,17 @@ void BakerUI::check_in_making(int choice, Vectors& vectors){
 
 void BakerUI::change_status(string current_status, string next_status){
     print_orders(vectors,current_status);
-    ///Velja nr. af order sem þú vilt merkja sem "in making"
-        int choice = 0;
+        unsigned int choice = 0;
     do {
-  
+
         cin >> choice;
-        
+
         if (choice > vectors.orders_list.size() || choice < 1) {
             cout << "Invalid input, try again" << endl;
         }
     }
     while (choice > vectors.orders_list.size() || choice < 1);
-    
-    /// tengja niður á við og fá til að virka
+
     vectors.orders_list[choice - 1].set_baking_status(true);
     baker_service.check_in_making(vectors, location_name, current_status, next_status);
 

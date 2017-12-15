@@ -26,7 +26,6 @@ public:
     void add_menu_pizza(Menu_Pizza& menu_pizza);
     void add_margarita_price(Pizza& pizza);
     void add_location(string location);
-    void change_topping(Topping topping);
     Vectors read_types(Vectors& vectors, string type);
     void write_type(Vectors& vectors, string type);
     void erase_type(Vectors& vectors, unsigned int num_of_line, string type);

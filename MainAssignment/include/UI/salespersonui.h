@@ -54,7 +54,7 @@ public:
 
     Vectors print_sides(Vectors& vectors, string type);
     Vectors print_pizza_menu(Vectors& vectors, string type);
-    Vectors print_toppings(Vectors& vectors, string type);
+    Vectors print_toppings(Vectors& vectors, string type, char input);
 
 
 private:

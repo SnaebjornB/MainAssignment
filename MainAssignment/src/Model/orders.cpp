@@ -222,8 +222,9 @@ ostream& operator << (ostream& out, Orders& orders){
 
 istream& operator >> (istream& in, Orders& orders){
     if(orders.in_helper){
-        getline(in,orders.phone_number, ',');  getline(in,orders.name, ','); getline(in,orders.address, ',');
-        getline(in,orders.comment, ',') >> orders.baking >> orders.ready >> orders.paid >> orders.delivered
+           in.ignore();
+           getline(in,orders.phone_number, ',');  getline(in,orders.name, ','); getline(in,orders.address, ',');
+           getline(in,orders.comment, ',') >> orders.baking >> orders.ready >> orders.paid >> orders.delivered
            >> orders.home_delivery >> orders.orders_helper >> orders.total_price;
            orders.menuPizzas_ordered.clear();
            orders.otherPizzas_ordered.clear();

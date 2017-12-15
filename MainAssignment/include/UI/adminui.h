@@ -23,9 +23,7 @@ class AdminUI
         void sides_input_checker(char input);
         void pizza_menu();
         void pizza_input_checker(char input);
-        void location_menu();
-        void location_input_checker(char input);
-        string create_location();
+        void location_input_checker();
         void pizzamenu_menu();
         void pizzamenu_input_checker(char input);
         Topping create_topping();

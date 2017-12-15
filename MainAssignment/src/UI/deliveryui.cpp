@@ -1,4 +1,5 @@
 #include "deliveryui.h"
+#include "mainui.h"
 
 DeliveryUI::DeliveryUI()
 {
@@ -24,7 +25,7 @@ void DeliveryUI::main_menu(){
          << "3. Get a specific order" << endl
          << "4. Check order to paid" << endl
          << "5. Check order to delivered" << endl
-         << "c. Change location " << endl << endl
+         << "Input q to logout" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -46,8 +47,9 @@ void DeliveryUI::main_input_checker(char input){
     else if(input == '5'){
         check_order_delivered();
     }
-    else if(input == 'c' || input == 'C'){
-        location();
+    else if(input == 'q' || input == 'Q'){
+        MainUI mainui;
+        mainui.main_menu();
     }
     else{
         cout << endl << "Invalid input! Please choose again." << endl;

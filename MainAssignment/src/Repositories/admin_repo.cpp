@@ -15,7 +15,7 @@ void Admin_Repo::write_topping(Topping topping){
         fout.close();
     }
     else{
-        
+
     }
 }
 
@@ -67,6 +67,7 @@ void Admin_Repo::put_back_type(Vectors& vectors, string type){
         if(type == "topping"){
             if (vectors.topping_list.size() > 0){
                 for (unsigned int i = 0; i < vectors.topping_list.size(); i++){
+
                     vectors.topping_list[i].set_helper(false);
                     fout << vectors.topping_list[i];
                 }
@@ -122,8 +123,8 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
                 for (unsigned int i = 0; i < vectors.sides_list.size(); i++){
                     vectors.sides_list[i].set_helper(false);
                     vectors.sides_list[i].set_write_helper (true);
-            
-                    
+
+
                     if(i != (num_of_line - 1) ){
                         fout << vectors.sides_list[i];
                     }
@@ -149,7 +150,7 @@ void Admin_Repo::erase_type(Vectors& vectors, unsigned int num_of_line, string t
 void Admin_Repo::write_sides(Sides& sides){
     sides.set_write_helper(true);
     sides.set_helper(false);
-    
+
     ofstream fout;
     fout.open("sides.txt", ios::app);
 
