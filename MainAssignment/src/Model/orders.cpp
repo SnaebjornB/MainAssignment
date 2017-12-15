@@ -9,7 +9,7 @@ Orders::Orders()
     delivered= false;
     home_delivery= false;
     comment[0] = '\0';
-    address[0] = '\0';
+    address = "Pick-up";
     name[0] = '\0';
     phone_number[0] = '\0';
     total_price = 0;

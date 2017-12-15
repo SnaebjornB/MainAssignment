@@ -22,6 +22,7 @@ class Salesperson_repo
         void get_base_price(Pizza& pizza);
         void write_order(Orders& orders, string location);
         Vectors read_locations(Vectors& vectors);
+        Vectors read_orders(Vectors& vectors, string& location_name, string status);
 
     private:
         Topping topping;

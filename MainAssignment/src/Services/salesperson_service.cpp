@@ -29,3 +29,9 @@ Vectors Salesperson_service::read_locations(Vectors& vectors){
 
     return vectors;
 }
+
+Vectors Salesperson_service::read_orders(Vectors& vectors, string& status, string location){
+    salesperson_repo.read_orders(vectors, location, status);
+
+    return vectors;
+}

@@ -19,8 +19,7 @@ void SalespersonUI::location() {
 void SalespersonUI::main_menu(){
     cout << "What do you want to do?" << endl
          << "-----------------------" << endl
-         << "1. Take down a new order" << endl
-         << "2. Add to existing order" << endl << endl
+         << "1. Take down a new order" << endl << endl
          << "Please insert the corresponding number: ";
     cin >> input;
     main_input_checker(input);
@@ -43,7 +42,7 @@ void SalespersonUI::main_input_checker(char input){
         make_new_order_menu();
     }
     else if(input == '2'){
-        cout << "Choose The order you want to change: " << endl;
+        add_to_order();
 
 
         add_to_existing_order_menu();
@@ -117,66 +116,67 @@ void SalespersonUI::make_new_order_menu() {
 
 void SalespersonUI::make_new_order_input_checker(char input) {
     if(input == '1') {
-        string type = "pizza_menu";
-        Vectors vectors;
-        int choice;
-        cout << "Choose the pizza you want to add to the order:" << endl;
-        print_pizza_menu(vectors, type);
-        cin >> choice;
-        vectors.pizza_menu_list[choice - 1].set_print_helper(false);
-        vectors.pizza_menu_list[choice - 1].set_helper(false);
-        orders.menuPizzas_ordered.push_back(vectors.pizza_menu_list[choice - 1]);
-        orders.add_to_menu_pizza_counter();
-        make_new_order_menu();
+        add_menu_pizza();
     }
     else if (input == '2') {
         add_pizzasize_menu();
     }
     else if (input == '3') {
-        string type = "sides";
-        Vectors vectors;
-        int choice;
-        cout << "Choose sides: " << endl;
-        print_sides(vectors, type);
-        cin >> choice;
-        vectors.sides_list[choice - 1].set_helper(false);
-        vectors.sides_list[choice - 1].set_write_helper(false);
-        orders.sides_ordered.push_back(vectors.sides_list[choice - 1]);
-        cout << orders.sides_ordered[0];
-        orders.add_to_sides_counter();
-        make_new_order_menu();
+        add_sides();
     }
     else if(input == '4'){
         cout << "The total for this order is: " << orders.get_total_price() << endl;
         make_new_order_menu();
     }
     else if (input == '5') {
-        char choice;
-        while(true){
-            cout << "Has the order been paid? (y/n): ";
-            cin >> choice;
-            if (choice == 'y' || choice == 'Y'){
-                orders.set_paid_status(true);
-                cout << "Order was marked as paid" << endl;
-                make_new_order_menu();
-            }
-            else if(choice == 'n' || choice == 'N'){
-                cout << "Order was not marked as paid" << endl;
-                make_new_order_menu();
-            }
-            else{
-                cout << "Invalid input!" << endl;
-            }
-        }
+        check_order_as_paid();
     }
     else if (input == '6') {
-        string comment;
-        cout << "Comment: ";
-        cin >> comment;
-        orders.set_comment(comment);
-        orders.set_total_price();
-        salesperson_service.write_order(orders, location_name);
+        finish_order();
+    }
+    else if (input == 'b' || input == 'B') {
         main_menu();
+    }
+    else{
+        cout << endl << "Invalid input! Please choose again." << endl;
+        make_new_order_menu();
+    }
+}
+
+void SalespersonUI::add_to_order_menu() {
+    cout << "What would you like to add to the order?" << endl
+         << "----------------------------------------" << endl
+         << "1. Add a Pizza from the menu" << endl
+         << "2. Create a new pizza" << endl
+         << "3. Add Sides or Soda" << endl
+         << "4. Show price of order" << endl
+         << "5. Check order as paid" << endl
+         << "6. Finish order" << endl
+         << "Enter b to go back" << endl << endl
+         << "Input: ";
+    cin >> input;
+    make_new_order_input_checker(input);
+}
+
+void SalespersonUI::add_to_order_input_checker(char input) {
+    if(input == '1') {
+        add_menu_pizza();
+    }
+    else if (input == '2') {
+        add_pizzasize_menu();
+    }
+    else if (input == '3') {
+        add_sides();
+    }
+    else if(input == '4'){
+        cout << "The total for this order is: " << orders.get_total_price() << endl;
+        make_new_order_menu();
+    }
+    else if (input == '5') {
+        check_order_as_paid();
+    }
+    else if (input == '6') {
+        finish_order();
     }
     else if (input == 'b' || input == 'B') {
         main_menu();
@@ -295,4 +295,97 @@ void SalespersonUI::print_locations(){
     for(unsigned int i = 0; i < vectors.locations_list.size(); i++){
         cout << (i+1) << ". " << vectors.locations_list[i] << endl;
     }
+}
+
+void SalespersonUI::add_to_order(){
+    string ordered = "ordered", making = "making", ready = "ready";
+    int choice = 0;
+
+    salesperson_service.read_orders(vectors, ordered, location_name);
+
+    for(unsigned int i = 0; i < vectors.orders_list.size(); i++){
+        cout << (i+1) << ". " << vectors.orders_list[i].get_name()
+             << " " << vectors.orders_list[i].get_phone_number() << endl;
+    }
+    cout << "Which order do you need to add to? ";
+    cin >> choice;
+
+    cout << vectors.orders_list[choice - 1] << endl;
+
+    current_order.push_back(vectors.orders_list[choice - 1]);
+
+    add_to_order_menu();
+    vectors.orders_list.clear();
+
+    main_menu();
+}
+
+void SalespersonUI::add_menu_pizza(){
+    string type = "pizza_menu";
+    Vectors vectors;
+    int choice;
+
+    cout << "Choose the pizza you want to add to the order:" << endl;
+    print_pizza_menu(vectors, type);
+    cin >> choice;
+
+    vectors.pizza_menu_list[choice - 1].set_print_helper(false);
+    vectors.pizza_menu_list[choice - 1].set_helper(false);
+
+    orders.menuPizzas_ordered.push_back(vectors.pizza_menu_list[choice - 1]);
+    orders.add_to_menu_pizza_counter();
+
+    make_new_order_menu();
+}
+
+void SalespersonUI::add_sides(){
+    string type = "sides";
+    Vectors vectors;
+    int choice;
+
+    cout << "Choose sides: " << endl;
+    print_sides(vectors, type);
+    cin >> choice;
+
+    vectors.sides_list[choice - 1].set_helper(false);
+    vectors.sides_list[choice - 1].set_write_helper(false);
+    orders.sides_ordered.push_back(vectors.sides_list[choice - 1]);
+
+    cout << orders.sides_ordered[0];
+    orders.add_to_sides_counter();
+
+    make_new_order_menu();
+}
+
+void SalespersonUI::check_order_as_paid(){
+    char choice;
+    while(true){
+        cout << "Has the order been paid? (y/n): ";
+        cin >> choice;
+        if (choice == 'y' || choice == 'Y'){
+            orders.set_paid_status(true);
+            cout << "Order was marked as paid" << endl;
+            make_new_order_menu();
+        }
+        else if(choice == 'n' || choice == 'N'){
+            cout << "Order was not marked as paid" << endl;
+            make_new_order_menu();
+        }
+        else{
+            cout << "Invalid input!" << endl;
+        }
+    }
+}
+
+void SalespersonUI::finish_order(){
+    string comment;
+
+    cout << "Comment: ";
+    cin >> comment;
+
+    orders.set_comment(comment);
+    orders.set_total_price();
+    salesperson_service.write_order(orders, location_name);
+
+    main_menu();
 }

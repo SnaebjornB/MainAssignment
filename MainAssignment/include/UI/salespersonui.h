@@ -41,6 +41,16 @@ public:
     void location();
 
     void print_locations();
+    void add_to_order();
+
+    void add_menu_pizza();
+    void add_sides();
+
+    void check_order_as_paid();
+    void finish_order();
+
+    void add_to_order_menu();
+    void add_to_order_input_checker(char input);
 
     Vectors print_sides(Vectors& vectors, string type);
     Vectors print_pizza_menu(Vectors& vectors, string type);
@@ -53,6 +63,7 @@ private:
     Salesperson_service salesperson_service;
     Orders orders;
     Vectors vectors;
+    vector<Orders> current_order;
     string location_name;
 };
 

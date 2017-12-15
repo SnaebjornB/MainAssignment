@@ -23,6 +23,7 @@ class Salesperson_service
         void write_order(Orders& orders, string location);
         void add_order(Orders& orders, string location);
         Vectors read_locations(Vectors& vectors);
+        Vectors read_orders(Vectors& vectors, string& status, string location);
 
     private:
         Salesperson_repo salesperson_repo;

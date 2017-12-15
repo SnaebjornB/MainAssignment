@@ -83,5 +83,34 @@ Vectors Salesperson_repo::read_locations(Vectors& vectors){
     }
 
     return vectors;
+}
 
+Vectors Salesperson_repo::read_orders(Vectors& vectors, string& location_name, string status){
+    string txt = ".txt";
+    status.append(location_name);
+    status.append(txt);
+
+    int i = 0;
+
+    ifstream fin;
+    ofstream fout;
+
+    fin.open((status).c_str());
+    if(fin.is_open()){
+        //vectors.orders_list.clear();
+        orders.set_in_helper(false);
+        while(fin >> orders){
+            if(fin.eof()){
+                break;
+            }
+            orders.set_in_helper(true);
+            fin >> orders;
+            vectors.orders_list.push_back(orders);
+            vectors.orders_list[i].set_helper(true);
+            orders.set_in_helper(false);
+            i++;
+        }
+    }
+        fin.close();
+    return vectors;
 }
